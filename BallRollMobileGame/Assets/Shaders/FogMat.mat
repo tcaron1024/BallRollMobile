@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FogMat
-  m_Shader: {fileID: -6465566751694194690, guid: 7c096722d4077694882b4bae06e4e084, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 0344c3b4afcdae846b4cdd0eefa9622d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -61,6 +61,21 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_14F49592: 1.29
+    - Vector1_2459469E: 1
+    - Vector1_32D60CB2: 0.92
+    - Vector1_48AD91C9: 1
+    - Vector1_4C7A6710: 5.23
+    - Vector1_5DAD9A4A: 0.6
+    - Vector1_76469970: 2.5
+    - Vector1_78CADF49: 300
+    - Vector1_7BC7DE1F: 0.21
+    - Vector1_AC490B77: 1.72
+    - Vector1_C4026316: 2.52
+    - Vector1_C9542909: 2.04
+    - Vector1_D7CEAF5A: 1.03
+    - Vector1_E763B5FE: 0.25
+    - Vector1_F513466D: 39.2
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -83,6 +98,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_216B31D0: {r: 0.71008366, g: 0.75758547, b: 0.764151, a: 0}
+    - Color_63FD8D7F: {r: 0.78221786, g: 0.8867924, b: 0.86549526, a: 0}
+    - Vector2_5C0FF66A: {r: 0, g: 1, b: 0, a: 0}
+    - Vector2_F9D8A910: {r: -1, g: 1, b: 0, a: 0}
+    - Vector4_AF56DB4F: {r: 1.17, g: 0, b: 0, a: 90}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
