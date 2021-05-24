@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public static float gameSpeed = 1f;
+    public static float gameSpeed = 2f;
 
-    public float speedIncreaseRate = 5f;
-    public float speedIncreaseAmount = .1f;
+    public float GamerSpeeding = 2f;
 
-    private float timer = 0;
+    [Tooltip("Ball speed increase per second")]
+    public float speedIncreaseRate = .1f;
+    //public float speedIncreaseAmount = .1f;
+
+    //private float timer = 0;
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= speedIncreaseRate)
-        {
-            gameSpeed += speedIncreaseAmount;
-            timer = 0;
-        }
+        gameSpeed += Time.deltaTime * speedIncreaseRate;
+        GamerSpeeding = gameSpeed;
     }
 }
