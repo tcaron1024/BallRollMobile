@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public static float gameSpeed = 2f;
+    public static Vector3 pathSlope = new Vector3();
 
     public float GamerSpeeding = 2f;
 

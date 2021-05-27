@@ -20,6 +20,8 @@ public class PathSpawner : MonoBehaviour
         //timer = spawnTime;
         startPaths = GameObject.FindGameObjectsWithTag("Path");
         offset = startPaths[1].transform.position - startPaths[0].transform.position;
+        GameController.pathSlope = offset.normalized;
+        print("pathslope = " + GameController.pathSlope);
         lastPath = startPaths[startPaths.Length - 1];
     }
 
