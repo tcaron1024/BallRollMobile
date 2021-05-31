@@ -9,6 +9,7 @@ public class BallController : MonoBehaviour
     Touch t1;
     private Vector2 startPos;
 
+    public float startForce;
     public float ballSpeed = 7f;
     public float amountDivisor = 500f;
 
@@ -24,6 +25,8 @@ public class BallController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Input.multiTouchEnabled = false;
         Input.simulateMouseWithTouches = true;
+        print(Vector3.forward * startForce);
+        rb.AddForce(transform.forward * startForce);
         //Invoke("GetVelocityNormalized", 2f);
     }
 
@@ -38,7 +41,7 @@ public class BallController : MonoBehaviour
     private void ForwardMovement()
     {
         rb.AddForce(GameController.pathSlope * GameController.gameSpeed * ballSpeed * Time.deltaTime);
-        print("adding force - " + GameController.pathSlope * GameController.gameSpeed * ballSpeed * Time.deltaTime);
+        //print("adding force - " + GameController.pathSlope * GameController.gameSpeed * ballSpeed * Time.deltaTime);
     }
 
     private void SwipeMovement()

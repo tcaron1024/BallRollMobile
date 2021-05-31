@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-
+using TMPro;
 public class FPSDisplay : MonoBehaviour
 {
-    Text fpsdisplay;
+    TextMeshProUGUI fpsdisplay;
     private void Start()
     {
-        fpsdisplay = GetComponent<Text>();
+        fpsdisplay = GetComponent<TextMeshProUGUI>();
     }
     // Update is called once per frame
     void Update()

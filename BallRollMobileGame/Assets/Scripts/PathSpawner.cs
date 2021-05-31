@@ -10,7 +10,7 @@ public class PathSpawner : MonoBehaviour
 
     private Vector3 offset;
 
-    private GameObject[] startPaths;
+    [SerializeField] private GameObject[] startPaths;
 
     //public float spawnTime = 1;
     //private float timer;
@@ -18,7 +18,7 @@ public class PathSpawner : MonoBehaviour
     private void Start()
     {
         //timer = spawnTime;
-        startPaths = GameObject.FindGameObjectsWithTag("Path");
+        //startPaths = GameObject.FindGameObjectsWithTag("Path");
         offset = startPaths[1].transform.position - startPaths[0].transform.position;
         GameController.pathSlope = offset.normalized;
         print("pathslope = " + GameController.pathSlope);
