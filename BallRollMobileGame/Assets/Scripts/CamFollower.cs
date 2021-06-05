@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +11,7 @@ public class CamFollower : MonoBehaviour
     private Vector3 target;
     
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         camSpeed = GameController.gameSpeed;
         target = ball.position + offset;
