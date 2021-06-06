@@ -24,6 +24,8 @@ public class BallController : MonoBehaviour
     //Shows the player how fast they are going
     public Slider speedReference;
 
+    public 
+
 
     void Start()
     {
