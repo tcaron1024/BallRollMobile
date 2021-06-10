@@ -4,18 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
-
+    [SerializeField] private float scoreIncreaseAmount = 100;
     private float score;
     private int roundedScore;
     private int oldHighScore;
-    [SerializeField] private float scoreIncreasePerSecond;
 
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject loseScreen;
     [SerializeField] private GameObject newHighScoreObj;
     [SerializeField] private TextMeshProUGUI loseScreenScoreText;
     [SerializeField] private TextMeshProUGUI highScoreText;
-    // Start is called before the first frame update
+
     void Start()
     {
         score = 0;
@@ -23,11 +22,6 @@ public class UIController : MonoBehaviour
         oldHighScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 
-    private void FixedUpdate()
-    {
-        score += scoreIncreasePerSecond / 60f;
-        scoreText.text = "Score: " + Mathf.RoundToInt(score);
-    }
     public void ShowLoseScreen()
     {
         roundedScore = Mathf.RoundToInt(score);
@@ -47,12 +41,28 @@ public class UIController : MonoBehaviour
         loseScreen.SetActive(true);
     }
 
+    /// <summary>
+    /// Restarts game
+    /// </summary>
     public void PlayAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    /// <summary>
+    /// Sends player to main menu
+    /// </summary>
     public void GoToMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    /// <summary>
+    /// Increases score when player reaches end of a path tile
+    /// </summary>
+    public void IncreaseScore()
+    {
+        score += scoreIncreaseAmount;
+        scoreText.text = "Score: " + score;
     }
 }

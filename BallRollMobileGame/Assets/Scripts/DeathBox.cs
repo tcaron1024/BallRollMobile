@@ -7,8 +7,9 @@ public class DeathBox : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.SetActive(false); 
+            other.gameObject.SetActive(false);
             GameObject.Find("GameController").GetComponent<UIController>().ShowLoseScreen();
+            //GameObject.Find("GameController").GetComponent<GameController>().EndLevel();
         }
     }
 }

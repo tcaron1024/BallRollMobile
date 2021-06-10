@@ -4,41 +4,41 @@ using UnityEngine;
 
 public class PathSpawner : MonoBehaviour
 {
-    public GameObject[] paths;
-    [SerializeField] private GameObject lastPath;
+    [Tooltip("Array of the tiles that can be used for this level")]
+    public GameObject[] pathPrefabs;
+    
+    [Tooltip("GameObject that holds the paths")]
     [SerializeField] private Transform pathParent = null;
+
+    [Tooltip("Array of the pre-created starting paths")]
+    [SerializeField] private GameObject[] startPaths;
+
+    /// <summary>
+    /// Last created path
+    /// </summary>
+    [SerializeField] private GameObject lastPath;
 
     private Vector3 offset;
 
-    [SerializeField] private GameObject[] startPaths;
-
-    //public float spawnTime = 1;
-    //private float timer;
-
-    private void Start()
+    /// <summary>
+    /// Spawns given number of paths in random order connected to starting path
+    /// </summary>
+    /// <param name="numPaths"></param>
+    public void SpawnPaths(int numPaths)
     {
-        //timer = spawnTime;
-        //startPaths = GameObject.FindGameObjectsWithTag("Path");
+        // Finds distance offset for paths and sets the last path to last object in startPaths array
         offset = startPaths[1].transform.position - startPaths[0].transform.position;
-        GameController.pathSlope = offset.normalized;
-        print("pathslope = " + GameController.pathSlope);
         lastPath = startPaths[startPaths.Length - 1];
-    }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    timer -= Time.deltaTime * GameController.gameSpeed;
-    //    if (timer <= 0)
-    //    {
-    //        SpawnPath();
-    //        timer = spawnTime;
-    //    }
-    //}
+        // Spawns (number given - number of starting paths - 1) paths
+        for (int i = startPaths.Length; i < numPaths - 1; i++)
+        {           
+            // Change first number in random.range to 0 to include the basic rectangle path
+            int rand = Random.Range(1, pathPrefabs.Length);
+            lastPath = Instantiate(pathPrefabs[rand], lastPath.transform.position + offset, lastPath.transform.rotation, pathParent);
+        }
 
-    public void SpawnPath()
-    {
-        int rand = Random.Range(0, paths.Length);
-        lastPath = Instantiate(paths[rand], lastPath.transform.position + offset, lastPath.transform.rotation, pathParent);
+        // Spawn portal (ending) path here
+        lastPath = Instantiate(pathPrefabs[0], lastPath.transform.position + offset, lastPath.transform.rotation, pathParent);
     }
 }

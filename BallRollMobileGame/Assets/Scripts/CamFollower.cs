@@ -13,7 +13,7 @@ public class CamFollower : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        camSpeed = GameController.gameSpeed;
+        //camSpeed = GameController.gameSpeed;
         target = ball.position + offset;
         float interpolation = camSpeed * Time.deltaTime;
 
