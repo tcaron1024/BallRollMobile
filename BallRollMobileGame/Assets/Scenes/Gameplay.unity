@@ -2639,7 +2639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreIncreaseAmount: 100
   scoreText: {fileID: 1896740189}
-  loseScreen: {fileID: 884370021}
+  loseScreen: {fileID: 396249357}
   newHighScoreObj: {fileID: 1151806289}
   loseScreenScoreText: {fileID: 956665020}
   highScoreText: {fileID: 750595551}
