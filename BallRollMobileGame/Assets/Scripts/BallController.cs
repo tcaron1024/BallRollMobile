@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,12 +15,15 @@ public class BallController : MonoBehaviour
     private float maxSpeed = 50.0f;
     private float minSpeed = 0.0f;
 
-    private Vector2[] touchStartPositions = new Vector2[10];
-
     //Shows the player how fast they are going
     public Slider speedReference;
 
-    private float levelSpeed; 
+    private float levelSpeed;
+
+    // Swipe Controls
+    private Vector2 startTouchPosition;
+    private Vector2 currentTouchPosition;
+    private Vector2 endTouchPosition;
 
 
     void Start()
@@ -41,66 +44,63 @@ public class BallController : MonoBehaviour
 
     void Update()
     {
-        ForwardMovement();
-
         SwipeMovement();
     }
 
+    private void FixedUpdate()
+    {
+        ForwardMovement();
+    }
 
+
+    // Applies a forward force to the ball over time.
     private void ForwardMovement()
     {
-        rb.AddForce(Vector3.forward * levelSpeed * ballSpeed * Time.deltaTime);   
+        rb.AddForce(Vector3.forward * levelSpeed * ballSpeed * Time.fixedDeltaTime);
     }
 
+    // Handle retrieving swipe input from the player.
     private void SwipeMovement()
     {
-        for (int i = 0; i < Input.touches.Length; i++)
+        // If the player begins to touch the screen, store the position of their touch.
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            if (Input.touches[i].phase == TouchPhase.Began)
-            {
-                touchStartPositions[i] = Input.touches[i].position;
-            }
-            else if (Input.touches[i].phase == TouchPhase.Ended || Input.touches[i].phase == TouchPhase.Canceled)
-            {
-                Vector2 direction = Input.touches[i].position - touchStartPositions[i];
-                Debug.Log("direction.X = " + direction.x);
+            startTouchPosition = Input.GetTouch(0).position;
+        }
 
+        // If the player has already begun touching the screen and is now in the process of performing
+        // a swipe.
+        else if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        {
+            currentTouchPosition = Input.GetTouch(0).position;
 
-               // OLD CODE FROM SWIPING UP/DOWN TO GAIN/REDUCE SPEED
-
-               // /*If ball is going under max speed, and the player has swiped
-               //upwards, increase ball speed*/
-               // if(ballSpeed < maxSpeed)
-               // {
-               //     ballSpeed += (direction.y % 100) / 10;
-               //     Debug.Log("ball speed = " + ballSpeed);
-               // }
-               // else
-               // {
-               //     //Only if the input is negative, add ball speed
-               //     if(direction.y < minSpeed)
-               //     {
-               //         ballSpeed += (direction.y % 100) / 10;
-               //     }
-               // }
-               // speedReference.value = ballSpeed;
-
-                MoveBall(direction.x, direction.magnitude);
-
-            }
+            // Get the distance between the two touches.
+            Vector2 touchDistance = currentTouchPosition - startTouchPosition;
+            print(touchDistance.sqrMagnitude);
         }
     }
+
+    /// <summary>
+    /// Applies a force to the ball. Used to control the ball via swipe controls.
+    /// </summary>
+    /// <param name="force">The force to apply to the ball.</param>
+    private void ApplyForceToBall(Vector3 force)
+    {
+
+    }
+
+
     private void MoveBall(float pos, float amount)
     {
         if (pos != 0)
         {
             amount /= amountDivisor;
-            print("x pos change = " + pos + " amount = " + amount);
+            //print("x pos change = " + pos + " amount = " + amount);
             rb.AddForce((pos > 0 ? Vector3.right * amount : Vector3.left * amount));
         }
         else
         {
-            print("swipe didn't register movement");
+            //print("swipe didn't register movement");
         }
 
     }
