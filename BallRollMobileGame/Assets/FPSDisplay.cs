@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 using TMPro;
+using System;
 public class FPSDisplay : MonoBehaviour
 {
     TextMeshProUGUI fpsdisplay;
@@ -10,6 +11,6 @@ public class FPSDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fpsdisplay.text = (1.0 / Time.deltaTime).ToString();
+        fpsdisplay.text = Math.Round((1.0 / Time.deltaTime), 3).ToString();
     }
 }
