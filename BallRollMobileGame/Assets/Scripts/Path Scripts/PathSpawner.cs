@@ -13,10 +13,11 @@ public class PathSpawner : MonoBehaviour
     [Tooltip("Array of the pre-created starting paths")]
     [SerializeField] private GameObject[] startPaths;
 
-    /// <summary>
-    /// Last created path
-    /// </summary>
+    [Tooltip("Last created path")]
     [SerializeField] private GameObject lastPath;
+
+    [Tooltip("Portal Path prefab")]
+    [SerializeField] private GameObject portalPath;
 
     private Vector3 offset;
 
@@ -39,6 +40,6 @@ public class PathSpawner : MonoBehaviour
         }
 
         // Spawn portal (ending) path here
-        lastPath = Instantiate(pathPrefabs[0], lastPath.transform.position + offset, lastPath.transform.rotation, pathParent);
+        lastPath = Instantiate(portalPath, lastPath.transform.position + offset, lastPath.transform.rotation, pathParent);
     }
 }

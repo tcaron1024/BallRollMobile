@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private float scoreIncreaseAmount = 100;
-    private float score;
-    private int roundedScore;
+    [SerializeField] private int scoreIncreaseAmount = 100;
+    private int score;
     private int oldHighScore;
 
     [SerializeField] private TextMeshProUGUI scoreText;
@@ -17,20 +17,19 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        score = 0;
-        scoreText.text = "Score: " + Mathf.RoundToInt(score);
+        score = GameController.score;
+        scoreText.text = "Score: " + score;
         oldHighScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 
     public void ShowLoseScreen()
     {
-        roundedScore = Mathf.RoundToInt(score);
         loseScreenScoreText.text = scoreText.text;
-        if (oldHighScore < roundedScore)
+        if (oldHighScore < score)
         {
             newHighScoreObj.SetActive(true);
-            highScoreText.text = "High Score: " + roundedScore;
-            PlayerPrefs.SetInt("HighScore", roundedScore);
+            highScoreText.text = "High Score: " + score;
+            PlayerPrefs.SetInt("HighScore", score);
             
         }
         else
@@ -46,7 +45,7 @@ public class UIController : MonoBehaviour
     /// </summary>
     public void PlayAgain()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine("ChangeScene", SceneManager.GetActiveScene().buildIndex);
     }
 
     /// <summary>
@@ -54,7 +53,7 @@ public class UIController : MonoBehaviour
     /// </summary>
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene(0);
+        StartCoroutine("ChangeScene", 0);
     }
 
     /// <summary>
@@ -63,6 +62,13 @@ public class UIController : MonoBehaviour
     public void IncreaseScore()
     {
         score += scoreIncreaseAmount;
+        GameController.score = score;
         scoreText.text = "Score: " + score;
+    }
+
+    IEnumerator ChangeScene(int index)
+    {
+        yield return new WaitForSeconds(.1f);
+        SceneManager.LoadScene(index);
     }
 }

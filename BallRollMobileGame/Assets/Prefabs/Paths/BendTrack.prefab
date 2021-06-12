@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3983534919569080613}
   - component: {fileID: 352280900573062658}
   - component: {fileID: 2786893637022706598}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: DeathBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322835993612714130}
   m_LocalRotation: {x: -0, y: -0.7071069, z: -0, w: -0.7071069}
-  m_LocalPosition: {x: -2.3, y: 12.4, z: 1.4}
+  m_LocalPosition: {x: -2.3, y: 12.4, z: -4.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6126680637370477738}
@@ -43,7 +43,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 149.9, y: 10, z: 81.2}
+  m_Size: {x: 225, y: 10, z: 81.2}
   m_Center: {x: 0, y: -36.4, z: 0}
 --- !u!114 &2786893637022706598
 MonoBehaviour:
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 1948278556339116722}
   - component: {fileID: 3212950575756780581}
   - component: {fileID: 4785437605526800336}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: ScoreBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -18,6 +18,11 @@ public class GameController : MonoBehaviour
     /// </summary>
     public static int numPaths = 20;
 
+    /// <summary>
+    /// Player's current score
+    /// </summary>
+    public static int score = 0;
+
     [Tooltip("Amount levelSpeed should increase each level completed")]
     [SerializeField] private float levelSpeedIncrease = 1f;
 
@@ -78,7 +83,7 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// Ends the level 
     /// </summary>
-    public void EndLevel()
+    public void CompleteLevel()
     {
         // Increases current level number
         currentLevelNum++;

@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 7585121833329983358}
   - component: {fileID: 3849982164055782125}
   - component: {fileID: 7769752948796260360}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: ScoreBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 4126506782685691392}
   - component: {fileID: 1633795090209631607}
   - component: {fileID: 7532265097906700380}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: DeathBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 80.2, y: 10, z: 81.2}
+  m_Size: {x: 80.2, y: 10, z: 200}
   m_Center: {x: 0, y: -36.4, z: 0}
 --- !u!114 &7532265097906700380
 MonoBehaviour:

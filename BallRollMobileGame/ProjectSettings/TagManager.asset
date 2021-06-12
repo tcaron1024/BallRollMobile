@@ -15,9 +15,9 @@ TagManager:
   - UI
   - 
   - 
-  - DeathBox
-  - Player
   - 
+  - Player
+  - PlayerOnly
   - 
   - 
   - 
