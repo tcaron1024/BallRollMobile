@@ -2087,7 +2087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startForce: 50
   ballSpeed: 7
-  amountDivisor: 50
+  speedMultiplier: 0.125
   minMaxSpeedDiff: 1
   speedReference: {fileID: 585105945}
 --- !u!1 &729097118 stripped
