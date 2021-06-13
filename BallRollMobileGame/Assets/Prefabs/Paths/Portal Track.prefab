@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7194538413614093032}
   - component: {fileID: 4917040018084472354}
   - component: {fileID: 6862405735865747446}
+  - component: {fileID: 736076745387122027}
   m_Layer: 0
   m_Name: Portal Track
   m_TagString: Path
@@ -98,6 +99,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 5747ea64497b5d242b38a8d4958ab881, type: 3}
+--- !u!114 &736076745387122027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6862405735865747447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169faec6d8f76874b8657345070a2337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloudSceneMat: {fileID: 2100000, guid: c438e5c679f1be040a135443008e2fce, type: 2}
+  desertSceneMat: {fileID: 2100000, guid: e4514844bd8fe564c921e1a96fccc0c6, type: 2}
 --- !u!1 &7271223034013997302
 GameObject:
   m_ObjectHideFlags: 0

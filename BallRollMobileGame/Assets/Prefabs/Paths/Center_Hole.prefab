@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 520289528872046982}
   - component: {fileID: 8232155132349533529}
   - component: {fileID: 5094236804624230899}
+  - component: {fileID: 384842089593815096}
   m_Layer: 0
   m_Name: Center_Hole
   m_TagString: Path
@@ -98,6 +99,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 5df9c128a7e708640a30a2778430c0c9, type: 3}
+--- !u!114 &384842089593815096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5094236804624230898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169faec6d8f76874b8657345070a2337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloudSceneMat: {fileID: 2100000, guid: c438e5c679f1be040a135443008e2fce, type: 2}
+  desertSceneMat: {fileID: 2100000, guid: e4514844bd8fe564c921e1a96fccc0c6, type: 2}
 --- !u!1 &5178675119125646577
 GameObject:
   m_ObjectHideFlags: 0

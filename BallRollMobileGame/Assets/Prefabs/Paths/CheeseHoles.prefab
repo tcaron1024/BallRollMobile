@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 6045822997835108890}
   - component: {fileID: 8359776803309070032}
   - component: {fileID: 7999264601225430788}
+  - component: {fileID: 8203703872605614285}
   m_Layer: 0
   m_Name: CheeseHoles
   m_TagString: Path
@@ -212,3 +213,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 107a8b75a1d371043ae6731f63b16bd5, type: 3}
+--- !u!114 &8203703872605614285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7999264601225430789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169faec6d8f76874b8657345070a2337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloudSceneMat: {fileID: 2100000, guid: c438e5c679f1be040a135443008e2fce, type: 2}
+  desertSceneMat: {fileID: 2100000, guid: e4514844bd8fe564c921e1a96fccc0c6, type: 2}

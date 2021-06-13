@@ -4,6 +4,11 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     /// <summary>
+    /// Used to determine what material the paths should be using. 1 for default, 2 for desert. etc..
+    /// </summary>
+    public static int scenerySettings = 2; 
+
+    /// <summary>
     /// Speed multiplier for ball acceleration this level
     /// </summary>
     public static float levelSpeed = 2f;
@@ -68,6 +73,7 @@ public class GameController : MonoBehaviour
         bc = GameObject.FindGameObjectWithTag("Player").GetComponent<BallController>();
         ps = GameObject.Find("Path Parent").GetComponent<PathSpawner>();
         CreateLevel();
+        
     }
 
     /// <summary>

@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 7109367422782808847}
   - component: {fileID: 4993783114995390405}
   - component: {fileID: 6795236090984494615}
+  - component: {fileID: 9168900651250538108}
   m_Layer: 0
   m_Name: BendTrack
   m_TagString: Path
@@ -212,3 +213,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 654fc4ecf73de674cb4248d9f2242958, type: 3}
+--- !u!114 &9168900651250538108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6795236090984494608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169faec6d8f76874b8657345070a2337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloudSceneMat: {fileID: 2100000, guid: c438e5c679f1be040a135443008e2fce, type: 2}
+  desertSceneMat: {fileID: 2100000, guid: e4514844bd8fe564c921e1a96fccc0c6, type: 2}
