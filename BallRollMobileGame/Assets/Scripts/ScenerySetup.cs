@@ -17,12 +17,6 @@ public class ScenerySetup : MonoBehaviour
         SetSceneSettings();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void SetSceneSettings()
     {
         if(GameController.scenerySettings == 1)

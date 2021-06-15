@@ -103,8 +103,12 @@ public class GameController : MonoBehaviour
             numPaths += numPathsIncrease;
         }
 
+        scenerySettings++;
+        scenerySettings = (scenerySettings % numEnvironments) + 1;
+
         // Loads next level
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
 
     /// <summary>
