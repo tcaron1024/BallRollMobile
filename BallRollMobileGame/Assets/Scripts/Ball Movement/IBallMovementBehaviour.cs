@@ -33,7 +33,7 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
 
     private void Start()
     {
-        rb.AddForce(Vector3.forward * 100f);
+        rb.AddForce(Vector3.forward * 8, ForceMode.VelocityChange);
     }
 
     /// <summary>
