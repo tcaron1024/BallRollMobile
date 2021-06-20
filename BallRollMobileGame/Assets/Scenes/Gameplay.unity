@@ -3841,6 +3841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1258320065}
   - component: {fileID: 1258320066}
+  - component: {fileID: 1258320067}
   m_Layer: 0
   m_Name: Path Parent
   m_TagString: Untagged
@@ -3898,6 +3899,39 @@ MonoBehaviour:
   - {fileID: 729097118}
   lastPath: {fileID: 0}
   portalPath: {fileID: 6862405735865747447, guid: abfcd76ae441ecc498389c194b54dfbf, type: 3}
+--- !u!114 &1258320067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258320064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd409be796a03714696ef6b857c73b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Default
+    prefabs:
+    - {fileID: 1047060870075314558, guid: 665e1392aaa279e46b345dd9481f49a6, type: 3}
+    - {fileID: 6795236090984494608, guid: 1a1ab6f7ad7cc6f45ae9855bba9b629e, type: 3}
+    - {fileID: 1327431242756473812, guid: 50051a84d5a83b342897628eed3b0d14, type: 3}
+    - {fileID: 5094236804624230898, guid: a4f1f09be87e2104b873bc5dcdfbe6ec, type: 3}
+    - {fileID: 7999264601225430789, guid: 92b86af5173bdbd46a75ad3bec393935, type: 3}
+    - {fileID: 3123502022875386995, guid: 06bac4b747679454fb4f4b1b9f37d7dd, type: 3}
+    - {fileID: 8092231357499588168, guid: 866fe5aac6a86fa47a2c817943504ac9, type: 3}
+    numToSpawn: 1
+  - tag: Desert
+    prefabs:
+    - {fileID: 2093616104491972422, guid: b3833420befc47347afdc0a47af05633, type: 3}
+    - {fileID: 6305015373939035628, guid: 42595101e15bbdf4480e6aa6dc0b3389, type: 3}
+    - {fileID: 2382315792535045949, guid: cbe0b5de2d1b8b44b9b7d0bd20831c16, type: 3}
+    - {fileID: 6591150252394049223, guid: d8e6215452723e341965798f488e715b, type: 3}
+    - {fileID: 7353250975226506875, guid: a43e54a114fc5b24bb3b65f8813c5c64, type: 3}
+    - {fileID: 4028734013297278319, guid: aadce939fb3764340bcd8544e50b6e49, type: 3}
+    - {fileID: 2927168067980047107, guid: 74eeb288e483cda4a95ac146bd60a35b, type: 3}
+    numToSpawn: 1
 --- !u!1 &1261876175
 GameObject:
   m_ObjectHideFlags: 0
