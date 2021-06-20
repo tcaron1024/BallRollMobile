@@ -1,9 +1,21 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PathSpawner : MonoBehaviour
 {
+    private struct Path
+    {
+        public Path(int index, GameObject gameObject)
+        {
+            this.index = index;
+            this.gameObject = gameObject;
+        }
+
+        public int index { get; private set; }
+        public GameObject gameObject { get; private set; }
+    }
+
     [Tooltip("Array of the tiles that can be used for the default scenery")]
     public GameObject[] defaultPathPrefabs;
 
@@ -20,7 +32,7 @@ public class PathSpawner : MonoBehaviour
     [SerializeField] private GameObject[] startPaths;
 
     [Tooltip("Last created path")]
-    [SerializeField] private GameObject lastPath;
+    [SerializeField] private Path lastPath;
 
     [Tooltip("Portal Path prefab")]
     [SerializeField] private GameObject portalPath;
@@ -49,17 +61,33 @@ public class PathSpawner : MonoBehaviour
 
         // Finds distance offset for paths and sets the last path to last object in startPaths array
         offset = startPaths[1].transform.position - startPaths[0].transform.position;
-        lastPath = startPaths[startPaths.Length - 1];
+        lastPath = new Path(startPaths.Length - 1, startPaths[startPaths.Length - 1]);
 
         // Spawns (number given - number of starting paths - 1) paths
         for (int i = startPaths.Length; i < numPaths - 1; i++)
-        {           
-            // Change first number in random.range to 0 to include the basic rectangle path
-            int rand = Random.Range(0, currentPathPrefabs.Length);
-            lastPath = Instantiate(currentPathPrefabs[rand], lastPath.transform.position + offset, lastPath.transform.rotation, pathParent);
+        {
+            // Keep searching for a suitable random number if the previous path spawned == the current path.
+            int rand = -1;
+            do
+            {
+                #region -- Debugging Path Spawning --
+                //if (rand != -1)
+                //{
+                //    Debug.Log("PATH SPAWNER: Path num " + i + " equals the previous. Getting a new random num.");
+                //    Debug.Log("PATH SPAWNER: " + rand + " == " + lastPath.index);
+                //    Debug.Log("PATH SPAWNER: Previous path is type " + lastPath.gameObject.name);
+                //}
+                #endregion
+                rand = Random.Range(0, currentPathPrefabs.Length);
+            }
+            while (lastPath.index == rand);
+
+            lastPath = new Path(rand, Instantiate(currentPathPrefabs[rand], lastPath.gameObject.transform.position + offset, lastPath.gameObject.transform.rotation, pathParent));
+
+            //Debug.Log("PATH SPAWNER: Selected path type " + lastPath.gameObject.name + " for path num " + i);
         }
 
         // Spawn portal (ending) path here
-        lastPath = Instantiate(portalPath, lastPath.transform.position + offset, lastPath.transform.rotation, pathParent);
+        lastPath = new Path(-1, Instantiate(portalPath, lastPath.gameObject.transform.position + offset, lastPath.gameObject.transform.rotation, pathParent));
     }
 }
