@@ -10,6 +10,7 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ObjectPooler : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class ObjectPooler : MonoBehaviour
 
     void Start()
     {
-        FillPoolsWithInactiveObjects();
+       // FillPoolsWithInactiveObjects();
     }
 
     // Fill the pools with inactive objects on Start()
@@ -61,6 +62,46 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Fills a specific pool with inactive objects.
+    /// </summary>
+    /// <param name="poolTag">The tag of the pool to fill with inactive objects.</param>
+    private void FillPoolWithInactiveObjects(string poolTag)
+    {
+        if (poolDictionary.ContainsKey(poolTag))
+        {
+            Debug.LogWarning("OBJECT POOLER: Cannot fill pool tagged '" + poolTag + "' for it has already been filled.");
+            return;
+        }
+        else
+        {
+            Pool pool = pools.Where(t => t.tag == poolTag).FirstOrDefault();
+            if (pool == null)
+            {
+                Debug.LogWarning("OBJECT POOLER: Could not find pool tagged '" + poolTag + "'. Cannot fill.");
+                return;
+            }
+
+            // Create a queue of game objects to hold the prefabs in the pool
+            Queue<GameObject> objectPool = new Queue<GameObject>();
+
+            // For each prefab up to the size of the pool (set in inspector)...
+            for (int i = 0; i < pool.numToSpawn; i++)
+            {
+                // Instantiate the prefab (also set in inspector) and assign it to obj
+                int index = Random.Range(0, pool.prefabs.Length);
+                GameObject obj = Instantiate(pool.prefabs[index]);
+                // Set obj as inactive
+                obj.SetActive(false);
+                // Enqueue or add obj to the queue of objects (to the back of the line)
+                objectPool.Enqueue(obj);
+            }
+            // Add the queue of objects to the dictionary of pools with that pool's 
+            // string tag (set in inspector) as a label
+            poolDictionary.Add(pool.tag, objectPool);
+        }
+    }
+
 
     public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
@@ -68,7 +109,7 @@ public class ObjectPooler : MonoBehaviour
         if (!poolDictionary.ContainsKey(tag))
         {
             // If you get this error, be sure you set the Pool's tag correctly in the inspector
-            Debug.LogWarning("Pool with tag " + tag + " doesn't exist.");
+            Debug.LogWarning("Pool with tag " + tag + " doesn't exist. Cannot spawn from pool.");
             return null;
         }
 
