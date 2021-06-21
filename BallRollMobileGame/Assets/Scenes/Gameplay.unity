@@ -2289,8 +2289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb8b45680431504e9b031badcf975a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minMaxSpeedDiff: 1
-  speedReference: {fileID: 585105945}
 --- !u!114 &697807244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2306,6 +2304,8 @@ MonoBehaviour:
   ballSpeed: 7
   speedMultiplier: 1
   pushForceMultiplier: 0.125
+  groundCheckDistance: 1
+  heightOffset: 5
 --- !u!114 &697807245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3897,7 +3897,6 @@ MonoBehaviour:
   startPaths:
   - {fileID: 1854274843}
   - {fileID: 729097118}
-  lastPath: {fileID: 0}
   portalPath: {fileID: 6862405735865747447, guid: abfcd76ae441ecc498389c194b54dfbf, type: 3}
 --- !u!114 &1258320067
 MonoBehaviour:

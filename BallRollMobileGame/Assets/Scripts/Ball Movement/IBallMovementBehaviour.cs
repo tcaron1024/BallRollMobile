@@ -4,13 +4,14 @@
  * Summary: A contract that each ball movement behaviour must implement.
  */
 using UnityEngine;
+using System.Collections;
 
 public abstract class IBallMovementBehaviour : MonoBehaviour
 {
     private Rigidbody rb;
 
     #region -- Movement Fields --
-
+    [Header("Marble Movement")]
     [Tooltip("The ball's base speed. Will be applied to move the ball forward.")]
     [SerializeField] private float ballSpeed = 7f;
     public float BallSpeed { get { return ballSpeed; } }
@@ -26,14 +27,83 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
     // TODO: Min and max speed?
     #endregion
 
+    [Header("Height Clamping")]
+    [Tooltip("How far a linecast should extend from the marble downward.")]
+    [SerializeField] private float groundCheckDistance;
+
+    [Tooltip("How many units above the marble should its y-position be clamped.")]
+    [SerializeField] private float heightOffset;
+
+    // The max y-position the marble can be at.
+    private float maxYPos;
+
+
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         rb.AddForce(Vector3.forward * 8, ForceMode.VelocityChange);
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        ClampYPos();
+    }
+
+    private void ClampYPos()
+    {
+        // Continually update the maxYPos as long as the marble is grounded.
+        if (Physics.Linecast(rb.position, rb.position + (Vector3.down * groundCheckDistance)))
+        {
+            maxYPos = rb.position.y + heightOffset;
+        }
+        else
+        {
+            Vector3 pos = rb.position;
+
+            // Clamp the marble's position between an arbitrarily low negative number and 
+            // the maxYPos we calculated.
+            pos.y = Mathf.Clamp(pos.y, -999, maxYPos);
+
+            // If we hit our peak, make sure to stop our y-velocity or else
+            // our momentum will keep us pinned to the ceiling.
+            if (pos.y >= maxYPos)
+            {
+                StopAllCoroutines();
+                StartCoroutine(DecreaseYVelocity());
+                //rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+            }
+
+            rb.position = pos;
+        }
+
+    }
+
+    private IEnumerator DecreaseYVelocity()
+    {
+        // The time is takes to lerp the y-velocity to 0.
+        const float DECREASE_TIME = 0.3f;
+        float currentTime = 0f;
+        float startingVel = rb.velocity.y;
+
+        while (currentTime < DECREASE_TIME)
+        {
+            currentTime += Time.deltaTime;
+
+            // Lerp the y-vel.
+            Vector3 vel = rb.velocity;
+            vel.y = Mathf.Lerp(startingVel, 0f, currentTime / DECREASE_TIME);
+
+            rb.velocity = vel;
+
+            yield return null;
+        }
+        print("DONE");
     }
 
     /// <summary>

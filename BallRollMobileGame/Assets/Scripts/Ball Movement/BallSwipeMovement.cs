@@ -14,6 +14,15 @@ public class BallSwipeMovement : IBallMovementBehaviour
     #endregion
 
 
+    protected override void Start()
+    {
+        base.Start();
+
+        Input.multiTouchEnabled = false;
+        Input.simulateMouseWithTouches = true;
+    }
+
+
     /// <summary>
     /// Pushes the ball via swiping on the screen.
     /// </summary>
