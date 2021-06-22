@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// Used to determine what material the paths should be using. 1 for default, 2 for desert. etc..
     /// </summary>
-    public static int scenerySettings = 2; 
+    public static int scenerySettings = 1; 
 
     /// <summary>
     /// Speed multiplier for ball acceleration this level
@@ -27,6 +27,11 @@ public class GameController : MonoBehaviour
     /// Player's current score
     /// </summary>
     public static int score = 0;
+
+    /// <summary>
+    /// Number of coins player has picked up this run
+    /// </summary>
+    public static int coins = 0;
 
     [Tooltip("Amount levelSpeed should increase each level completed")]
     [SerializeField] private float levelSpeedIncrease = 1f;
@@ -119,5 +124,7 @@ public class GameController : MonoBehaviour
         levelSpeed = START_LEVEL_SPEED;
         numPaths = START_NUM_PATHS;
         currentLevelNum = 1;
+        score = 0;
+        coins = 0;
     }
 }

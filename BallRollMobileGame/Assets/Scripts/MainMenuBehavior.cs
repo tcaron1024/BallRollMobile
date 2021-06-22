@@ -11,6 +11,11 @@ public class MainMenuBehavior : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore", 0);
         }
+        // Checks if player has a current shop balance and sets it to 0 if not
+        if (!PlayerPrefs.HasKey("ShopBalance"))
+        {
+            PlayerPrefs.SetInt("ShopBalance", 0);
+        }
     }
 
     public void StartGame()

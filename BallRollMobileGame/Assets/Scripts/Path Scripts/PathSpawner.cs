@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PathSpawner : MonoBehaviour
@@ -68,6 +66,7 @@ public class PathSpawner : MonoBehaviour
         {
             // Keep searching for a suitable random number if the previous path spawned == the current path.
             int rand = -1;
+            
             do
             {
                 #region -- Debugging Path Spawning --
@@ -79,11 +78,15 @@ public class PathSpawner : MonoBehaviour
                 //}
                 #endregion
                 rand = Random.Range(0, currentPathPrefabs.Length);
+                
             }
             while (lastPath.index == rand);
 
-            lastPath = new Path(rand, Instantiate(currentPathPrefabs[rand], lastPath.gameObject.transform.position + offset, lastPath.gameObject.transform.rotation, pathParent));
+            // For now spawns a random number of coins from 0-3, need to see what people want for this
+            int coinRand = Random.Range(0, 4);
 
+            lastPath = new Path(rand, Instantiate(currentPathPrefabs[rand], lastPath.gameObject.transform.position + offset, lastPath.gameObject.transform.rotation, pathParent));
+            lastPath.gameObject.GetComponent<PathBehavior>().SpawnCoins(coinRand);
             //Debug.Log("PATH SPAWNER: Selected path type " + lastPath.gameObject.name + " for path num " + i);
         }
 

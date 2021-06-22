@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Path
   - PathSpawner
+  - Music
   layers:
   - Default
   - TransparentFX
