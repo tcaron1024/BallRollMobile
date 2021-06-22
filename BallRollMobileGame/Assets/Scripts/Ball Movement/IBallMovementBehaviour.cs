@@ -133,7 +133,7 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
         vel.z = currentForwardSpeed;
         rb.velocity = vel;
 
-        print(rb.velocity.z);
+        //print(rb.velocity.z);
     }
 
     /// <summary>

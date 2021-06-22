@@ -13,6 +13,7 @@ public class BallSwipeMovement : IBallMovementBehaviour
     private Vector2 currentTouchPosition;
     #endregion
 
+    private float forceMagnitude;
 
     protected override void Start()
     {
@@ -51,7 +52,14 @@ public class BallSwipeMovement : IBallMovementBehaviour
             // Get the distance between the two touches.
             Vector2 touchDistance = currentTouchPosition - startTouchPosition;
             float forceMagnitude = touchDistance.x;
-            MoveBall(forceMagnitude);
+            this.forceMagnitude = forceMagnitude;
         }
+        else
+            this.forceMagnitude = 0;
+    }
+
+    private void Update()
+    {
+        MoveBall(forceMagnitude);
     }
 }

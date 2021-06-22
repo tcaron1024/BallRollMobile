@@ -23,6 +23,10 @@ public class BallController : MonoBehaviour
     private void FixedUpdate()
     {
         ballMovementBehaviour.ForwardMovement();
+    }
+
+    private void Update()
+    {
         ballMovementBehaviour.PushBall();
     }
 
