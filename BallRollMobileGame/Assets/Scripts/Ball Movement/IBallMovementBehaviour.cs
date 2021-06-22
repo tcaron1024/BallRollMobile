@@ -12,9 +12,13 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
 
     #region -- Movement Fields --
     [Header("Marble Movement")]
-    [Tooltip("The ball's base speed. Will be applied to move the ball forward.")]
-    [SerializeField] private float ballSpeed = 7f;
+    [Tooltip("The ball's speed increase per-second. Will be applied to move the ball forward.")]
+    [SerializeField] private float ballSpeed = 1f;
     public float BallSpeed { get { return ballSpeed; } }
+
+    // How fast the ball is travelling in the forward direction.
+    private float currentForwardSpeed;
+    public float CurrentForwardSpeed { get { return currentForwardSpeed; } }
 
     [Tooltip("A multiplier that affects how fast the ball is travelling in the forward direction.")]
     [SerializeField] private float speedMultiplier = 1;
@@ -23,10 +27,12 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
     [SerializeField] private float pushForceMultiplier = 1;
 
 
+    // The initial force applied to the ball; the ball's starting speed.
     private float levelSpeed = 1;
     // TODO: Min and max speed?
     #endregion
 
+    #region -- Height Clamping Fields --
     [Header("Height Clamping")]
     [Tooltip("How far a linecast should extend from the marble downward.")]
     [SerializeField] private float groundCheckDistance;
@@ -36,6 +42,7 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
 
     // The max y-position the marble can be at.
     private float maxYPos;
+    #endregion
 
 
 
@@ -47,11 +54,13 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
 
     protected virtual void Start()
     {
-        rb.AddForce(Vector3.forward * 8, ForceMode.VelocityChange);
+        currentForwardSpeed = levelSpeed;
+        rb.AddForce(Vector3.forward * currentForwardSpeed, ForceMode.VelocityChange);
     }
 
     protected virtual void FixedUpdate()
     {
+        // Continually clamp the Y-pos.
         ClampYPos();
     }
 
@@ -116,7 +125,15 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
     /// </summary>
     public void ForwardMovement()
     {
-        rb.AddForce(Vector3.forward * ballSpeed * levelSpeed * speedMultiplier * Time.fixedDeltaTime);
+        // We need a speed that is NOT influenced by friction and other level hinderences
+        // if we want the ball to accelerate consistently.
+        currentForwardSpeed += ballSpeed * speedMultiplier * Time.fixedDeltaTime;
+
+        Vector3 vel = rb.velocity;
+        vel.z = currentForwardSpeed;
+        rb.velocity = vel;
+
+        print(rb.velocity.z);
     }
 
     /// <summary>

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
@@ -72,13 +72,19 @@ public class GameController : MonoBehaviour
 
     //    DontDestroyOnLoad(this.gameObject);
     //}
+    private void Awake()
+    {
+        print("awake of gamecontroller");
+        bc = GameObject.FindGameObjectWithTag("Player").GetComponent<BallController>();
+        bc.SetLevelSpeed(levelSpeed);
+        ps = GameObject.Find("Path Parent").GetComponent<PathSpawner>();
+        
+    }
+
     private void Start()
     {
         print("start of gamecontroller");
-        bc = GameObject.FindGameObjectWithTag("Player").GetComponent<BallController>();
-        ps = GameObject.Find("Path Parent").GetComponent<PathSpawner>();
         CreateLevel();
-        
     }
 
     /// <summary>
@@ -88,7 +94,6 @@ public class GameController : MonoBehaviour
     private void CreateLevel()
     {
         ps.SpawnPaths(numPaths);
-        bc.SetLevelSpeed(levelSpeed);
     }
 
     /// <summary>
