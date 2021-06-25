@@ -20,6 +20,9 @@ public class PathSpawner : MonoBehaviour
     [Tooltip("Array of the tiles that can be used for the desert scenery")]
     public GameObject[] desertPathPrefabs;
 
+    [Tooltip("Array of the tiles that can be used for the desert scenery")]
+    public GameObject[] arcticPathPrefabs;
+
     [Tooltip("Array of the tiles that can be used for this level")]
     public GameObject[] currentPathPrefabs;
 
@@ -33,7 +36,7 @@ public class PathSpawner : MonoBehaviour
     [SerializeField] private Path lastPath;
 
     [Tooltip("Portal Path prefab")]
-    [SerializeField] private GameObject portalPath;
+    [SerializeField] private GameObject[] portalPaths;
 
     private Vector3 offset;
 
@@ -43,14 +46,17 @@ public class PathSpawner : MonoBehaviour
     /// <param name="numPaths"></param>
     public void SpawnPaths(int numPaths)
     {
-        // Checks which paths to use for this level - 1 = default, 2 = desert
+        // Checks which paths to use for this level - 0 = default, 1 = desert
         switch (GameController.scenerySettings)
         {
-            case 1:
+            case 0:
                 currentPathPrefabs = defaultPathPrefabs;
                 break;               
-            case 2:
+            case 1:
                 currentPathPrefabs = desertPathPrefabs;
+                break;
+            case 2:
+                currentPathPrefabs = arcticPathPrefabs;
                 break;
             default:
                 currentPathPrefabs = defaultPathPrefabs;
@@ -91,6 +97,6 @@ public class PathSpawner : MonoBehaviour
         }
 
         // Spawn portal (ending) path here
-        lastPath = new Path(-1, Instantiate(portalPath, lastPath.gameObject.transform.position + offset, lastPath.gameObject.transform.rotation, pathParent));
+        lastPath = new Path(-1, Instantiate(portalPaths[GameController.scenerySettings], lastPath.gameObject.transform.position + offset, lastPath.gameObject.transform.rotation, pathParent));
     }
 }

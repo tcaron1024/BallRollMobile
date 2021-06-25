@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     /// <summary>
-    /// Used to determine what material the paths should be using. 1 for default, 2 for desert. etc..
+    /// Used to determine what material the paths should be using. 0 for default, 1 for desert. 2 for arctic. etc..
     /// </summary>
     public static int scenerySettings = 1; 
 
@@ -33,10 +33,13 @@ public class GameController : MonoBehaviour
     /// </summary>
     public static int coins = 0;
 
+    /// <summary>
+    /// Number of times player has run each environment
+    /// </summary>
+    public static int[] environmentRuns;
+
     [Tooltip("Amount levelSpeed should increase each level completed")]
     [SerializeField] private float levelSpeedIncrease = 1f;
-
-
 
     [Tooltip("Amount numPaths should increase each time player goes through an environment again")]
     [SerializeField] private int numPathsIncrease = 5;
@@ -60,18 +63,6 @@ public class GameController : MonoBehaviour
     [Tooltip("Level speed at start of game")]
     public const float START_LEVEL_SPEED = 2f;
 
-
-    //private void Awake()
-    //{
-    //    GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
-
-    //    if (objs.Length > 1)
-    //    {
-    //        Destroy(this.gameObject);
-    //    }
-
-    //    DontDestroyOnLoad(this.gameObject);
-    //}
     private void Awake()
     {
         print("awake of gamecontroller");
@@ -79,11 +70,14 @@ public class GameController : MonoBehaviour
         bc.SetLevelSpeed(levelSpeed);
         ps = GameObject.Find("Path Parent").GetComponent<PathSpawner>();
         
+        if (environmentRuns == null)
+        {
+            environmentRuns = new int[numEnvironments];
+        }
     }
 
     private void Start()
     {
-        print("start of gamecontroller");
         CreateLevel();
     }
 
@@ -126,10 +120,19 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void ResetLevel()
     {
+        // Resets level progression variables
         levelSpeed = START_LEVEL_SPEED;
         numPaths = START_NUM_PATHS;
         currentLevelNum = 1;
+
+        // Resets score and coins
         score = 0;
         coins = 0;
+
+        // Resets environment run number counters
+        for (int i = 0; i < environmentRuns.Length; i++)
+        {
+            environmentRuns[i] = 0;
+        }
     }
 }

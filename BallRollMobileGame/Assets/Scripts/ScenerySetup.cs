@@ -20,15 +20,15 @@ public class ScenerySetup : MonoBehaviour
 
     void SetSceneSettings()
     {
-        if(GameController.scenerySettings == 1)
+        if(GameController.scenerySettings == 0)
         {
             r.material = cloudSceneMat;
         }
-        else if(GameController.scenerySettings == 2)
+        else if(GameController.scenerySettings == 1)
         {
             r.material = desertSceneMat;
         }
-        else if(GameController.scenerySettings == 3)
+        else if(GameController.scenerySettings == 2)
         {
             r.material = arcticSceneMat;
         }

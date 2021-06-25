@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7924755442444215343
+--- !u!1 &1469702377874540755
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7399893278151900821}
-  - component: {fileID: 5845223920298651952}
-  - component: {fileID: 8573340102163727866}
-  - component: {fileID: 33208380851254475}
-  m_Layer: 0
-  m_Name: ATrack10
+  - component: {fileID: 1185198925136313970}
+  - component: {fileID: 8664254803905711732}
+  - component: {fileID: 2030127778325470218}
+  - component: {fileID: 1767266923259286539}
+  - component: {fileID: 5628074155462791245}
+  m_Layer: 10
+  m_Name: Portal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7399893278151900821
+--- !u!4 &1185198925136313970
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7924755442444215343}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 13.998703, y: 16.98447, z: -14.05}
-  m_LocalScale: {x: 0.4, y: 0.2, z: 0.2}
+  m_GameObject: {fileID: 1469702377874540755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.48, y: 31.3, z: 0.1}
+  m_LocalScale: {x: 2, y: 25, z: 25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!33 &5845223920298651952
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8664254803905711732
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7924755442444215343}
-  m_Mesh: {fileID: -5495902117074765545, guid: a412b05f6c0c51e458bcaab93dc95587, type: 3}
---- !u!23 &8573340102163727866
+  m_GameObject: {fileID: 1469702377874540755}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2030127778325470218
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7924755442444215343}
+  m_GameObject: {fileID: 1469702377874540755}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -60,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c438e5c679f1be040a135443008e2fce, type: 2}
+  - {fileID: 2100000, guid: bd2d742ee2ce7a740ae0cf992a38be74, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,18 +83,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &33208380851254475
+--- !u!65 &1767266923259286539
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469702377874540755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000006, y: 1, z: 1.0000006}
+  m_Center: {x: 0.0000057220504, y: 0, z: -0.0000028610239}
+--- !u!114 &5628074155462791245
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7924755442444215343}
+  m_GameObject: {fileID: 1469702377874540755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 169faec6d8f76874b8657345070a2337, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d6b6d466b0d35b45b6a15e04e8cf969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloudSceneMat: {fileID: 2100000, guid: c438e5c679f1be040a135443008e2fce, type: 2}
-  desertSceneMat: {fileID: 2100000, guid: e4514844bd8fe564c921e1a96fccc0c6, type: 2}
-  arcticSceneMat: {fileID: 2100000, guid: bf092e3de96ed4a4f9543119a852633e, type: 2}

@@ -4124,12 +4124,26 @@ MonoBehaviour:
   - {fileID: 6591150252394049223, guid: d8e6215452723e341965798f488e715b, type: 3}
   - {fileID: 2927168067980047107, guid: 74eeb288e483cda4a95ac146bd60a35b, type: 3}
   - {fileID: 4028734013297278319, guid: aadce939fb3764340bcd8544e50b6e49, type: 3}
+  arcticPathPrefabs:
+  - {fileID: 556877911041041364, guid: 3daf05f37dd01f040825c82951de8c11, type: 3}
+  - {fileID: 3945215627752797567, guid: d5a9dab39d87db84685322d64bc41597, type: 3}
+  - {fileID: 7383575744715405614, guid: 4773a8c89bd80dc42b9a0fb5f18e20cc, type: 3}
+  - {fileID: 2940209652612304491, guid: 7412b7aec8c32e748930bde72f41d356, type: 3}
+  - {fileID: 6750923416081180222, guid: d1ef77db3433c6c4eb332c52aaec31ee, type: 3}
+  - {fileID: 7221594866181052036, guid: 407a2113b66037d449938ec30cb24105, type: 3}
+  - {fileID: 5197798527920957034, guid: bb152904cb7d09444802a60a8d101d83, type: 3}
+  - {fileID: 5607659651591785172, guid: 9b7ecba396f58e54f8e764029952073a, type: 3}
+  - {fileID: 8667822000443464418, guid: 525f525d805eeaa408f4d3a26e6ff173, type: 3}
+  - {fileID: 4704909236702973985, guid: 8e55a9cfec845c34cbe83652c7416598, type: 3}
   currentPathPrefabs: []
   pathParent: {fileID: 1258320065}
   startPaths:
   - {fileID: 1854274843}
   - {fileID: 729097118}
-  portalPath: {fileID: 6862405735865747447, guid: abfcd76ae441ecc498389c194b54dfbf, type: 3}
+  portalPaths:
+  - {fileID: 6862405735865747447, guid: abfcd76ae441ecc498389c194b54dfbf, type: 3}
+  - {fileID: 7353250975226506875, guid: a43e54a114fc5b24bb3b65f8813c5c64, type: 3}
+  - {fileID: 7924755442444215343, guid: a414e358d7702cf45a1b104b3fb8ed98, type: 3}
 --- !u!114 &1258320067
 MonoBehaviour:
   m_ObjectHideFlags: 0
