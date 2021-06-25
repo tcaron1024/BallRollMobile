@@ -7,6 +7,7 @@ public class ScenerySetup : MonoBehaviour
     //public static int scenerySettings;
     public Material cloudSceneMat;
     public Material desertSceneMat;
+    public Material arcticSceneMat;
     Renderer r;
 
 
@@ -26,6 +27,10 @@ public class ScenerySetup : MonoBehaviour
         else if(GameController.scenerySettings == 2)
         {
             r.material = desertSceneMat;
+        }
+        else if(GameController.scenerySettings == 3)
+        {
+            r.material = arcticSceneMat;
         }
     }
 }

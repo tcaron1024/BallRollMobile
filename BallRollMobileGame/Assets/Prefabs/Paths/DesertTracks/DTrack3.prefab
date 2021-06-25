@@ -158,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cloudSceneMat: {fileID: 2100000, guid: c438e5c679f1be040a135443008e2fce, type: 2}
   desertSceneMat: {fileID: 2100000, guid: e4514844bd8fe564c921e1a96fccc0c6, type: 2}
+  arcticSceneMat: {fileID: 2100000, guid: bf092e3de96ed4a4f9543119a852633e, type: 2}
 --- !u!64 &1983801307788454397
 MeshCollider:
   m_ObjectHideFlags: 0

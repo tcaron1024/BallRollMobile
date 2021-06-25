@@ -338,6 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cloudSceneMat: {fileID: 2100000, guid: c438e5c679f1be040a135443008e2fce, type: 2}
   desertSceneMat: {fileID: 2100000, guid: e4514844bd8fe564c921e1a96fccc0c6, type: 2}
+  arcticSceneMat: {fileID: 2100000, guid: bf092e3de96ed4a4f9543119a852633e, type: 2}
 --- !u!64 &-4009913574971245614
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -364,9 +365,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68398680024d2a840b7765eeaf7be067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coin: {fileID: 3303331449876352712, guid: 673ea62104924e9469535e0005114ce9, type: 3}
   possibleCoinPositions:
   - {fileID: 6868871786589937429}
   - {fileID: 6666471467960262920}
   - {fileID: 6611632739939451555}
-  coin: {fileID: 3303331449876352712, guid: 673ea62104924e9469535e0005114ce9, type: 3}
   coinParent: {fileID: 7367635137834987568}
