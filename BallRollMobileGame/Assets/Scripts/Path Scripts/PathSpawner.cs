@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PathSpawner : MonoBehaviour
 {
@@ -35,6 +36,9 @@ public class PathSpawner : MonoBehaviour
     [Tooltip("Last created path")]
     [SerializeField] private Path lastPath;
 
+    private List<GameObject> unusedPaths;
+    private List<GameObject> usedPaths;
+
     [Tooltip("Portal Path prefab")]
     [SerializeField] private GameObject[] portalPaths;
 
@@ -67,33 +71,33 @@ public class PathSpawner : MonoBehaviour
         offset = startPaths[1].transform.position - startPaths[0].transform.position;
         lastPath = new Path(startPaths.Length - 1, startPaths[startPaths.Length - 1]);
 
+        // Initializing the unusedPaths and usedPaths lists.
+        unusedPaths = new List<GameObject>(currentPathPrefabs);
+        usedPaths = new List<GameObject>();
+
         // Spawns (number given - number of starting paths - 1) paths
         for (int i = startPaths.Length; i < numPaths - 1; i++)
         {
-            // Keep searching for a suitable random number if the previous path spawned == the current path.
-            int rand = -1;
-            
-            do
+            if (unusedPaths.Count == 0)
             {
-                #region -- Debugging Path Spawning --
-                //if (rand != -1)
-                //{
-                //    Debug.Log("PATH SPAWNER: Path num " + i + " equals the previous. Getting a new random num.");
-                //    Debug.Log("PATH SPAWNER: " + rand + " == " + lastPath.index);
-                //    Debug.Log("PATH SPAWNER: Previous path is type " + lastPath.gameObject.name);
-                //}
-                #endregion
-                rand = Random.Range(0, currentPathPrefabs.Length);
-                
+                unusedPaths = new List<GameObject>(usedPaths);
+                usedPaths.Clear();
             }
-            while (lastPath.index == rand);
+
+            // Get a random index.
+            int rand = Random.Range(0, unusedPaths.Count);
 
             // For now spawns a random number of coins from 0-3, need to see what people want for this
             int coinRand = Random.Range(0, 4);
 
-            lastPath = new Path(rand, Instantiate(currentPathPrefabs[rand], lastPath.gameObject.transform.position + offset, lastPath.gameObject.transform.rotation, pathParent));
+            lastPath = new Path(rand, Instantiate(unusedPaths[rand], lastPath.gameObject.transform.position + offset, lastPath.gameObject.transform.rotation, pathParent));
             lastPath.gameObject.GetComponent<PathBehavior>().SpawnCoins(coinRand);
-            //Debug.Log("PATH SPAWNER: Selected path type " + lastPath.gameObject.name + " for path num " + i);
+
+            // Move the used path to the unusedPaths list.
+            GameObject temp = unusedPaths[rand];
+            usedPaths.Add(temp);
+            unusedPaths.RemoveAt(rand);
+
         }
 
         // Spawn portal (ending) path here
