@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -53,6 +54,18 @@ public class GameController : MonoBehaviour
     /// Script that controls ball movement
     /// </summary>    
     private BallController bc;
+
+    /// <summary>
+    /// Pause button
+    /// </summary>
+    public Button pauseButton;
+
+
+    /// <summary>
+    /// The play button
+    /// </summary>
+    public Button playButton;
+
 
     [Tooltip("Total number of environments")]
     public int numEnvironments = 3;
@@ -135,4 +148,22 @@ public class GameController : MonoBehaviour
             environmentRuns[i] = 0;
         }
     }
+
+    public void pause(bool paused)
+    {
+        if(!paused)
+        {
+            Time.timeScale = 0;
+            pauseButton.gameObject.SetActive(false);
+            playButton.gameObject.SetActive(true);
+        }
+        else if(paused)
+        {
+            Time.timeScale = 1;
+            pauseButton.gameObject.SetActive(true);
+            playButton.gameObject.SetActive(false);
+        }
+    }
+
+
 }
