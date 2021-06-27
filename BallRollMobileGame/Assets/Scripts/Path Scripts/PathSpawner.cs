@@ -87,11 +87,7 @@ public class PathSpawner : MonoBehaviour
             // Get a random index.
             int rand = Random.Range(0, unusedPaths.Count);
 
-            // For now spawns a random number of coins from 0-3, need to see what people want for this
-            int coinRand = Random.Range(0, 4);
-
             lastPath = new Path(rand, Instantiate(unusedPaths[rand], lastPath.gameObject.transform.position + offset, lastPath.gameObject.transform.rotation, pathParent));
-            lastPath.gameObject.GetComponent<PathBehavior>().SpawnCoins(coinRand);
 
             // Move the used path to the unusedPaths list.
             GameObject temp = unusedPaths[rand];

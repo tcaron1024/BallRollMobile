@@ -120,6 +120,9 @@ public class GameController : MonoBehaviour
             numPaths += numPathsIncrease;
         }
 
+        // Increases run count for environment player just completed
+        environmentRuns[scenerySettings]++;
+
         scenerySettings++;
         scenerySettings = (scenerySettings % numEnvironments) + 1;
 
@@ -149,7 +152,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void pause(bool paused)
+    public void Pause(bool paused)
     {
         if(!paused)
         {
