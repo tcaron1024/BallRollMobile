@@ -35,5 +35,5 @@ public abstract class IColliderObstacle : MonoBehaviour, IObstacle
     }
 
     public abstract void PerformAction(GameObject player);
-    public abstract void StopAction(GameObject player);
+    public virtual void StopAction(GameObject player) { }
 }
