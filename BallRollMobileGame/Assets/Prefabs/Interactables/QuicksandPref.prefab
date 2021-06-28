@@ -109,6 +109,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9095123709987058603}
+  - component: {fileID: 273384653}
+  - component: {fileID: 273384651}
   m_Layer: 0
   m_Name: QuicksandPref
   m_TagString: Untagged
@@ -131,3 +133,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &273384653
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9095123709987058602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.61
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &273384651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9095123709987058602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee41fa4f786477408541058feb7213a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  suckForce: 10
