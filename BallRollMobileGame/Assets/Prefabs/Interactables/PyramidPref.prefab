@@ -71,8 +71,8 @@ GameObject:
   - component: {fileID: 4365842520610775001}
   - component: {fileID: 808762482754719868}
   - component: {fileID: 3232945134334305462}
-  - component: {fileID: 695886139}
   - component: {fileID: 695886140}
+  - component: {fileID: 827909953}
   m_Layer: 0
   m_Name: PyramidPref
   m_TagString: Untagged
@@ -89,7 +89,7 @@ Transform:
   m_GameObject: {fileID: 4025450645082162531}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.6910253, y: 5.289, z: -0.25143528}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 596169454}
   - {fileID: 735822868}
@@ -145,19 +145,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &695886139
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4025450645082162531}
-  m_Material: {fileID: 13400000, guid: 5d2be2fdb7972ba49a89d7a20af474bd, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.5378911, y: 2.2559128, z: 3.5378911}
-  m_Center: {x: 0, y: -0.022043645, z: 0}
 --- !u!114 &695886140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,3 +162,17 @@ MonoBehaviour:
   - {fileID: 735822868}
   groundCheckDistance: 3
   movementSpeed: 1
+--- !u!64 &827909953
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4025450645082162531}
+  m_Material: {fileID: 13400000, guid: 5d2be2fdb7972ba49a89d7a20af474bd, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3613567641014311022, guid: 2f4c19424141a5c45a8570f26161dd07, type: 3}

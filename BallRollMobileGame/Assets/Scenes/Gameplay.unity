@@ -11748,13 +11748,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PyramidPref
       objectReference: {fileID: 0}
+    - target: {fileID: 4025450645082162531, guid: 5bf4bd6595851604cae3177a85197551, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4365842520610775001, guid: 5bf4bd6595851604cae3177a85197551, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.41
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4365842520610775001, guid: 5bf4bd6595851604cae3177a85197551, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.289
+      value: 5.16
       objectReference: {fileID: 0}
     - target: {fileID: 4365842520610775001, guid: 5bf4bd6595851604cae3177a85197551, type: 3}
       propertyPath: m_LocalPosition.z

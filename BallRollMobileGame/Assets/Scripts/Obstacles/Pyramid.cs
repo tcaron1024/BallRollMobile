@@ -35,26 +35,55 @@ public class Pyramid : MonoBehaviour
 
     #endregion
 
-    // Time (in seconds) per call to check if grounded.
-    const float GROUNDCHECK_TIME = 0.25f;
+    // Time (in seconds) to wait before beginning to ground check again.
+    const float GROUNDCHECK_COOLDOWN_TIME = 0.5f;
+    private bool coolingDown;
+
+    private bool invoke = false;
 
 
     private void Awake()
     {
         completelyOnPlatform = true;
+        coolingDown = false;
+
         AssignRandomDirection();
     }
 
     private void Start()
     {
         // Start performing a ground check.
-        InvokeRepeating("PerformGroundCheck", 0f, GROUNDCHECK_TIME);
+        // InvokeRepeating("PerformGroundCheck", 0f, GROUNDCHECK_TIME);
+        StartCoroutine(GroundCheck());
     }
 
     private void Update()
     {
         // Moves the Pyramid.
         Move();
+
+        // Uncomment below to ground check every frame
+        //PerformGroundCheck();
+    }
+
+    private IEnumerator GroundCheck()
+    {
+        float cooldownTime = 0f;
+
+        while (true)
+        {
+            if (!coolingDown)
+                PerformGroundCheck();
+            else if (cooldownTime < GROUNDCHECK_COOLDOWN_TIME)
+                cooldownTime += Time.deltaTime;
+            else
+            {
+                coolingDown = false;
+                cooldownTime = 0f;
+            }
+
+            yield return null;
+        }
     }
 
     /// <summary>
@@ -71,6 +100,7 @@ public class Pyramid : MonoBehaviour
             if (!completelyOnPlatform)
             {
                 InvertMovementDirection();
+                coolingDown = true;
             }
         }
     }

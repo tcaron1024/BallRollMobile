@@ -55,7 +55,7 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
     protected virtual void Start()
     {
         currentForwardSpeed = levelSpeed;
-        rb.AddForce(Vector3.forward * currentForwardSpeed, ForceMode.VelocityChange);
+        //rb.AddForce(Vector3.forward * currentForwardSpeed, ForceMode.VelocityChange);
     }
 
     protected virtual void FixedUpdate()
@@ -133,7 +133,7 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
         vel.z = currentForwardSpeed;
         rb.velocity = vel;
 
-        //print(rb.velocity.z);
+        //rb.AddForce(Vector3.forward * currentForwardSpeed, ForceMode.Force);
     }
 
     /// <summary>
