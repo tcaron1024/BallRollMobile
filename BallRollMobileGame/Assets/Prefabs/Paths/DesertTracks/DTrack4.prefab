@@ -111,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778361309145241999}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.244, y: 2.441, z: 0.031}
+  m_LocalPosition: {x: 2.4904, y: 2.351, z: -0.152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7367635137834987568}
@@ -262,10 +262,41 @@ Transform:
   m_GameObject: {fileID: 5225178275025358845}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 5, z: 5}
-  m_Children: []
+  m_LocalScale: {x: 2.5, y: 7, z: 5}
+  m_Children:
+  - {fileID: 5640750081958348913}
   m_Father: {fileID: 5779148114239435901}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6274753097654876079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5640750081958348913}
+  m_Layer: 0
+  m_Name: Unmoving Pyramid Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5640750081958348913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6274753097654876079}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.721, y: 3.689, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2728320085620846050}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6570142775230741670
 GameObject:
@@ -440,10 +471,14 @@ MonoBehaviour:
   - {fileID: 71402816932892923}
   run1ObstacleObjects: []
   run1ObstaclePositions: []
-  run2ObstacleObjects: []
-  run2ObstaclePositions: []
-  run3ObstacleObjects: []
-  run3ObstaclePositions: []
+  run2ObstacleObjects:
+  - {fileID: 3252929059169577239, guid: 02765d1aceffd3146b469db792c568bf, type: 3}
+  run2ObstaclePositions:
+  - {fileID: 5640750081958348913}
+  run3ObstacleObjects:
+  - {fileID: 4025450645082162531, guid: 5bf4bd6595851604cae3177a85197551, type: 3}
+  run3ObstaclePositions:
+  - {fileID: 8452902055084783077}
 --- !u!1 &8419103634715198758
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,8 +504,39 @@ Transform:
   m_GameObject: {fileID: 8419103634715198758}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 5, z: 5}
-  m_Children: []
+  m_LocalScale: {x: 2.5, y: 7, z: 5}
+  m_Children:
+  - {fileID: 8452902055084783077}
   m_Father: {fileID: 5779148114239435901}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8831277261819403256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8452902055084783077}
+  m_Layer: 0
+  m_Name: Moving Pyramid Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8452902055084783077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8831277261819403256}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7210007, y: 5.1646004, z: 0}
+  m_LocalScale: {x: 1, y: 1.4, z: 1}
+  m_Children: []
+  m_Father: {fileID: 71402816932892923}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

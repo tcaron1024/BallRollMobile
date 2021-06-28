@@ -64,9 +64,14 @@ public class PathBehavior : MonoBehaviour
         obstaclePositions.Add(run2ObstaclePositions);
         obstaclePositions.Add(run3ObstaclePositions);
 
-        // Spawns all interactables for this path (coins and obstacles)
+        // Spawn required coins/obstacles for this path
         SpawnCoins(Random.Range(0, possibleCoinPositions.Count + 1));
         SpawnObstacles(GameController.environmentRuns[GameController.scenerySettings]);
+
+
+        // Spawns all interactables for this path (coins and obstacles) for debugging
+        //SpawnEverything();
+
     }
 
     /// <summary>
@@ -95,9 +100,29 @@ public class PathBehavior : MonoBehaviour
         {
             for (int i = 0; i < obstacleObjects[runNum].Count; i++)
             {
-                Debug.Log("spawned a thing");
+                Instantiate(obstacleObjects[runNum][i], obstaclePositions[runNum][i].position, obstaclePositions[runNum][i].rotation, obstacleParents[runNum]);
             }
         }
 
+    }
+
+    
+    /// <summary>
+    /// Spawns every possible coin/obstacle for debugging purposes
+    /// </summary>
+    private void SpawnEverything()
+    {
+        foreach(Transform t in possibleCoinPositions)
+        {
+            Instantiate(coin, t.position, t.rotation, coinParent);
+        }
+
+        for (int i = 0; i < obstacleParents.Count; i++)
+        {
+            for (int j = 0; j < obstacleObjects[i].Count; j++)
+            {
+                Instantiate(obstacleObjects[i][j], obstaclePositions[i][j].position, obstaclePositions[i][j].rotation, obstacleParents[i]);
+            }
+        }
     }
 }

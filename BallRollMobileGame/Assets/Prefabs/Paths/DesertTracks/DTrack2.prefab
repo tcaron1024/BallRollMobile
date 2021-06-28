@@ -26,7 +26,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 5, z: 5}
-  m_Children: []
+  m_Children:
+  - {fileID: 722716034145787704}
   m_Father: {fileID: 6643999943796397910}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -117,6 +118,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df01ed5341638948b12ae85d425aceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5411212112564386059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 722716034145787704}
+  m_Layer: 0
+  m_Name: Quicksand Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &722716034145787704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5411212112564386059}
+  m_LocalRotation: {x: 0, y: -0.025130149, z: 0, w: 0.9996842}
+  m_LocalPosition: {x: 3.764, y: 4.3, z: -3.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8347656205420030763}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -2.88, z: 0}
 --- !u!1 &5568310470437992590
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,10 +351,14 @@ MonoBehaviour:
   - {fileID: 8347656205420030763}
   run1ObstacleObjects: []
   run1ObstaclePositions: []
-  run2ObstacleObjects: []
-  run2ObstaclePositions: []
-  run3ObstacleObjects: []
-  run3ObstaclePositions: []
+  run2ObstacleObjects:
+  - {fileID: 9095123709987058602, guid: 82652cfc8d98a2245b7cd5d896ccb7a7, type: 3}
+  run2ObstaclePositions:
+  - {fileID: 5798350457673396316}
+  run3ObstacleObjects:
+  - {fileID: 9095123709987058602, guid: 82652cfc8d98a2245b7cd5d896ccb7a7, type: 3}
+  run3ObstaclePositions:
+  - {fileID: 722716034145787704}
 --- !u!1 &6589409111703566170
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +479,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4211b7ce868a0f84fbd2c46f185bc0b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8120050846216113387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5798350457673396316}
+  m_Layer: 0
+  m_Name: Quicksand Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5798350457673396316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120050846216113387}
+  m_LocalRotation: {x: 0, y: -0.025130149, z: 0, w: 0.9996842}
+  m_LocalPosition: {x: 3.764, y: 4.3, z: -3.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3126954383792460198}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -2.88, z: 0}
 --- !u!1 &8927930841129804557
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,7 +535,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 5, z: 5}
-  m_Children: []
+  m_Children:
+  - {fileID: 5798350457673396316}
   m_Father: {fileID: 6643999943796397910}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
