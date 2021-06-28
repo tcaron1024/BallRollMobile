@@ -2496,7 +2496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballSpeed: 0.1
   speedMultiplier: 1
-  pushForceMultiplier: 0.125
+  pushForceMultiplier: 3
   groundCheckDistance: 1
   heightOffset: 5
 --- !u!114 &697807245
@@ -11750,7 +11750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4025450645082162531, guid: 5bf4bd6595851604cae3177a85197551, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4365842520610775001, guid: 5bf4bd6595851604cae3177a85197551, type: 3}
       propertyPath: m_LocalPosition.x

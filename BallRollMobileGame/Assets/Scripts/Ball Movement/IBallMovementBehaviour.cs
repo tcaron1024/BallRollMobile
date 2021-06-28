@@ -142,7 +142,7 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
     /// <param name="forceMagnitude">The signed magnitude of the force to apply to the ball over the X-axis.</param>
     protected void MoveBall(float forceMagnitude)
     {
-        rb.AddForce(Vector3.right * forceMagnitude * pushForceMultiplier, ForceMode.Force);
+        rb.AddForce(Vector3.right * forceMagnitude * pushForceMultiplier * Time.deltaTime, ForceMode.Force);
     }
 
     /// <summary>
