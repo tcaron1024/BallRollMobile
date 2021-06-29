@@ -28,6 +28,17 @@ public class UIController : MonoBehaviour
     /// </summary>
     private int oldShopBalance;
 
+
+    /// <summary>
+    /// Pause menu for the game
+    /// </summary>
+    public GameObject pauseMenu;
+
+    /// <summary>
+    /// Settings menu that controls sensitivity and volume
+    /// </summary>
+    public GameObject settingsMenu;
+
     #region -- UI Object References --
 
     [Tooltip("Text showing score while player is alive")]
@@ -58,7 +69,7 @@ public class UIController : MonoBehaviour
         score = GameController.score;
         coins = GameController.coins;
         scoreText.text = "Score: " + score;
-        coinsText.text = "Coins: " + coins;
+        coinsText.text = "" + coins;
         oldHighScore = PlayerPrefs.GetInt("HighScore", 0);
         oldShopBalance = PlayerPrefs.GetInt("ShopBalance", 0);
     }
@@ -107,6 +118,32 @@ public class UIController : MonoBehaviour
         StartCoroutine("ChangeScene", 0);
     }
 
+    public void revealPause(bool pause)
+    {
+        if(pause)
+        {
+            pauseMenu.SetActive(false);
+            settingsMenu.SetActive(false);
+        }
+        else
+        {
+            pauseMenu.SetActive(true);
+        }
+        
+    }
+
+    public void revealSettings(bool reveal)
+    {
+        if(reveal)
+        {
+            settingsMenu.SetActive(false);
+        }
+        else
+        {
+            settingsMenu.SetActive(true);
+        }
+    }
+
     /// <summary>
     /// Increases score when player reaches end of a path tile
     /// </summary>
@@ -122,6 +159,11 @@ public class UIController : MonoBehaviour
         coins++;
         GameController.coins = coins;
         coinsText.text = "Coins: " + coins;
+    }
+
+    public void loadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     /// <summary>
