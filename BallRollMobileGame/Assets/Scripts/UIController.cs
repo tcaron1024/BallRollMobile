@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -63,6 +63,18 @@ public class UIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI highScoreText;
 
     #endregion
+
+    private void OnEnable()
+    {
+        // Subscribe to the OnPlayerDeath event so we 
+        // display the loss screen on death.
+        EventManager.OnPlayerDeath += ShowLossScreen;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnPlayerDeath -= ShowLossScreen;
+    }
 
     void Start()
     {

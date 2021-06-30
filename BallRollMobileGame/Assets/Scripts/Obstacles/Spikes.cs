@@ -15,7 +15,6 @@ public class Spikes : IColliderObstacle
     /// <param name="player">The player gameobject.</param>
     public override void PerformAction(GameObject player)
     {
-        print("POP");
-        // TODO: Play 'pop' anim and end the game.
+        player.GetComponent<IDamageable>().TakeDamage(gameObject);
     }
 }
