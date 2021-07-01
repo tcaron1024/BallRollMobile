@@ -107,7 +107,11 @@ public class UIController : MonoBehaviour
         {
             highScoreText.text = "High Score: " + oldHighScore;
         }
-        
+
+
+        PlayerPrefs.SetInt("ShopBalance", (coins + oldShopBalance));
+        Debug.Log("Shop balance is now " + PlayerPrefs.GetInt("ShopBalance"));
+
         // Hide old texts and show loss screen
         scoreText.gameObject.SetActive(false);
         coinsText.gameObject.SetActive(false);
