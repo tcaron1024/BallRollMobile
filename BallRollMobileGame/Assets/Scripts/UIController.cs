@@ -69,11 +69,15 @@ public class UIController : MonoBehaviour
         // Subscribe to the OnPlayerDeath event so we 
         // display the loss screen on death.
         EventManager.OnPlayerDeath += ShowLossScreen;
+
+        // Subscribes to OnCoinPickup to add a coin when player collides with one
+        EventManager.OnCoinPickup += CollectCoin;
     }
 
     private void OnDisable()
     {
         EventManager.OnPlayerDeath -= ShowLossScreen;
+        EventManager.OnCoinPickup -= CollectCoin;
     }
 
     void Start()

@@ -78,7 +78,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        print("awake of gamecontroller");
+        Debug.Log("awake of gamecontroller");
         bc = GameObject.FindGameObjectWithTag("Player").GetComponent<BallController>();
         bc.SetLevelSpeed(levelSpeed);
         ps = GameObject.Find("Path Parent").GetComponent<PathSpawner>();
@@ -136,6 +136,8 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void ResetLevel()
     {
+        Debug.Log("Reset Level");
+
         // Resets level progression variables
         levelSpeed = START_LEVEL_SPEED;
         numPaths = START_NUM_PATHS;

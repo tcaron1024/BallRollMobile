@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 2791262852071642163}
   m_Layer: 0
   m_Name: DTrack13
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

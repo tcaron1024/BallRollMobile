@@ -6,9 +6,8 @@ public class Coin : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameObject.FindGameObjectWithTag("GameController").GetComponent<UIController>().CollectCoin();
+            EventManager.CoinPickup();
             Destroy(gameObject);
-            // TODO: play sound on pickup
         }
     }
 }

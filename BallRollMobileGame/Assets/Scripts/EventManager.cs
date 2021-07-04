@@ -13,6 +13,9 @@ public static class EventManager
     // Invoked when the player dies.
     public static Action OnPlayerDeath;
 
+    // Invoked when player picks up a coin
+    public static Action OnCoinPickup;
+
     /// <summary>
     /// Invoked when the player dies.
     /// </summary>
@@ -20,5 +23,13 @@ public static class EventManager
     {
         Debug.Log("Player died!");
         OnPlayerDeath?.Invoke();
+    }
+
+    /// <summary>
+    /// Invoked when player picks up a coin
+    /// </summary>
+    public static void CoinPickup()
+    {
+        OnCoinPickup?.Invoke();
     }
 }

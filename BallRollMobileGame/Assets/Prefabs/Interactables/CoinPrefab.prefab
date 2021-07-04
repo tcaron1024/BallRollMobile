@@ -548,6 +548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54227b2ad4eecb640becd3e0b34d5998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSound: {fileID: 8300000, guid: 450d5e51cd51faa4fa8b2cbc9c2f64e6, type: 3}
 --- !u!64 &7930843168016544621
 MeshCollider:
   m_ObjectHideFlags: 0

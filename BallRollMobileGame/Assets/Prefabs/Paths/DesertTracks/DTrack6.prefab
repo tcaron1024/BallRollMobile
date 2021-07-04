@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 8613290186023336618}
   m_Layer: 0
   m_Name: DTrack6
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

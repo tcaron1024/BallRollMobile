@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 1889531270128141116}
   m_Layer: 0
   m_Name: ATrack4
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -357,6 +357,13 @@ MonoBehaviour:
   - {fileID: 6971681929787860193}
   - {fileID: 4482829535718275709}
   coinParent: {fileID: 1584121582299000793}
+  obstacleParents: []
+  run1ObstacleObjects: []
+  run1ObstaclePositions: []
+  run2ObstacleObjects: []
+  run2ObstaclePositions: []
+  run3ObstacleObjects: []
+  run3ObstaclePositions: []
 --- !u!64 &1889531270128141116
 MeshCollider:
   m_ObjectHideFlags: 0
