@@ -6,6 +6,7 @@
 // Brief Description : The shop that players can buy and select unlocked marbles from.
 *****************************************************************************/
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Shop : MonoBehaviour
 {
@@ -57,5 +58,10 @@ public class Shop : MonoBehaviour
     public void DisplaySelection(ShopItem item)
     {
         selectionDisplay.Init(item.iconImg, item.itemName, item.price, item.unlocked);
+    }
+
+    public void ExitShop()
+    {
+        SceneManager.UnloadSceneAsync("Shop");   
     }
 }
