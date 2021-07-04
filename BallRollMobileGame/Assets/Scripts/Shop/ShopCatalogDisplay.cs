@@ -17,6 +17,15 @@ public class ShopCatalogDisplay : MonoBehaviour
     [Tooltip("The catalog item's text signifying if it's been unlocked.")]
     [SerializeField] private TextMeshProUGUI unlockedTxt;
 
+    // The Button component that the player can click to get more information.
+    private Button btn;
+
+    private void Awake()
+    {
+        btn = GetComponentInChildren<Button>();
+    }
+
+
     /// <summary>
     /// Initializes the display by setting the sprite icon.
     /// </summary>
@@ -27,5 +36,14 @@ public class ShopCatalogDisplay : MonoBehaviour
         iconImg.sprite = spr;
         unlockedTxt.text = (unlocked ? "UNLOCKED" : "LOCKED");
         // TODO: Add functionality for if unlocked or not.
+    }
+
+    /// <summary>
+    /// Adds a listener to the button's onClick event.
+    /// </summary>
+    /// <param name="call">The callback function.</param>
+    public void AddBtnClickListener(UnityEngine.Events.UnityAction call)
+    {
+        btn.onClick.AddListener(call);
     }
 }

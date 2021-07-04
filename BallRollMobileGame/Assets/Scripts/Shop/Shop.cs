@@ -43,7 +43,10 @@ public class Shop : MonoBehaviour
         for (int i = 0; i < database.items.Length; ++i)
         {
             ShopItem item = database.items[i];
-            Instantiate(catalogDisplayPrefab, content.transform).Init(item.iconImg, item.unlocked);
+            ShopCatalogDisplay disp = Instantiate(catalogDisplayPrefab, content.transform);
+
+            disp.Init(item.iconImg, item.unlocked);
+            disp.AddBtnClickListener(() => DisplaySelection(item));
         }
     }
 
