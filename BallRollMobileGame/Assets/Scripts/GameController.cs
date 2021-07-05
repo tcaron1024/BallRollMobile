@@ -82,16 +82,20 @@ public class GameController : MonoBehaviour
         bc = GameObject.FindGameObjectWithTag("Player").GetComponent<BallController>();
         bc.SetLevelSpeed(levelSpeed);
         ps = GameObject.Find("Path Parent").GetComponent<PathSpawner>();
-        
+
         if (environmentRuns == null)
-        {
             environmentRuns = new int[numEnvironments];
-        }
     }
 
     private void Start()
     {
         CreateLevel();
+    }
+
+    void Update()
+    {
+        if (Input.GetButtonDown("Jump"))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     /// <summary>
@@ -123,7 +127,7 @@ public class GameController : MonoBehaviour
         // Increases run count for environment player just completed
         environmentRuns[scenerySettings]++;
 
-        scenerySettings++;
+        //scenerySettings++;
         scenerySettings = (scenerySettings % numEnvironments) + 1;
 
         // Loads next level
