@@ -39,6 +39,8 @@ public class UIController : MonoBehaviour
     /// </summary>
     public GameObject settingsMenu;
 
+    private SFXController sfx;
+
     #region -- UI Object References --
 
     [Tooltip("Text showing score while player is alive")]
@@ -54,7 +56,10 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject newHighScoreObj;
 
     [Tooltip("Coins text on loss UI screen")]
-    [SerializeField] private TextMeshProUGUI lossScreenCoinsText;
+    [SerializeField] private TextMeshProUGUI lossScreenOldCoinsText;
+
+    [Tooltip("Coins text on loss UI screen")]
+    [SerializeField] private TextMeshProUGUI lossScreenNewCoinsText;
 
     [Tooltip("Score text on loss UI screen")]
     [SerializeField] private TextMeshProUGUI lossScreenScoreText;
@@ -88,6 +93,8 @@ public class UIController : MonoBehaviour
         coinsText.text = "" + coins;
         oldHighScore = PlayerPrefs.GetInt("HighScore", 0);
         oldShopBalance = PlayerPrefs.GetInt("ShopBalance", 0);
+
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFXController>();
     }
 
     /// <summary>
@@ -97,7 +104,8 @@ public class UIController : MonoBehaviour
     {
         // Set loss screen texts
         lossScreenScoreText.text = scoreText.text;
-        lossScreenCoinsText.text = coinsText.text;
+        lossScreenOldCoinsText.text = "Coins: " + oldShopBalance + " +";
+        lossScreenNewCoinsText.text = coinsText.text;
 
         // Check if player beat their high score
         if (oldHighScore < score)
@@ -120,8 +128,27 @@ public class UIController : MonoBehaviour
         scoreText.gameObject.SetActive(false);
         coinsText.gameObject.SetActive(false);
         lossScreen.SetActive(true);
+
+        if (coins > 0)
+        {
+            StartCoroutine(CoinAddUp());
+        }
     }
 
+
+    IEnumerator CoinAddUp()
+    {
+        while (coins > 0)
+        {
+            coins--;
+            oldShopBalance++;
+            lossScreenOldCoinsText.text = "Coins: " + oldShopBalance + " +";
+            lossScreenNewCoinsText.text = " " + coins;
+            sfx.PlayAddUp();
+
+            yield return new WaitForSeconds(.1f);
+        }
+    }
 
     /// <summary>
     /// Loads scene based on given name

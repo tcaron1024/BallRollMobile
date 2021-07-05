@@ -8,6 +8,7 @@ TagManager:
   - PathSpawner
   - Music
   - Spikes
+  - SFX
   layers:
   - Default
   - TransparentFX

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SFXController : MonoBehaviour
 {
-    [SerializeField] private AudioClip coinSound;
+    [SerializeField] private AudioClip coinPickUpSound;
+    [SerializeField] private AudioClip coinAddUpSound;
     [SerializeField] private AudioClip deathSound;
 
 
@@ -30,7 +31,7 @@ public class SFXController : MonoBehaviour
 
     public void PlayCoinPickup()
     {
-        PlaySound(coinSound);
+        PlaySound(coinPickUpSound);
     }
 
     public void PlayLoss()
@@ -38,9 +39,15 @@ public class SFXController : MonoBehaviour
         PlaySound(deathSound);
     }
 
+    public void PlayAddUp()
+    {
+        PlaySound(coinAddUpSound);
+    }
+
     private void PlaySound(AudioClip sound)
     {
         sfxSource.clip = sound;
         sfxSource.PlayScheduled(0);
     }
+
 }
