@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b01a7209c3a8424b933f8d4d4020880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeFadeTime: 1
+  volumeFadeTime: 0.5
   menuMusic: {fileID: 8300000, guid: 66102f57050a5e34caacaf7b7644117e, type: 3}
   gameplayMusic:
   - {fileID: 8300000, guid: 6154972eab774444f95859bea6acb9f3, type: 3}

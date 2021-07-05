@@ -122,20 +122,13 @@ public class UIController : MonoBehaviour
         lossScreen.SetActive(true);
     }
 
-    /// <summary>
-    /// Restarts game
-    /// </summary>
-    public void PlayAgain()
-    {
-        StartCoroutine("ChangeScene", SceneManager.GetActiveScene().buildIndex);
-    }
 
     /// <summary>
-    /// Sends player to main menu
+    /// Loads scene based on given name
     /// </summary>
-    public void GoToMainMenu()
+    public void LoadScene(string name)
     {
-        StartCoroutine("ChangeScene", 0);
+        StartCoroutine(ChangeScene(name));
     }
 
     public void revealPause(bool pause)
@@ -181,19 +174,17 @@ public class UIController : MonoBehaviour
         coinsText.text = "Coins: " + coins;
     }
 
-    public void loadMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
     /// <summary>
     /// Waits a small amount of time before changing scene to allow button audio to play
     /// </summary>
     /// <param name="index"></param>
     /// <returns></returns>
-    IEnumerator ChangeScene(int index)
+    IEnumerator ChangeScene(string name)
     {
-        yield return new WaitForSeconds(.1f);
-        SceneManager.LoadScene(index);
+        yield return new WaitForSeconds(.15f);
+        SceneManager.LoadScene(name);
+
+        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicHandler>().ChangeMusic(name);
     }
+
 }
