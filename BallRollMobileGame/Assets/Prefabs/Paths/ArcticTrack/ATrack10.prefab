@@ -248,7 +248,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 5747ea64497b5d242b38a8d4958ab881, type: 3}
 --- !u!114 &5100709427523703423
@@ -284,6 +284,13 @@ MonoBehaviour:
   - {fileID: 974899269644606503}
   - {fileID: 6435978308186561093}
   coinParent: {fileID: 6827746649419786903}
+  obstacleParents: []
+  run1ObstacleObjects: []
+  run1ObstaclePositions: []
+  run2ObstacleObjects: []
+  run2ObstaclePositions: []
+  run3ObstacleObjects: []
+  run3ObstaclePositions: []
 --- !u!1 &4452143417661556873
 GameObject:
   m_ObjectHideFlags: 0
