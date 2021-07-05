@@ -4,15 +4,24 @@ using System.Collections.Generic;
 
 public class MusicHandler : MonoBehaviour
 {
+    [Tooltip("Amount of time it takes for volume to fade to desired volume")]
+    public float volumeFadeTime = 1f;
+
     [SerializeField] private AudioClip menuMusic;
     [SerializeField] private AudioClip[] gameplayMusic = new AudioClip[3];
     [SerializeField] private AudioClip shopMusic;
 
     private List<AudioClip> availableGameplayMusic = new List<AudioClip>();
 
+    /// <summary>
+    /// Desired volume for music
+    /// </summary>
+    private float desiredVolume;
 
-    private AudioSource source1;
-    private AudioSource source2;
+    /// <summary>
+    /// Audio source that plays the music
+    /// </summary>
+    private AudioSource musicSource;
 
     public enum MusicType
     {
@@ -31,13 +40,14 @@ public class MusicHandler : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
 
-        source1 = transform.GetChild(0).GetComponent<AudioSource>();
-        source2 = transform.GetChild(1).GetComponent<AudioSource>();
+        musicSource = transform.GetChild(0).GetComponent<AudioSource>();
 
         foreach (AudioClip clip in gameplayMusic)
         {
             availableGameplayMusic.Add(clip);
         }
+
+        desiredVolume = musicSource.volume;
     }
 
     public void ChangeMusic(string newMusic)
@@ -54,25 +64,33 @@ public class MusicHandler : MonoBehaviour
         {
             currentMusic = MusicType.GAMEPLAY;
         }
-        PlayMusic();
+        FindMusic();
     }
 
-
-    private void PlayMusic()
+    /// <summary>
+    /// Determines which music to play
+    /// </summary>
+    private void FindMusic()
     {
+        CancelInvoke("FindMusic");
+
         // Finds which type of music should be played
         switch (currentMusic)
         {
             // Menu music should be played
             case MusicType.MENU:
-                source1.clip = menuMusic;
+                StartCoroutine(FadeOutMusic(menuMusic));
                 break;
 
-            // Gameplay music should be played
-            case MusicType.GAMEPLAY:
+            // Shop music should be played
+            case MusicType.SHOP:
+                StartCoroutine(FadeOutMusic(shopMusic)); ;
+                break;
 
+            // Default means gameplay music should be played 
+            default:
                 // Fills list of available music if it is empty
-                if (availableGameplayMusic.Count == 0)
+                if (availableGameplayMusic.Count < 1)
                 {
                     foreach (AudioClip clip in gameplayMusic)
                     {
@@ -82,31 +100,51 @@ public class MusicHandler : MonoBehaviour
 
                 // Plays random music from available list
                 int rand = Random.Range(0, availableGameplayMusic.Count);
-                source1.clip = availableGameplayMusic[rand];
+                StartCoroutine(FadeOutMusic(availableGameplayMusic[rand]));
                 availableGameplayMusic.RemoveAt(rand);
-                break;
-
-            // Shop music should be played
-            case MusicType.SHOP:
-                source1.clip = shopMusic;
-                break;
-
-            // default means gameplay music should be played -- should never reach here
-            default:
-                if (availableGameplayMusic.Count == 0)
-                {
-                    foreach (AudioClip clip in gameplayMusic)
-                    {
-                        availableGameplayMusic.Add(clip);
-                    }
-                }
-                int rand2 = Random.Range(0, availableGameplayMusic.Count);
-                source1.clip = availableGameplayMusic[rand2];
-                availableGameplayMusic.RemoveAt(rand2);
                 break;
         }
 
-        source1.PlayScheduled(0);
-        source2.Stop();
+    }
+
+    /// <summary>
+    /// Fades out current music and fades in new music
+    /// </summary>
+    /// <param name="newMusic">New music to fade in</param>
+    /// <returns></returns>
+    private IEnumerator FadeOutMusic(AudioClip newMusic)
+    {
+        Debug.Log("new clip = " + newMusic.name);
+
+        float t = 0;
+
+        while (t < volumeFadeTime)
+        {
+            t += Time.deltaTime;
+            musicSource.volume = Mathf.Lerp(desiredVolume, 0, t / volumeFadeTime);
+            yield return null;
+        }
+
+        musicSource.clip = newMusic;
+        musicSource.PlayScheduled(0);
+
+        t = 0;
+        if (currentMusic == MusicType.GAMEPLAY)
+        {
+            Invoke("FindMusic", musicSource.clip.length);
+        }
+
+
+        while (t < volumeFadeTime)
+        {
+            t += Time.deltaTime;
+            musicSource.volume = Mathf.Lerp(0, desiredVolume, t / volumeFadeTime);
+            yield return null;
+        }
+
+        musicSource.volume = desiredVolume;
+
+
+
     }
 }
