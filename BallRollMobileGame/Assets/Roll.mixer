@@ -17,7 +17,7 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: cb5117360a241d44caf21f336c7779f1
-    name: MyExposedParam
+    name: pitchShift
   m_AudioMixerGroupViews:
   - guids:
     - 9c2fb49bc11d98f4abfc1c614e727938

@@ -35,13 +35,13 @@ public class BallController : MonoBehaviour
         ballMovementBehaviour.PushBall();
 
 
-        //float speed = rb.velocity.magnitude;
-        //float scaled = speed / maxSpeed;
+        float speed = rb.velocity.magnitude;
+        float scaled = speed / maxSpeed;
 
-        //scaled = Mathf.Clamp(scaled, 0, 1);
-        //rollSource.pitch = scaled;
+        scaled = Mathf.Clamp(scaled, 0, 1);
+        rollSource.pitch = scaled;
 
-        //rollSource.outputAudioMixerGroup.audioMixer.SetFloat("pitch", 1 / scaled);
+        rollSource.outputAudioMixerGroup.audioMixer.SetFloat("pitchShift", 1 / scaled);
     }
 
     public void SetLevelSpeed(float speed)
@@ -50,22 +50,22 @@ public class BallController : MonoBehaviour
         ballMovementBehaviour.SetLevelSpeed(speed);
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Path"))
-    //    {
-    //        Debug.Log("Playing roll sound");
-    //        rollSource.Play();
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Path") && !rollSource.isPlaying)
+        {
+            Debug.Log("Playing roll sound");
+            rollSource.Play();
 
-    //    }
-    //}
+        }
+    }
 
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Path"))
-    //    {
-    //        Debug.Log("Stopping roll sound");
-    //        rollSource.Stop();
-    //    }
-    //}
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Path") && rollSource.isPlaying)
+        {
+            Debug.Log("Stopping roll sound");
+            rollSource.Stop();
+        }
+    }
 }
