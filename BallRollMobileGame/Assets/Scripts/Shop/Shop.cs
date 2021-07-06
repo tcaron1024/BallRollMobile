@@ -8,6 +8,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class Shop : MonoBehaviour
     [Tooltip("The game object that displays the currently selected item.")]
     [SerializeField] private ShopSelectionDisplay selectionDisplay;
 
+    [Tooltip("The button the player presses to purchase a locked item.")]
+    [SerializeField] private Button purchaseBtn;
+
 
 
     [Header("Shop Balance Section")]
@@ -38,6 +42,16 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
+        Init();
+    }
+
+    /// <summary>
+    /// Initializes the shop by loading the catalog, UI, etc.
+    /// </summary>
+    private void Init()
+    {
+        purchaseBtn.gameObject.SetActive(false);
+
         // Populate the catalog on start.
         PopulateCatalog();
 
@@ -83,7 +97,17 @@ public class Shop : MonoBehaviour
     /// <param name="item">The ShopItem to display.</param>
     public void DisplaySelection(ShopItem item)
     {
-        selectionDisplay.Init(item.iconImg, item.itemName, item.price, item.unlocked);
+        selectionDisplay.UpdateDisplay(item.iconImg, item.itemName, item.price, item.unlocked);
+
+        if (item.unlocked)
+            purchaseBtn.gameObject.SetActive(false);
+        else
+        {
+            purchaseBtn.onClick.RemoveAllListeners();
+            purchaseBtn.onClick.AddListener(() => Buy(item));
+
+            purchaseBtn.gameObject.SetActive(true);
+        }
     }
 
     /// <summary>
