@@ -7,6 +7,7 @@ public class SFXController : MonoBehaviour
     [SerializeField] private AudioClip coinPickUpSound;
     [SerializeField] private AudioClip coinAddUpSound;
     [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip portalSound;
 
 
     AudioSource sfxSource;
@@ -16,12 +17,14 @@ public class SFXController : MonoBehaviour
         // display the loss screen on death.
         EventManager.OnPlayerDeath += PlayLoss;
         EventManager.OnCoinPickup += PlayCoinPickup;
+        EventManager.OnLevelComplete += PlayPortal;
     }
 
     private void OnDisable()
     {
         EventManager.OnPlayerDeath -= PlayLoss;
         EventManager.OnCoinPickup -= PlayCoinPickup;
+        EventManager.OnLevelComplete -= PlayPortal;
     }
 
     private void Awake()
@@ -42,6 +45,11 @@ public class SFXController : MonoBehaviour
     public void PlayAddUp()
     {
         PlaySound(coinAddUpSound);
+    }
+
+    public void PlayPortal()
+    {
+        PlaySound(portalSound);
     }
 
     private void PlaySound(AudioClip sound)

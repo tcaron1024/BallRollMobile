@@ -16,6 +16,9 @@ public static class EventManager
     // Invoked when player picks up a coin
     public static Action OnCoinPickup;
 
+    // Invoked when player goes through a portal (completes a level)
+    public static Action OnLevelComplete;
+
     /// <summary>
     /// Invoked when the player dies.
     /// </summary>
@@ -31,5 +34,13 @@ public static class EventManager
     public static void CoinPickup()
     {
         OnCoinPickup?.Invoke();
+    }
+
+    /// <summary>
+    /// Invoked when player goes through a portal (completes a level)
+    /// </summary>
+    public static void LevelComplete()
+    {
+        OnLevelComplete?.Invoke();
     }
 }

@@ -87,6 +87,16 @@ public class GameController : MonoBehaviour
             environmentRuns = new int[numEnvironments];
     }
 
+    private void OnEnable()
+    {
+        EventManager.OnLevelComplete += CompleteLevel;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnLevelComplete -= CompleteLevel;
+    }
+
     private void Start()
     {
         CreateLevel();
