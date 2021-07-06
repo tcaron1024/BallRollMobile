@@ -7,11 +7,11 @@
 *****************************************************************************/
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Shop : MonoBehaviour
 {
     [Header("Prefabs")]
-
     [Tooltip("The prefab that displays an item in the catalog.")]
     [SerializeField] private ShopCatalogDisplay catalogDisplayPrefab;
 
@@ -20,18 +20,29 @@ public class Shop : MonoBehaviour
 
 
     [Header("Catalog Section")]
-
     [Tooltip("The child game object that holds all of the store's content.")]
     [SerializeField] private GameObject content;
+
 
     [Header("Selection Display Section")]
     [Tooltip("The game object that displays the currently selected item.")]
     [SerializeField] private ShopSelectionDisplay selectionDisplay;
 
+
+
+    [Header("Shop Balance Section")]
+    [Tooltip("The text that displays the player's shop balance.")]
+    [SerializeField] private TextMeshProUGUI balanceText;
+
+
+
     private void Start()
     {
         // Populate the catalog on start.
         PopulateCatalog();
+
+        // Make sure the balance text displays the player's balance.
+        UpdateBalanceText();
     }
 
     /// <summary>
@@ -52,6 +63,21 @@ public class Shop : MonoBehaviour
     }
 
     /// <summary>
+    /// Updates the shop balance text with the ShopBalance player pref.
+    /// </summary>
+    private void UpdateBalanceText()
+    {
+        balanceText.text = "X " + PlayerPrefs.GetInt("ShopBalance");
+    }
+
+    // TODO: Look into saving to binary file.
+    // Need to make a file that contains all of the shop data the player owns.
+    public void Buy(ShopItem item)
+    {
+
+    }
+
+    /// <summary>
     /// Displays the currently selected catalog item in the larger display area.
     /// </summary>
     /// <param name="item">The ShopItem to display.</param>
@@ -60,6 +86,9 @@ public class Shop : MonoBehaviour
         selectionDisplay.Init(item.iconImg, item.itemName, item.price, item.unlocked);
     }
 
+    /// <summary>
+    /// Unloads the Shop scene asynchronously.
+    /// </summary>
     public void ExitShop()
     {
         SceneManager.UnloadSceneAsync("Shop");   
