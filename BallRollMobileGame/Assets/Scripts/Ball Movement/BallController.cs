@@ -22,7 +22,10 @@ public class BallController : MonoBehaviour
         ballMovementBehaviour = GetComponent<IBallMovementBehaviour>();
         rb = GetComponent<Rigidbody>();
         if (ballMovementBehaviour == null)
-            Debug.LogWarning(gameObject.name + ": no IBallMovementBehaviour component found! Ball will behave improperly...");
+        {
+            Debug.LogWarning("No IBallMovementBehaviour found. Force adding BallSwipeMovement.");
+            ballMovementBehaviour = gameObject.AddComponent<BallSwipeMovement>();
+        }
     }
 
     private void FixedUpdate()
