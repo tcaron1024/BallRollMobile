@@ -13,23 +13,23 @@ public class SFXController : MonoBehaviour
     AudioSource sfxSource;
     private void OnEnable()
     {
-        // Subscribe to the OnPlayerDeath event so we 
-        // display the loss screen on death.
         EventManager.OnPlayerDeath += PlayLoss;
         EventManager.OnCoinPickup += PlayCoinPickup;
-        EventManager.OnLevelComplete += PlayPortal;
     }
 
     private void OnDisable()
     {
         EventManager.OnPlayerDeath -= PlayLoss;
         EventManager.OnCoinPickup -= PlayCoinPickup;
-        EventManager.OnLevelComplete -= PlayPortal;
     }
 
     private void Awake()
     {
         sfxSource = GetComponent<AudioSource>();
+        if (GameController.currentLevelNum > 1)
+        {
+            PlayPortal();
+        }
     }
 
     public void PlayCoinPickup()

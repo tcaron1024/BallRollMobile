@@ -4007,6 +4007,7 @@ MonoBehaviour:
   coinPickUpSound: {fileID: 8300000, guid: 450d5e51cd51faa4fa8b2cbc9c2f64e6, type: 3}
   coinAddUpSound: {fileID: 8300000, guid: 06427f2bd498dcb479595ef5da56f94b, type: 3}
   deathSound: {fileID: 8300000, guid: 6fe32ae77a2d8e9488e91c390de57140, type: 3}
+  portalSound: {fileID: 8300000, guid: e4a87799a8d6ed44c8a6f02a654a976b, type: 3}
 --- !u!1 &884370021
 GameObject:
   m_ObjectHideFlags: 0

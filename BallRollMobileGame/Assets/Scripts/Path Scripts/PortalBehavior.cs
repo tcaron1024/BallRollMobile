@@ -8,7 +8,7 @@ public class PortalBehavior : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameObject.Find("GameController").GetComponent<GameController>().CompleteLevel();
+            EventManager.LevelComplete();
         }
     }
 }

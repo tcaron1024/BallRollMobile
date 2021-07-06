@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -140,9 +141,14 @@ public class GameController : MonoBehaviour
         //scenerySettings++;
         scenerySettings = (scenerySettings % numEnvironments) + 1;
 
+        StartCoroutine(StartNextLevel());
+    }
+
+    private IEnumerator StartNextLevel()
+    {
+        yield return new WaitForSeconds(.15f);
         // Loads next level
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        
     }
 
     /// <summary>

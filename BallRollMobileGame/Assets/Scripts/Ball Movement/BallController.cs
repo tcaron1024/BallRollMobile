@@ -48,6 +48,7 @@ public class BallController : MonoBehaviour
     {
         Debug.Log("Set speed = " + speed);
         ballMovementBehaviour.SetLevelSpeed(speed);
+
     }
 
     private void OnCollisionEnter(Collision collision)
