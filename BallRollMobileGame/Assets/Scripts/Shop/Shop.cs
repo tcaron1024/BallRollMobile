@@ -42,14 +42,6 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
-        Init();
-    }
-
-    /// <summary>
-    /// Initializes the shop by loading the catalog, UI, etc.
-    /// </summary>
-    private void Init()
-    {
         purchaseBtn.gameObject.SetActive(false);
 
         // Populate the catalog on start.
@@ -73,6 +65,11 @@ public class Shop : MonoBehaviour
 
             disp.Init(item.iconImg, item.unlocked);
             disp.AddBtnClickListener(() => DisplaySelection(item));
+
+            // Display the first item in the catalog so we're not displaying
+            // empty space.
+            if (i == 0)
+                DisplaySelection(item);
         }
     }
 
