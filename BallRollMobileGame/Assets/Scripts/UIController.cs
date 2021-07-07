@@ -39,6 +39,11 @@ public class UIController : MonoBehaviour
     /// </summary>
     public GameObject settingsMenu;
 
+    /// <summary>
+    /// animator for the coin 
+    /// </summary>
+    public Animator coinAnim; 
+
     private SFXController sfx;
 
     #region -- UI Object References --
@@ -95,6 +100,8 @@ public class UIController : MonoBehaviour
         oldShopBalance = PlayerPrefs.GetInt("ShopBalance", 0);
 
         sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFXController>();
+
+        coinAnim = GameObject.Find("coin_light_00000").GetComponent<Animator>();
     }
 
     /// <summary>
@@ -199,6 +206,16 @@ public class UIController : MonoBehaviour
         coins++;
         GameController.coins = coins;
         coinsText.text = "Coins: " + coins;
+        coinAnim.SetBool("coin", true);
+        Invoke("resetCoin", 0.75f);
+    }
+
+    /// <summary>
+    /// Will turn the parameter that plays the coin animation back false
+    /// </summary>
+    private void resetCoin()
+    {
+        coinAnim.SetBool("coin", false);
     }
 
     /// <summary>
