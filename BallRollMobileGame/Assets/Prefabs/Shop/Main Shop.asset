@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bdc22bd89357974982ff3b23e9ea437, type: 3}
   m_Name: Main Shop
   m_EditorClassIdentifier: 
-  _databaseName: Main Shop
-  _items:
+  databaseName: 
+  items:
   - {fileID: -6227584695086157280, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
   - {fileID: -6227584695086157280, guid: ba55151df249acb4d9e675ee978ca1e1, type: 3}

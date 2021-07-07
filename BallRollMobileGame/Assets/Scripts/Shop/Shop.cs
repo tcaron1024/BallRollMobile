@@ -39,16 +39,39 @@ public class Shop : MonoBehaviour
     [SerializeField] private TextMeshProUGUI balanceText;
 
 
-
     private void Start()
     {
         purchaseBtn.gameObject.SetActive(false);
 
-        // Populate the catalog on start.
+        // Loads any pre-existing shop data (i.e. from previous play throughs).
+        // If no shop data is found, the default shop database is used.
+        LoadShopData();
+
+        // Populate the catalog on after database retrieval.
         PopulateCatalog();
 
         // Make sure the balance text displays the player's balance.
         UpdateBalanceText();
+    }
+
+
+    private void LoadShopData()
+    {
+        SaveSystem.ClearData();
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        // If the player has purchased an item,
+        // there should be data saved, so we'll take it from there
+        // so the shop is updated appropriately.
+        if (data != null)
+            database = ShopDatabase.CreateFromSave(data, database);
+
+        // If there is no data to load from, use the default database.
+    }
+
+    private void SaveShopData()
+    {
+        SaveSystem.SavePlayerData(database);
     }
 
     /// <summary>
@@ -61,6 +84,8 @@ public class Shop : MonoBehaviour
         for (int i = 0; i < database.items.Length; ++i)
         {
             ShopItem item = database.items[i];
+            
+
             ShopCatalogDisplay disp = Instantiate(catalogDisplayPrefab, content.transform);
 
             disp.Init(item.iconImg, item.unlocked);
@@ -81,11 +106,15 @@ public class Shop : MonoBehaviour
         balanceText.text = "X " + PlayerPrefs.GetInt("ShopBalance");
     }
 
-    // TODO: Look into saving to binary file.
-    // Need to make a file that contains all of the shop data the player owns.
+    /// <summary>
+    /// Unlocks the item and displays it.
+    /// </summary>
+    /// <param name="item">The item to purchase.</param>
     public void Buy(ShopItem item)
     {
-
+        item.Purchase();
+        DisplaySelection(item);
+        SaveSystem.SavePlayerData(database);
     }
 
     /// <summary>
