@@ -44,7 +44,7 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
     private float maxYPos;
     #endregion
 
-
+    private bool grounded = true;
 
 
     private void Awake()
@@ -60,14 +60,30 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
+        PerformGroundCheck();
+
         // Continually clamp the Y-pos.
         ClampYPos();
+
+        if (grounded)
+        {
+            // Play roll sound.
+        }
+        else
+        {
+            // Play mid-air sound.
+        }
+    }
+
+    private void PerformGroundCheck()
+    {
+        grounded = Physics.Linecast(rb.position, rb.position + (Vector3.down * groundCheckDistance));
     }
 
     private void ClampYPos()
     {
         // Continually update the maxYPos as long as the marble is grounded.
-        if (Physics.Linecast(rb.position, rb.position + (Vector3.down * groundCheckDistance)))
+        if (grounded)
         {
             maxYPos = rb.position.y + heightOffset;
         }
