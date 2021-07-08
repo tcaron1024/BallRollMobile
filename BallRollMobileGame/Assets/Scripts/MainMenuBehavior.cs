@@ -18,14 +18,15 @@ public class MainMenuBehavior : MonoBehaviour
         }
     }
 
-    public void StartGame()
-    {
-        StartCoroutine("ChangeScene", "Gameplay");
-    }
     IEnumerator ChangeScene(string name)
     {
         yield return new WaitForSeconds(.15f);
         SceneManager.LoadScene(name);
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        StartCoroutine("ChangeScene", sceneName);
     }
 
     public void QuitGame()
