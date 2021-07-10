@@ -22,21 +22,51 @@ public class Health : MonoBehaviour
     public bool invincible { get { return _invincible; } }
 
 
-    // Events for taking damage and death.
+    // Event for taking damage.
     public delegate void OnDamageHandler(int remainingLives);
     public event OnDamageHandler OnDamageTaken;
 
+    // A separate event for getting the damage and attacker.
+    // Both the previous damage event and this one are invoked simultaneously.
+    public delegate void OnDamageHandlerAttacker(int remainingLives, Attacker attacker);
+    public event OnDamageHandlerAttacker OnDamageTakenAttacker;
+
+    // Event for death.
     public delegate void OnDeathHandler();
     public event OnDeathHandler OnDeath;
 
 
-
-
-    private void Start()
+    private void Awake()
     {
         currentLives = maxLives;
         _invincible = false;
     }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Jump"))
+            TakeDamage(null, 1);
+    }
+
+    // If the OnDisable() method in the GameController is causing errors with a missing Health
+    // component on the Player game object, uncomment the below lines and comment out the GameController OnDisable() method.
+
+    private void OnDestroy()
+    {
+        // Setting our events to null so we don't run into trouble
+        // with OnDisable() conflicts in the GameManager (in regards to the player's health).
+        OnDamageTaken = null;
+        OnDeath = null;
+    }
+
+
+
+
+    public int GetCurrentLives()
+    {
+        return currentLives;
+    }
+
 
     public void TakeDamage(Attacker attacker, int health)
     {
@@ -51,6 +81,7 @@ public class Health : MonoBehaviour
         {
             StartCoroutine(DamageCooldown());
             OnDamageTaken?.Invoke(currentLives);
+            OnDamageTakenAttacker?.Invoke(currentLives, attacker);
         }
         // If we're out lives, invoke the event and destroy the object.
         else

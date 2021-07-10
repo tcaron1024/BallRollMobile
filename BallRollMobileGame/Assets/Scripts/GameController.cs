@@ -80,17 +80,25 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         Debug.Log("awake of gamecontroller");
+        if (environmentRuns == null)
+            environmentRuns = new int[numEnvironments];
+    }
+
+    private void Start()
+    {
         bc = GameObject.FindGameObjectWithTag("Player").GetComponent<BallController>();
         bc.SetLevelSpeed(levelSpeed);
         ps = GameObject.Find("Path Parent").GetComponent<PathSpawner>();
 
-        if (environmentRuns == null)
-            environmentRuns = new int[numEnvironments];
+        CreateLevel();
     }
 
     private void OnEnable()
     {
         EventManager.OnLevelComplete += CompleteLevel;
+        
+        // Make sure that we subscribe the player's OnDeath event to the EventManager's PlayerDeath() method.
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().OnDeath += EventManager.PlayerDeath;
     }
 
     private void OnDisable()
@@ -98,16 +106,6 @@ public class GameController : MonoBehaviour
         EventManager.OnLevelComplete -= CompleteLevel;
     }
 
-    private void Start()
-    {
-        CreateLevel();
-    }
-
-    void Update()
-    {
-        if (Input.GetButtonDown("Jump"))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
 
     /// <summary>
     /// Creates level using given variables
