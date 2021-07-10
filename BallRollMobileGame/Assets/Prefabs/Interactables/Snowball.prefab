@@ -4824,6 +4824,7 @@ GameObject:
   - component: {fileID: 7592946212529226881}
   - component: {fileID: 5673241474261790795}
   - component: {fileID: 6283326053957960398}
+  - component: {fileID: 4689546272298877139}
   m_Layer: 0
   m_Name: Snowball
   m_TagString: Untagged
@@ -4908,3 +4909,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.98630416
   m_Center: {x: 0.00037023425, y: -0.0003052354, z: 0.0030596554}
+--- !u!54 &4689546272298877139
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6177702151440863646}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
