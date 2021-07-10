@@ -14105,26 +14105,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3843330636307045884, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: m_Range
-      value: 1.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 3843330636307045884, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3843330636307045884, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: m_Color.g
-      value: 0.37385702
-      objectReference: {fileID: 0}
-    - target: {fileID: 3843330636307045884, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3843330636307045884, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3843330636818100528, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14170,49 +14150,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3843330636818100529, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: pitchCurve.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3843330636818100529, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
       propertyPath: rollSource
       value: 
       objectReference: {fileID: 673402163}
-    - target: {fileID: 3843330636818100529, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: pitchCurve.m_Curve.Array.data[0].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3843330636818100529, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: pitchCurve.m_Curve.Array.data[0].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3843330636818100529, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: pitchCurve.m_Curve.Array.data[1].time
-      value: 1.1458435
-      objectReference: {fileID: 0}
-    - target: {fileID: 3843330636818100529, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: pitchCurve.m_Curve.Array.data[1].value
-      value: 0.962265
-      objectReference: {fileID: 0}
-    - target: {fileID: 3843330636818100529, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: pitchCurve.m_Curve.Array.data[1].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3843330636818100529, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: pitchCurve.m_Curve.Array.data[1].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3843330636818100529, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: pitchCurve.m_PostInfinity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3843330636818100529, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: pitchCurve.m_Curve.Array.data[0].tangentMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3843330636818100529, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: pitchCurve.m_Curve.Array.data[1].tangentMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3843330636818100543, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
       propertyPath: m_Name
       value: marble
