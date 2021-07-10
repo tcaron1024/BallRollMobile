@@ -462,6 +462,7 @@ GameObject:
   - component: {fileID: 1255004436}
   - component: {fileID: 1255004438}
   - component: {fileID: 1255004437}
+  - component: {fileID: 6507465522717909529}
   m_Layer: 0
   m_Name: SpikesRotatingPref
   m_TagString: Spikes
@@ -576,6 +577,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2fb3688fff1a14e9da7ffebd4e56e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6507465522717909529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2198612276289915907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee1ed113ee19db41b53a38f2cce14b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackerName: Spikes
+  damage: 1
+  attackerType: 1
 --- !u!1 &7229089607531817984
 GameObject:
   m_ObjectHideFlags: 0

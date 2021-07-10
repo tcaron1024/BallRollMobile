@@ -7,6 +7,7 @@
 *****************************************************************************/
 using UnityEngine;
 
+[RequireComponent(typeof(Attacker))]
 public class Spikes : IColliderObstacle
 {
     // The component that allows this obstacle to inflict damage.
