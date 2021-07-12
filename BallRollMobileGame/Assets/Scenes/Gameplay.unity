@@ -14272,10 +14272,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: marble
       objectReference: {fileID: 0}
-    - target: {fileID: 3843330636818100543, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 945e7dc09e9dca34e829126dcf766aba, type: 3}
 --- !u!4 &3871082217289676261
