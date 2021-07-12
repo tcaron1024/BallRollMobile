@@ -16,8 +16,9 @@ public class Spikes : IColliderObstacle
     [Tooltip("True if the game object should be destroyed after hitting the player.")]
     [SerializeField] private bool destroyOnContact;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         attackingComponent = GetComponent<Attacker>();
     }
 

@@ -491,6 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd05871c419d0845b116ade9b690751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _name: Classic Marble
   maxLives: 3
   invincibilityTime: 2
 --- !u!114 &-6227584695086157280

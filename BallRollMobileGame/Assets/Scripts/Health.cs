@@ -10,6 +10,9 @@ using System.Collections;
 
 public class Health : MonoBehaviour
 {
+    [Tooltip("The name of the object.")]
+    [SerializeField] private string _name;
+
     [Tooltip("The maximum (starting) lives this object has.")]
     [SerializeField] private int maxLives;
     private int currentLives;
@@ -42,15 +45,6 @@ public class Health : MonoBehaviour
         _invincible = false;
     }
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Jump"))
-            TakeDamage(null, 1);
-    }
-
-    // If the OnDisable() method in the GameController is causing errors with a missing Health
-    // component on the Player game object, uncomment the below lines and comment out the GameController OnDisable() method.
-
     private void OnDestroy()
     {
         // Setting our events to null so we don't run into trouble
@@ -74,6 +68,8 @@ public class Health : MonoBehaviour
             return;
 
         currentLives -= health;
+
+        Debug.Log(_name + " has been hit for '" + health + "' HP by '" + attacker.GetName() + "'!");
 
         // If we're not out of lives yet, start invincibility counter
         // and invoke the OnDamageTaken event.

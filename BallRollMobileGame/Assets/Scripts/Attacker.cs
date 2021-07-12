@@ -22,16 +22,28 @@ public class Attacker : MonoBehaviour
     public enum ATTACKER_TYPE {UNASSIGNED, SPIKES, SNOWBALL, QUICKSAND };
     [SerializeField] private ATTACKER_TYPE attackerType;
 
+    /// <summary>
+    /// Attacks the target for a pre-determined amount of damage.
+    /// </summary>
+    /// <param name="target">The target to attack.</param>
     public void Attack(Health target)
     {
         target.TakeDamage(this, damage);
     }
 
+    /// <summary>
+    /// Returns the attacker's name.
+    /// </summary>
+    /// <returns>The attacker's name.</returns>
     public string GetName()
     {
         return attackerName;
     }
 
+    /// <summary>
+    /// Returns the attacker's type.
+    /// </summary>
+    /// <returns>The attacker's type.</returns>
     public ATTACKER_TYPE GetAttackerType()
     {
         return attackerType;

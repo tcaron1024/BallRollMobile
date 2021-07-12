@@ -20,6 +20,15 @@ public class QuickSand : ITriggerObstacle
     // The player's initial scale on entering the trigger.
     private Vector3 initialScale;
 
+    // The component that allows this obstacle to attack the player.
+    private Attacker attackingComponent;
+
+
+    protected override void Awake()
+    {
+        base.Awake();
+        attackingComponent = GetComponentInChildren<Attacker>();
+    }
 
     /// <summary>
     /// Begins sucking the player into the quicksand.
@@ -53,13 +62,21 @@ public class QuickSand : ITriggerObstacle
         // the trigger.
         initialScale = player.transform.localScale;
 
+        Health playerHealth = player.GetComponent<Health>();
+
+
         // Run until StopAction() is called.
         while (true)
         {
             float dist = Vector3.Distance(transform.position, playerRb.position);
 
             PerformSuck(dist);
-            ShrinkPlayer(player, dist, initialDistance);
+            Vector3 newScale = ShrinkPlayer(player, dist, initialDistance);
+
+            // If the player gets too small (i.e. gets too close to quick sand center)
+            // deal damage to the player.
+            if (newScale.x < .2f)
+                attackingComponent.Attack(playerHealth);
 
             yield return null;
         }
@@ -87,13 +104,15 @@ public class QuickSand : ITriggerObstacle
     /// </summary>
     /// <param name="player">The player gameobject.</param>
     /// <param name="dist">The distance the player is from the quicksand.</param>
-    private void ShrinkPlayer(GameObject player, float dist, float initialDistance)
+    private Vector3 ShrinkPlayer(GameObject player, float dist, float initialDistance)
     {
         float normalizedDistance = dist / initialDistance;
         normalizedDistance = Mathf.Clamp(normalizedDistance, 0.1f, 1f);
-        print(normalizedDistance);
+        //print(normalizedDistance);
 
         Vector3 scale = Vector3.one * normalizedDistance;
         player.transform.localScale = scale;
+
+        return scale;
     }
 }

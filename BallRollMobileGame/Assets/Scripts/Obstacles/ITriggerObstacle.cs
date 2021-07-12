@@ -10,6 +10,15 @@ using UnityEngine;
 
 public abstract class ITriggerObstacle : MonoBehaviour, IObstacle
 {
+
+    protected virtual void Awake()
+    {
+        Collider col = GetComponent<Collider>();
+
+        if (!col.isTrigger)
+            col.isTrigger = true;
+    }
+
     /// <summary>
     /// Called when the Player collides with this Obstacle.
     /// </summary>
