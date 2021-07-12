@@ -57,7 +57,7 @@ public class Shop : MonoBehaviour
 
     private void LoadShopData()
     {
-        SaveSystem.ClearData();
+        //SaveSystem.ClearData();
         PlayerData data = SaveSystem.LoadPlayer();
 
         // If the player has purchased an item,
@@ -141,6 +141,6 @@ public class Shop : MonoBehaviour
     /// </summary>
     public void ExitShop()
     {
-        SceneManager.UnloadSceneAsync("Shop");   
+        SceneManager.UnloadSceneAsync("Shop");
     }
 }

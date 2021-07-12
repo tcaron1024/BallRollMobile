@@ -49,6 +49,7 @@ public static class SaveSystem
 
     public static void ClearData()
     {
+        Debug.Log("SAVE SYSTEM: Clearing data...");
         string path = Application.persistentDataPath + SAVE_PATH;
         if (File.Exists(path))
             File.Delete(path);

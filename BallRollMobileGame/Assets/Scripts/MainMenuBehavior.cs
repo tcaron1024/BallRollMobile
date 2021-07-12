@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,6 +27,11 @@ public class MainMenuBehavior : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         StartCoroutine("ChangeScene", sceneName);
+    }
+
+    public void LoadSceneAdditive(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
     }
 
     public void QuitGame()
