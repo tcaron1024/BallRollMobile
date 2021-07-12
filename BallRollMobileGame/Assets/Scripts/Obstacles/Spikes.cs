@@ -3,7 +3,7 @@
 // Author :            Kyle Grenier
 // Creation Date :     06/27/2021
 //
-// Brief Description : The Spikes obstacle 'pops' the player on impact, dealing damage.
+// Brief Description : The Spikes obstacle damage the player on impact.
 *****************************************************************************/
 using UnityEngine;
 
@@ -12,6 +12,9 @@ public class Spikes : IColliderObstacle
 {
     // The component that allows this obstacle to inflict damage.
     private Attacker attackingComponent;
+
+    [Tooltip("True if the game object should be destroyed after hitting the player.")]
+    [SerializeField] private bool destroyOnContact;
 
     private void Awake()
     {
@@ -25,5 +28,8 @@ public class Spikes : IColliderObstacle
         attackingComponent.Attack(playerHealth);
 
         // TODO: Particle effects?? Sounds???
+
+        if (destroyOnContact)
+            Destroy(gameObject);
     }
 }
