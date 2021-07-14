@@ -19,6 +19,9 @@ public static class EventManager
     // Invoked when player goes through a portal (completes a level)
     public static Action OnLevelComplete;
 
+    // Invoked when player collides with an obstacle
+    public static Action<string> OnObstacleCollision;
+
     /// <summary>
     /// Invoked when the player dies.
     /// </summary>
@@ -42,5 +45,13 @@ public static class EventManager
     public static void LevelComplete()
     {
         OnLevelComplete?.Invoke();
+    }
+
+    /// <summary>
+    /// Invoked when player collides with an obstacle
+    /// </summary>
+    public static void ObstacleCollision(string obstacleName)
+    {
+        OnObstacleCollision.Invoke(obstacleName);
     }
 }

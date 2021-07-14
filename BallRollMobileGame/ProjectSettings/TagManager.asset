@@ -9,6 +9,7 @@ TagManager:
   - Music
   - Spikes
   - SFX
+  - Roll
   layers:
   - Default
   - TransparentFX

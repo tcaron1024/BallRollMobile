@@ -3085,7 +3085,7 @@ GameObject:
   - component: {fileID: 673402163}
   m_Layer: 0
   m_Name: Roll Source
-  m_TagString: Untagged
+  m_TagString: Roll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3102,7 +3102,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 6924a752802678a4c96119e90cef4d78, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8b35f6f84875fe448a8f49e2c75ea705, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.356
+  m_Volume: 0.128
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3850,7 +3850,7 @@ AudioSource:
   m_GameObject: {fileID: 864839877}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 889ec6a743cec894aa7d08ef429e7f4e, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3967,6 +3967,10 @@ MonoBehaviour:
   coinAddUpSound: {fileID: 8300000, guid: 06427f2bd498dcb479595ef5da56f94b, type: 3}
   deathSound: {fileID: 8300000, guid: 6fe32ae77a2d8e9488e91c390de57140, type: 3}
   portalSound: {fileID: 8300000, guid: e4a87799a8d6ed44c8a6f02a654a976b, type: 3}
+  icicleSound: {fileID: 8300000, guid: eca6ebd5f8be2764d8e6a30f1f149167, type: 3}
+  quicksandSound: {fileID: 8300000, guid: 0590c7fe19167054dbdecdba4889e6d5, type: 3}
+  spikeSound: {fileID: 8300000, guid: 6cbf3ebfa5c6f5b4e96113ab37f1887f, type: 3}
+  pyramidSound: {fileID: 8300000, guid: 4e67bd5e0fb459046afacf74fcf0af2f, type: 3}
 --- !u!1 &884370021
 GameObject:
   m_ObjectHideFlags: 0
@@ -5228,7 +5232,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1777541581}
-  - {fileID: 1169272476}
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
@@ -5468,7 +5471,7 @@ AudioSource:
   m_GameObject: {fileID: 1169272474}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: fee4111b0344ccc42864741238e87732, type: 2}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 889ec6a743cec894aa7d08ef429e7f4e, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0fcd84590a3bc1d4c8a736e535d7a1db, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -5562,12 +5565,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169272474}
-  m_LocalRotation: {x: -0.13052616, y: -0, z: -0, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 6.005, z: -11.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1134362878}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1194893159
 GameObject:

@@ -29,6 +29,7 @@ public class Attacker : MonoBehaviour
     public void Attack(Health target)
     {
         target.TakeDamage(this, damage);
+        EventManager.ObstacleCollision(attackerName);
     }
 
     /// <summary>

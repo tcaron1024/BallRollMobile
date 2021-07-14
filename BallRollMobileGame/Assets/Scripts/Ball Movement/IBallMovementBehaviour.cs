@@ -45,7 +45,8 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
     #endregion
 
     private bool grounded = true;
-
+    [SerializeField] private AudioSource rollSource;
+    private float maxSpeed = 10f;
 
     private void Awake()
     {
@@ -55,6 +56,7 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
     protected virtual void Start()
     {
         currentForwardSpeed = levelSpeed;
+        rollSource = GameObject.FindGameObjectWithTag("Roll").GetComponent<AudioSource>();
         //rb.AddForce(Vector3.forward * currentForwardSpeed, ForceMode.VelocityChange);
     }
 
@@ -65,13 +67,29 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
         // Continually clamp the Y-pos.
         ClampYPos();
 
+        // Change roll pitch/speed based on ball's speed
+        float speed = rb.velocity.magnitude;
+        float scaled = speed / maxSpeed;
+
+        scaled = Mathf.Clamp(scaled, 0, 1);
+        rollSource.pitch = scaled;
+
+        rollSource.outputAudioMixerGroup.audioMixer.SetFloat("pitchShift", 1 / scaled);
+
+        // Plays roll sound if ball is on ground, stops it if ball isnt on ground
         if (grounded)
         {
-            // Play roll sound.
+            if (!rollSource.isPlaying)
+            {
+                rollSource.Play();
+            }
         }
         else
         {
-            // Play mid-air sound.
+            if (rollSource.isPlaying)
+            {
+                rollSource.Stop();
+            }
         }
     }
 
@@ -169,5 +187,12 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
     {
         print("BALL MOVEMENT: levelSpeed set to " + speed);
         levelSpeed = speed;
+    }
+
+
+    private void OnDestroy()
+    {
+        // Stops roll sound from playing when ball is destroyed
+        rollSource.Stop();
     }
 }
