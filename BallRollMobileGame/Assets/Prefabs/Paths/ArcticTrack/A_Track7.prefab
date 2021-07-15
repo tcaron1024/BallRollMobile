@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 4711092464387250989}
   m_Layer: 0
   m_Name: A_Track7
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68398680024d2a840b7765eeaf7be067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin: {fileID: 0}
+  coin: {fileID: 3303331449876352712, guid: 673ea62104924e9469535e0005114ce9, type: 3}
   possibleCoinPositions:
   - {fileID: 8728269201935520140}
   - {fileID: 5467470844005103106}
