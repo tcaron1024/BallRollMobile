@@ -192,7 +192,11 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Stops roll sound from playing when ball is destroyed
-        rollSource.Stop();
+        if (rollSource != null)
+        {
+            // Stops roll sound from playing when ball is destroyed
+            rollSource.Stop();
+        }
+
     }
 }

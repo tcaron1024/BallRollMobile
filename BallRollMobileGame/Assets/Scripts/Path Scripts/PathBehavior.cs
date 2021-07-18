@@ -96,11 +96,21 @@ public class PathBehavior : MonoBehaviour
             runNum = 2;
         }
 
+        // Spawns all necessary obstacles for this run
         if (obstacleObjects[runNum].Count > 0)
         {
             for (int i = 0; i < obstacleObjects[runNum].Count; i++)
             {
                 Instantiate(obstacleObjects[runNum][i], obstaclePositions[runNum][i].position, obstaclePositions[runNum][i].rotation, obstacleParents[runNum]);
+            }
+        }
+
+        // Sets all unused obstacle parents to inactive (used for snowball spawners)
+        for (int i = 0; i < obstacleParents.Count; i++)
+        {
+            if (i != runNum)
+            {
+                obstacleParents[i].gameObject.SetActive(false);
             }
         }
 
