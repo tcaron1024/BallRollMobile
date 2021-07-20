@@ -19,9 +19,6 @@ public class Attacker : MonoBehaviour
     [Tooltip("The damage to inflict on the target.")]
     [SerializeField] private int damage;
 
-    public enum ATTACKER_TYPE {UNASSIGNED, SPIKES, SNOWBALL, QUICKSAND };
-    [SerializeField] private ATTACKER_TYPE attackerType;
-
     /// <summary>
     /// Attacks the target for a pre-determined amount of damage.
     /// </summary>
@@ -39,14 +36,5 @@ public class Attacker : MonoBehaviour
     public string GetName()
     {
         return attackerName;
-    }
-
-    /// <summary>
-    /// Returns the attacker's type.
-    /// </summary>
-    /// <returns>The attacker's type.</returns>
-    public ATTACKER_TYPE GetAttackerType()
-    {
-        return attackerType;
     }
 }
