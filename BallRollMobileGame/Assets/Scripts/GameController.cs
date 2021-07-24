@@ -188,5 +188,10 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void LoadSettings()
+    {
+        SceneManager.LoadScene("settings");
+    }
+
 
 }
