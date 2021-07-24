@@ -206,13 +206,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1768500278}
   m_HandleRect: {fileID: 1772662923}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -60
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1770864174}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: HandleVolumeSliderValueChanged
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 68071530}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &98154162
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,7 +963,6 @@ GameObject:
   m_Component:
   - component: {fileID: 497666721}
   - component: {fileID: 497666720}
-  - component: {fileID: 497666719}
   - component: {fileID: 497666722}
   m_Layer: 0
   m_Name: Main Camera
@@ -960,14 +971,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &497666719
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497666718}
-  m_Enabled: 1
 --- !u!20 &497666720
 Camera:
   m_ObjectHideFlags: 0
@@ -2235,7 +2238,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bg: {fileID: 350162474}
   rollSlider: {fileID: 395533986}
-  roll: {fileID: 24100000, guid: 6924a752802678a4c96119e90cef4d78, type: 2}
+  mixers:
+  - {fileID: 24100000, guid: eb814e251ea79e74fb42e675e733f5c8, type: 2}
+  - {fileID: 24100000, guid: 889ec6a743cec894aa7d08ef429e7f4e, type: 2}
+  - {fileID: 24100000, guid: 6924a752802678a4c96119e90cef4d78, type: 2}
+  mixerIsMuted: 000000
 --- !u!4 &1770864175
 Transform:
   m_ObjectHideFlags: 0

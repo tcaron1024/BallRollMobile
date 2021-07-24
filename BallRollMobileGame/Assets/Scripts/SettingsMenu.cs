@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -17,10 +15,11 @@ public class SettingsMenu : MonoBehaviour
     /// </summary>
     public Slider rollSlider;
 
-    /// <summary>
-    /// Mixer for Roll Sound
-    /// </summary>
-    public AudioMixer roll;
+    [Tooltip("AudioMixers for music, SFX, and roll sound (in that order)")]
+    [SerializeField] private AudioMixer[] mixers = new AudioMixer[3];
+
+    [Tooltip("Holds whether or not music, SFX, and roll sound audio mixers (in that order) are muted")]
+    [SerializeField] private bool[] mixerIsMuted = new bool[3];
 
     /// <summary>
     /// Volume Multipler
@@ -39,12 +38,25 @@ public class SettingsMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rollSlider.onValueChanged.AddListener(HandleRollSliderValueChanged);
+        //rollSlider.onValueChanged.AddListener(HandleRollSliderValueChanged);
     }
 
-    private void HandleRollSliderValueChanged(float value)
+    public void HandleVolumeSliderValueChanged(Slider thisSlider)
     {
-        roll.SetFloat("MasterVolume", Mathf.Log10(value) * multiplier);
+        Debug.Log("Value = " + thisSlider.value);
+        for(int i = 0; i < mixers.Length; i++)
+        {
+            if (mixerIsMuted[i])
+            {
+                mixers[i].SetFloat("MasterVolume", -80);
+                Debug.Log("Muted mixer " + i);
+            }
+            else
+            {
+                mixers[i].SetFloat("MasterVolume", thisSlider.value);
+                Debug.Log("Mixer " + i + " set to " + thisSlider.value);
+            }
+        }
     }
 
     public void GoBack()

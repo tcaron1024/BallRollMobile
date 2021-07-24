@@ -12,10 +12,12 @@ AudioMixerController:
   m_Snapshots:
   - {fileID: 24500006}
   m_StartSnapshot: {fileID: 24500006}
-  m_SuspendThreshold: -80
+  m_SuspendThreshold: 0
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: d730f1fd9320796419d3c45719f9fc76
+    name: MasterVolume
   - guid: cb5117360a241d44caf21f336c7779f1
     name: pitchShift
   m_AudioMixerGroupViews:
@@ -69,6 +71,7 @@ AudioMixerSnapshotController:
   m_SnapshotID: 48d34e010a00e2d4595cd3065308db6d
   m_FloatValues:
     cb5117360a241d44caf21f336c7779f1: 1
+    d730f1fd9320796419d3c45719f9fc76: 0
   m_TransitionOverrides: {}
 --- !u!244 &2463012224766295423
 AudioMixerEffectController:
