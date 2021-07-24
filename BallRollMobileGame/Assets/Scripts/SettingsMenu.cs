@@ -47,8 +47,8 @@ public class SettingsMenu : MonoBehaviour
         roll.SetFloat("MasterVolume", Mathf.Log10(value) * multiplier);
     }
 
-    public void LoadGame()
+    public void GoBack()
     {
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.UnloadSceneAsync("Settings");
     }
 }

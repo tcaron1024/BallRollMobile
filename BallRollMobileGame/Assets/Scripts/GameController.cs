@@ -190,7 +190,7 @@ public class GameController : MonoBehaviour
 
     public void LoadSettings()
     {
-        SceneManager.LoadScene("settings");
+        SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
     }
 
 
