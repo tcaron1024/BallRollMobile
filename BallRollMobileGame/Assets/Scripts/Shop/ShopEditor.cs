@@ -1,10 +1,12 @@
 /*****************************************************************************
 // File Name :         ShopEditor.cs
 // Author :            Kyle Grenier
-// Creation Date :     #CREATIONDATE#
+// Creation Date :     07/25/2021
 //
-// Brief Description : ADD BRIEF DESCRIPTION OF THE FILE HERE
+// Brief Description : Custom inspector button to clear player save data.
 *****************************************************************************/
+#if UNITY_EDITOR
+
 using UnityEngine;
 using UnityEditor;
 
@@ -21,3 +23,5 @@ public class ShopEditor : Editor
         }
     }
 }
+
+#endif
