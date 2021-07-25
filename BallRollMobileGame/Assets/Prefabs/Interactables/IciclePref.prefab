@@ -69,7 +69,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackerName: Icicles
   damage: 1
-  attackerType: 1
 --- !u!114 &1589107367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2fb3688fff1a14e9da7ffebd4e56e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 8799761436529396558, guid: 762eb605b2fdea544bf9a20a38d7652a, type: 3}
+  explosionParticles: {fileID: 6128460133923070518, guid: 2152db3f47c3096448625aec061710bc, type: 3}
   destroyOnContact: 1
 --- !u!65 &1589107370
 BoxCollider:

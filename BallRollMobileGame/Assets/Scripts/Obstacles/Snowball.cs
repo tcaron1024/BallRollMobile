@@ -11,6 +11,8 @@ using UnityEngine;
 [RequireComponent(typeof(Attacker))]
 public class Snowball : IColliderObstacle
 {
+    public GameObject explosionEffect;
+    public GameObject particleExplosion;
     private Attacker attackingComponent;
 
     protected override void Awake()
@@ -25,7 +27,8 @@ public class Snowball : IColliderObstacle
         attackingComponent.Attack(playerHealth);
 
         // TODO: Particle effects
-
+        Instantiate(explosionEffect, gameObject.transform.position, Quaternion.identity);
+        Instantiate(particleExplosion, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

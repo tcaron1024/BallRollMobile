@@ -577,6 +577,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2fb3688fff1a14e9da7ffebd4e56e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 4806284389051872818, guid: af05b064c80e9a2448b5929c206dab08, type: 3}
+  explosionParticles: {fileID: 8494571660619955110, guid: c810bca327c6339419ac920787008189, type: 3}
+  destroyOnContact: 0
 --- !u!114 &6507465522717909529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,7 +594,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackerName: Spikes
   damage: 1
-  attackerType: 1
 --- !u!1 &7229089607531817984
 GameObject:
   m_ObjectHideFlags: 0

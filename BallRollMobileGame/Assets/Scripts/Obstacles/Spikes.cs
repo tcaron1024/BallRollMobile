@@ -12,6 +12,8 @@ public class Spikes : IColliderObstacle
 {
     // The component that allows this obstacle to inflict damage.
     private Attacker attackingComponent;
+    public GameObject explosionEffect;
+    public GameObject explosionParticles;
 
     [Tooltip("True if the game object should be destroyed after hitting the player.")]
     [SerializeField] private bool destroyOnContact;
@@ -29,7 +31,8 @@ public class Spikes : IColliderObstacle
         attackingComponent.Attack(playerHealth);
 
         // TODO: Particle effects?? Sounds???
-
+        Instantiate(explosionEffect, gameObject.transform.position, Quaternion.identity);
+        Instantiate(explosionParticles, gameObject.transform.position, Quaternion.identity);
         if (destroyOnContact)
             Destroy(gameObject);
     }
