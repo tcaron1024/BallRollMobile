@@ -18,6 +18,10 @@ public class Shop : MonoBehaviour
 
     [Tooltip("The database of items to aggregate the store catalog.")]
     [SerializeField] private ShopDatabase defaultDatabase;
+
+    /// <summary>
+    /// The database currently in use.
+    /// </summary>
     private ShopDatabase currentDatabase;
 
 
@@ -27,29 +31,37 @@ public class Shop : MonoBehaviour
 
 
     [Header("Selection Display Section")]
+
     [Tooltip("The game object that displays the currently selected item.")]
     [SerializeField] private ShopSelectionDisplay selectionDisplay;
 
     [Tooltip("The button the player presses to purchase a locked item.")]
     [SerializeField] private Button purchaseBtn;
 
+    [Tooltip("The button the player presses to select the ball for use in game.")]
+    [SerializeField] private Button selectBallBtn;
+
+
     [Header("Debug")]
+
     [Tooltip("True if player should have infinite money.")]
     [SerializeField] private bool infiniteMoney;
+
+
+
+    [Header("Shop Balance Section")]
+
+    [Tooltip("The text that displays the player's shop balance.")]
+    [SerializeField] private TextMeshProUGUI balanceText;
 
     // The amount of shop currency the player owns.
     private int playerShopBalance;
 
 
-
-    [Header("Shop Balance Section")]
-    [Tooltip("The text that displays the player's shop balance.")]
-    [SerializeField] private TextMeshProUGUI balanceText;
-
-
     private void Start()
     {
         purchaseBtn.gameObject.SetActive(false);
+        selectBallBtn.gameObject.SetActive(false);
 
         // Loads any pre-existing shop data (i.e. from previous play throughs).
         // If no shop data is found, the default shop database is used.
@@ -149,7 +161,7 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            // TODO: Play sound, UI to alert player they cannot purchase, etc.
+            // TODO: Play sound, UI to alert player they CANNOT purchase, etc.
         }
     }
 
@@ -162,13 +174,34 @@ public class Shop : MonoBehaviour
         selectionDisplay.UpdateDisplay(item.iconImg, item.itemName, item.price, item.unlocked);
 
         if (item.unlocked)
+        {
+            selectBallBtn.onClick.RemoveAllListeners();
+            selectBallBtn.onClick.AddListener(() => SelectBall(item));
+
             purchaseBtn.gameObject.SetActive(false);
+            selectBallBtn.gameObject.SetActive(true);
+
+            // TODO: add listeners to selectBallBtn
+        }
         else
         {
             purchaseBtn.onClick.RemoveAllListeners();
             purchaseBtn.onClick.AddListener(() => Buy(item));
 
+            selectBallBtn.gameObject.SetActive(false);
             purchaseBtn.gameObject.SetActive(true);
+        }
+    }
+
+    private void SelectBall(ShopItem item)
+    {
+        GameObject ballPrefab = defaultDatabase.GetItem(item.itemName).gameObject;
+
+        if (ballPrefab == null)
+            Debug.LogWarning("Could not load ball prefab with name '" + item.itemName + "'. Is it in the default shop database?");
+        else
+        {
+            RuntimePlayerData.selectedBall = ballPrefab;
         }
     }
 

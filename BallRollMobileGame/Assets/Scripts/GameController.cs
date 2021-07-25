@@ -67,6 +67,12 @@ public class GameController : MonoBehaviour
     /// </summary>
     public Button playButton;
 
+    [Tooltip("The default marble to use.")]
+    [SerializeField] private GameObject defaultMarble;
+
+    [Tooltip("The Transform that dictates where the marble will spawn on level start.")]
+    [SerializeField] private Transform marbleSpawnLocation;
+
 
     [Tooltip("Total number of environments")]
     public int numEnvironments = 3;
@@ -82,13 +88,18 @@ public class GameController : MonoBehaviour
         Debug.Log("awake of gamecontroller");
         if (environmentRuns == null)
             environmentRuns = new int[numEnvironments];
+
+        if (RuntimePlayerData.selectedBall == null)
+            RuntimePlayerData.selectedBall = defaultMarble;
+
+        SpawnMarble();
     }
 
     private void Start()
     {
         bc = GameObject.FindGameObjectWithTag("Player").GetComponent<BallController>();
         bc.SetLevelSpeed(levelSpeed);
-        ps = GameObject.Find("Path Parent").GetComponent<PathSpawner>();
+        ps = GameObject.Find("Path Parent").GetComponent<PathSpawner>();        
 
         CreateLevel();
     }
@@ -114,6 +125,11 @@ public class GameController : MonoBehaviour
     private void CreateLevel()
     {
         ps.SpawnPaths(numPaths);
+    }
+
+    private void SpawnMarble()
+    {
+        Instantiate(RuntimePlayerData.selectedBall, marbleSpawnLocation.position, RuntimePlayerData.selectedBall.transform.rotation);
     }
 
     /// <summary>

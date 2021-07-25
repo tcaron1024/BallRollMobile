@@ -12,7 +12,8 @@ using TMPro;
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class HealthUI : MonoBehaviour
 {
-    [Tooltip("The Health component to display the stats of.")]
+    [Tooltip("The Health component to display the stats of. If null, will" +
+        " find the Player's health component at runtime.")]
     [SerializeField] private Health healthComponent;
 
     private TextMeshProUGUI livesText;
@@ -24,13 +25,14 @@ public class HealthUI : MonoBehaviour
 
     private void Start()
     {
-        UpdateLivesText(healthComponent.GetCurrentLives());
-    }
+        if (healthComponent == null)
+            healthComponent = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
 
-    private void OnEnable()
-    {
+        // Putting these in Start() so they don't run before we've found our Player's Health component.
         healthComponent.OnDamageTaken += UpdateLivesText;
         healthComponent.OnDeath += () => UpdateLivesText(0);
+
+        UpdateLivesText(healthComponent.GetCurrentLives());
     }
 
     private void OnDisable()

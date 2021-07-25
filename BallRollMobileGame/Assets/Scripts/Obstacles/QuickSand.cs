@@ -107,10 +107,10 @@ public class QuickSand : ITriggerObstacle
     private Vector3 ShrinkPlayer(GameObject player, float dist, float initialDistance)
     {
         float normalizedDistance = dist / initialDistance;
-        normalizedDistance = Mathf.Clamp(normalizedDistance, 0.1f, 1f);
+        normalizedDistance = Mathf.Clamp(normalizedDistance, 0.3f, 1f);
         //print(normalizedDistance);
 
-        Vector3 scale = Vector3.one * normalizedDistance;
+        Vector3 scale = initialScale * normalizedDistance;
         player.transform.localScale = scale;
 
         return scale;
