@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// Number of coins player has picked up this run
     /// </summary>
-    public static int coins = 50;
+    public static int coins = 0;
 
     /// <summary>
     /// Number of times player has run each environment
