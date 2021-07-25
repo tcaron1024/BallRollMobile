@@ -1940,10 +1940,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catalogDisplayPrefab: {fileID: 5983363497016175897, guid: 9f5ff4b738b2b5546bce392bfa8a0587, type: 3}
-  database: {fileID: 11400000, guid: f10f20b4305ea7e49b519a5c9815df2a, type: 2}
+  defaultDatabase: {fileID: 11400000, guid: f10f20b4305ea7e49b519a5c9815df2a, type: 2}
   content: {fileID: 1147668240}
   selectionDisplay: {fileID: 2085694733}
   purchaseBtn: {fileID: 1094949215}
+  infiniteMoney: 0
   balanceText: {fileID: 1482085825}
 --- !u!1 &1612023997
 GameObject:

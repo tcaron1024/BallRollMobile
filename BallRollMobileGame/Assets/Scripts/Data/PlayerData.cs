@@ -13,8 +13,8 @@ public class PlayerData
     // It would be wise to move coins and shop balance to here as well!
     public ShopDatabaseSave shopDatabase;
 
-    public PlayerData(ShopDatabase purchasedItems)
+    public PlayerData(ShopDatabase database)
     {
-        this.shopDatabase = new ShopDatabaseSave(purchasedItems);
+        this.shopDatabase = new ShopDatabaseSave(database);
     }
 }

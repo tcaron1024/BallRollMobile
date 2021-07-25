@@ -460,6 +460,7 @@ MonoBehaviour:
   pushForceMultiplier: 3
   groundCheckDistance: 1
   heightOffset: 5
+  rollSource: {fileID: 0}
 --- !u!114 &3843330636818100535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,6 +491,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd05871c419d0845b116ade9b690751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _name: 
+  maxLives: 0
+  invincibilityTime: 0
 --- !u!114 &-6227584695086157280
 MonoBehaviour:
   m_ObjectHideFlags: 0

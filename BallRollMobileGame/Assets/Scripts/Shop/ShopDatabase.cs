@@ -36,8 +36,18 @@ public class ShopDatabase : ScriptableObject
     public static ShopDatabase CreateFromSave(PlayerData savedData, ShopDatabase defaultDatabase)
     {
         ShopDatabase db = CreateInstance<ShopDatabase>();
+        // TODO: Check to see if the items are empty or if they're dupped.
         db.databaseName = savedData.shopDatabase.databaseName;
-        db.items = defaultDatabase.items;
+        db.items = new ShopItem[defaultDatabase.items.Length];
+
+        // Instantiating clones of the shop items so we don't update the
+        // actual prefabs.
+        for (int i = 0; i < db.items.Length; ++i)
+        {
+            ShopItem itemClone = Instantiate(defaultDatabase.items[i]);
+            itemClone.gameObject.SetActive(false);
+            db.items[i] = itemClone;
+        }
 
         foreach(ShopItemSave savedItem in savedData.shopDatabase.items)
         {

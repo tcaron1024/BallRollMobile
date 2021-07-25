@@ -17,7 +17,8 @@ public class Shop : MonoBehaviour
     [SerializeField] private ShopCatalogDisplay catalogDisplayPrefab;
 
     [Tooltip("The database of items to aggregate the store catalog.")]
-    [SerializeField] private ShopDatabase database;
+    [SerializeField] private ShopDatabase defaultDatabase;
+    private ShopDatabase currentDatabase;
 
 
     [Header("Catalog Section")]
@@ -31,6 +32,13 @@ public class Shop : MonoBehaviour
 
     [Tooltip("The button the player presses to purchase a locked item.")]
     [SerializeField] private Button purchaseBtn;
+
+    [Header("Debug")]
+    [Tooltip("True if player should have infinite money.")]
+    [SerializeField] private bool infiniteMoney;
+
+    // The amount of shop currency the player owns.
+    private int playerShopBalance;
 
 
 
@@ -57,21 +65,29 @@ public class Shop : MonoBehaviour
 
     private void LoadShopData()
     {
-        //SaveSystem.ClearData();
         PlayerData data = SaveSystem.LoadPlayer();
 
         // If the player has purchased an item,
         // there should be data saved, so we'll take it from there
         // so the shop is updated appropriately.
         if (data != null)
-            database = ShopDatabase.CreateFromSave(data, database);
+            currentDatabase = ShopDatabase.CreateFromSave(data, defaultDatabase);
+        // If we don't have a saved database, we'll create a new one using the
+        // default database.
+        // We have to do this or else we'll be modifying the default shop list
+        // directly, and we want to keep that as a base.
+        else
+        {
+            PlayerData newData = new PlayerData(defaultDatabase);
+            currentDatabase = ShopDatabase.CreateFromSave(newData, defaultDatabase);
+        }
 
         // If there is no data to load from, use the default database.
     }
 
     private void SaveShopData()
     {
-        SaveSystem.SavePlayerData(database);
+        SaveSystem.SavePlayerData(currentDatabase);
     }
 
     /// <summary>
@@ -79,12 +95,11 @@ public class Shop : MonoBehaviour
     /// </summary>
     private void PopulateCatalog()
     {
-        print("Populating shop database " + database.name);
+        print("Populating shop database " + currentDatabase.name);
 
-        for (int i = 0; i < database.items.Length; ++i)
+        for (int i = 0; i < currentDatabase.items.Length; ++i)
         {
-            ShopItem item = database.items[i];
-            
+            ShopItem item = currentDatabase.items[i];
 
             ShopCatalogDisplay disp = Instantiate(catalogDisplayPrefab, content.transform);
 
@@ -103,7 +118,8 @@ public class Shop : MonoBehaviour
     /// </summary>
     private void UpdateBalanceText()
     {
-        balanceText.text = "X " + PlayerPrefs.GetInt("ShopBalance");
+        playerShopBalance = PlayerPrefs.GetInt("ShopBalance");
+        balanceText.text = "X " + playerShopBalance;
     }
 
     /// <summary>
@@ -112,9 +128,29 @@ public class Shop : MonoBehaviour
     /// <param name="item">The item to purchase.</param>
     public void Buy(ShopItem item)
     {
-        item.Purchase();
-        DisplaySelection(item);
-        SaveSystem.SavePlayerData(database);
+        if (infiniteMoney)
+        {
+            item.Purchase();
+            DisplaySelection(item);
+            SaveSystem.SavePlayerData(currentDatabase);
+        }
+        else if (playerShopBalance >= item.price)
+        {
+            item.Purchase();
+            DisplaySelection(item);
+            SaveSystem.SavePlayerData(currentDatabase);
+
+            // Update player shop balance.
+            playerShopBalance -= item.price;
+            PlayerPrefs.SetInt("ShopBalance", playerShopBalance);
+            UpdateBalanceText();
+
+            // TODO: play coin collect sound to signify purchase
+        }
+        else
+        {
+            // TODO: Play sound, UI to alert player they cannot purchase, etc.
+        }
     }
 
     /// <summary>
