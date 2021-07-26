@@ -30,7 +30,6 @@ public class Spikes : IColliderObstacle
         Health playerHealth = player.GetComponent<Health>();
         attackingComponent.Attack(playerHealth);
 
-        // TODO: Particle effects?? Sounds???
         Instantiate(explosionEffect, gameObject.transform.position, Quaternion.identity);
         Instantiate(explosionParticles, gameObject.transform.position, Quaternion.identity);
         if (destroyOnContact)
