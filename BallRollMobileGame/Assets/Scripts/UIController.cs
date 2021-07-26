@@ -54,6 +54,9 @@ public class UIController : MonoBehaviour
     [Tooltip("Text showing coins while player is alive")]
     [SerializeField] private TextMeshProUGUI coinsText;
 
+    [Tooltip("The game object that holds the lives, score, and coins UI.")]
+    [SerializeField] private GameObject playthroughDataParent;
+
     [Tooltip("Screen that shows up when player loses")]
     [SerializeField] private GameObject lossScreen;
 
@@ -132,8 +135,8 @@ public class UIController : MonoBehaviour
         Debug.Log("Shop balance is now " + PlayerPrefs.GetInt("ShopBalance"));
 
         // Hide old texts and show loss screen
-        scoreText.gameObject.SetActive(false);
-        coinsText.gameObject.SetActive(false);
+        playthroughDataParent.SetActive(false);
+        
         lossScreen.SetActive(true);
 
         if (coins > 0)
