@@ -12,7 +12,7 @@ using System.Collections;
 // We don't need to inherit from IColliderObstacle here since we're just moving
 // it back and forth.
 // I believe deriving from IColliderObstacle would just make everything less performant.
-public class Pyramid : MonoBehaviour
+public class Pyramid : IColliderObstacle
 {
     #region -- Ground Check Fields --
     [Tooltip("The Transforms that the ground check ray will extend from.")]
@@ -42,8 +42,10 @@ public class Pyramid : MonoBehaviour
     private bool invoke = false;
 
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         completelyOnPlatform = true;
         coolingDown = false;
 
@@ -118,7 +120,6 @@ public class Pyramid : MonoBehaviour
     /// </summary>
     private void InvertMovementDirection()
     {
-        print("INVERTING");
         movementDirection = -movementDirection;
     }
 
@@ -130,5 +131,15 @@ public class Pyramid : MonoBehaviour
     {
         int rand = Random.Range(0, 2);
         movementDirection = (rand == 0 ? Vector3.right : Vector3.left);
+    }
+
+    // Bounces the player off of the pyramid.
+    protected override void PerformAction(GameObject player, Collision col)
+    {
+        Rigidbody playerRb = player.GetComponent<Rigidbody>();
+
+        Vector3 force = col.GetContact(0).normal * playerRb.velocity.z;
+
+        playerRb.AddForce(force, ForceMode.Impulse);
     }
 }

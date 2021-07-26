@@ -8,6 +8,8 @@
 *****************************************************************************/
 using UnityEngine;
 
+// OLD: Now implemented in Pyramid.cs
+
 public class PyramidBounce : MonoBehaviour
 {
     private void OnCollisionEnter(Collision col)

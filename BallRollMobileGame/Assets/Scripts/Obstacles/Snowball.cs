@@ -21,7 +21,7 @@ public class Snowball : IColliderObstacle
         attackingComponent = GetComponent<Attacker>();
     }
 
-    public override void PerformAction(GameObject player)
+    protected override void PerformAction(GameObject player, Collision col)
     {
         Health playerHealth = player.GetComponent<Health>();
         attackingComponent.Attack(playerHealth);

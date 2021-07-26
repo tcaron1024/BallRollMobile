@@ -9,6 +9,7 @@
 using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Attacker))]
 public class QuickSand : ITriggerObstacle
 {
     [Tooltip("The base amount of force to suck the player in with.")]

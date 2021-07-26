@@ -24,7 +24,7 @@ public class Spikes : IColliderObstacle
         attackingComponent = GetComponent<Attacker>();
     }
 
-    public override void PerformAction(GameObject player)
+    protected override void PerformAction(GameObject player, Collision col)
     {
         // Attack the player.
         Health playerHealth = player.GetComponent<Health>();

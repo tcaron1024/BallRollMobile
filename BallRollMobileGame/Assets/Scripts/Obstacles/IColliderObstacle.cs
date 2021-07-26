@@ -10,6 +10,8 @@ using UnityEngine;
 
 public abstract class IColliderObstacle : MonoBehaviour, IObstacle
 {
+    private Collision collision = null;
+
     protected virtual void Awake()
     {
         Collider col = GetComponent<Collider>();
@@ -25,6 +27,7 @@ public abstract class IColliderObstacle : MonoBehaviour, IObstacle
     {
         if (col.gameObject.CompareTag("Player"))
         {
+            collision = col;
             PerformAction(col.gameObject);
         }
     }
@@ -37,10 +40,18 @@ public abstract class IColliderObstacle : MonoBehaviour, IObstacle
     {
         if (col.gameObject.CompareTag("Player"))
         {
+            collision = col;
             StopAction(col.gameObject);
         }
     }
 
-    public abstract void PerformAction(GameObject player);
-    public virtual void StopAction(GameObject player) { }
+    // Below is the method we require to implement from our IObstacle interface.
+    public void PerformAction(GameObject player) => PerformAction(player, collision);
+
+    // Here is the abstract method that each concrete obstacle will need to implement since we need to make use of
+    // the Collision object.
+    protected abstract void PerformAction(GameObject player, Collision col);
+
+    public void StopAction(GameObject player) => StopAction(player, collision);
+    protected virtual void StopAction(GameObject player, Collision col) { }
 }
