@@ -27,6 +27,9 @@ public class MainMenuBehavior : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         StartCoroutine("ChangeScene", sceneName);
+
+        // Change music to appropriate for scene being loaded
+        GameObject.FindObjectOfType<MusicHandler>().ChangeMusic(sceneName);
     }
 
     public void LoadSceneAdditive(string sceneName)

@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 
 public class Shop : MonoBehaviour
 {
@@ -73,7 +74,7 @@ public class Shop : MonoBehaviour
         // Make sure the balance text displays the player's balance.
         UpdateBalanceText();
     }
-
+    
 
     private void LoadShopData()
     {
@@ -210,6 +211,16 @@ public class Shop : MonoBehaviour
     /// </summary>
     public void ExitShop()
     {
+        StartCoroutine(UnloadScene());
+    }
+
+    /// <summary>
+    /// Adds a delay to unloading the scene to allow button sound to play
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator UnloadScene()
+    {
+        yield return new WaitForSecondsRealtime(.15f);
         SceneManager.UnloadSceneAsync("Shop");
     }
 }

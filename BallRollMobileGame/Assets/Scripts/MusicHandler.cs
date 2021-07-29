@@ -27,8 +27,8 @@ public class MusicHandler : MonoBehaviour
     {
         MENU, GAMEPLAY, SHOP
     };
-
-    private MusicType currentMusic = MusicType.MENU;
+    [Tooltip("Current music type being played")]
+    [SerializeField] private MusicType currentMusic = MusicType.MENU;
     private void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Music");

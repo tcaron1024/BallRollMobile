@@ -284,7 +284,7 @@ MonoBehaviour:
   obstacleParents:
   - {fileID: 2041933106103808123}
   - {fileID: 2868810121703673266}
-  - {fileID: 0}
+  - {fileID: 5939175435581696949}
   run1ObstacleObjects: []
   run1ObstaclePositions: []
   run2ObstacleObjects:

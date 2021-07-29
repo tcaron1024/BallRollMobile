@@ -79,7 +79,7 @@ public class SFXController : MonoBehaviour
 
     }
 
-    private void PlaySound(AudioClip sound)
+    public void PlaySound(AudioClip sound)
     {
         sfxSource.clip = sound;
         sfxSource.PlayScheduled(0);

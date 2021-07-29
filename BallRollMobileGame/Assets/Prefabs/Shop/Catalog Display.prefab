@@ -345,3 +345,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconImg: {fileID: 5983363496129284514}
   unlockedTxt: {fileID: 5983363496848859299}
+  displaySound: {fileID: 8300000, guid: 0fcd84590a3bc1d4c8a736e535d7a1db, type: 3}
