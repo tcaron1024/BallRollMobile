@@ -35,6 +35,9 @@ public class MainMenuBehavior : MonoBehaviour
     public void LoadSceneAdditive(string sceneName)
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+
+        // Change music to appropriate for scene being loaded
+        GameObject.FindObjectOfType<MusicHandler>().ChangeMusic(sceneName);
     }
 
     public void QuitGame()

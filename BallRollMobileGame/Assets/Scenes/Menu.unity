@@ -152,13 +152,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b01a7209c3a8424b933f8d4d4020880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeFadeTime: 0.5
+  volumeFadeTime: 0.25
   menuMusic: {fileID: 8300000, guid: 66102f57050a5e34caacaf7b7644117e, type: 3}
   gameplayMusic:
   - {fileID: 8300000, guid: 6154972eab774444f95859bea6acb9f3, type: 3}
   - {fileID: 8300000, guid: 9e1e8fa6a14d07c4fbdfba61a5dc03ea, type: 3}
   - {fileID: 8300000, guid: c44b8b2cf48a6864ea00c8f8785abb92, type: 3}
   shopMusic: {fileID: 8300000, guid: f764c25479905c94c891a986c49fbcf0, type: 3}
+  currentMusic: 0
 --- !u!4 &28355262
 Transform:
   m_ObjectHideFlags: 0
@@ -321,18 +322,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 28355261}
-        m_TargetAssemblyTypeName: MusicHandler, Assembly-CSharp
-        m_MethodName: ChangeMusic
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Gameplay
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &165072992
@@ -611,18 +600,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 28355261}
-        m_TargetAssemblyTypeName: MusicHandler, Assembly-CSharp
-        m_MethodName: ChangeMusic
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Shop
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &381657703

@@ -221,6 +221,10 @@ public class Shop : MonoBehaviour
     IEnumerator UnloadScene()
     {
         yield return new WaitForSecondsRealtime(.15f);
+
+        // Changes music back to what it should be for the scene loaded under the shop
+        GameObject.FindObjectOfType<MusicHandler>().ChangeMusic(SceneManager.GetActiveScene().name);
+
         SceneManager.UnloadSceneAsync("Shop");
     }
 }
