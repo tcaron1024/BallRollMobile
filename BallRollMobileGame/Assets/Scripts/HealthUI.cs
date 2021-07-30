@@ -1,6 +1,6 @@
 /*****************************************************************************
 // File Name :         HealthUI.cs
-// Author :            Kyle Grenier
+// Author :            Kyle Grenier && Connor Riley (handle heart animation)
 // Creation Date :     07/10/2021
 //
 // Brief Description : A component added to a TextMeshPro Text component that displays the stats of the
@@ -9,7 +9,9 @@
 using UnityEngine;
 using TMPro;
 
+
 [RequireComponent(typeof(TextMeshProUGUI))]
+
 public class HealthUI : MonoBehaviour
 {
     [Tooltip("The Health component to display the stats of. If null, will" +
@@ -17,6 +19,10 @@ public class HealthUI : MonoBehaviour
     [SerializeField] private Health healthComponent;
 
     private TextMeshProUGUI livesText;
+
+    public GameObject heart1;
+    public GameObject heart2;
+    public GameObject heart3; 
 
     private void Awake()
     {
@@ -45,6 +51,17 @@ public class HealthUI : MonoBehaviour
 
     private void UpdateLivesText(int currentLives)
     {
-        livesText.text = "Lives: " + currentLives;
+        if(currentLives == 2 )
+        {
+            heart1.GetComponent<Animator>().SetBool("break", true);
+        }
+        if(currentLives == 1)
+        {
+            heart2.GetComponent<Animator>().SetBool("break", true);
+        }
+        if(currentLives == 0)
+        {
+            heart3.GetComponent<Animator>().SetBool("break", true);
+        }
     }
 }
