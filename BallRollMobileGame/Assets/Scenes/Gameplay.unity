@@ -14466,30 +14466,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 584375446532546151, guid: 938bb68a505a80849b6aabb9341d85f6, type: 3}
-      propertyPath: CollisionModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 584375446532546151, guid: 938bb68a505a80849b6aabb9341d85f6, type: 3}
-      propertyPath: CollisionModule.type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 584375446532546151, guid: 938bb68a505a80849b6aabb9341d85f6, type: 3}
-      propertyPath: CollisionModule.m_Bounce.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 584375446532546151, guid: 938bb68a505a80849b6aabb9341d85f6, type: 3}
-      propertyPath: CollisionModule.m_Dampen.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 584375446532546153, guid: 938bb68a505a80849b6aabb9341d85f6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 584375446532546153, guid: 938bb68a505a80849b6aabb9341d85f6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.02
-      objectReference: {fileID: 0}
     - target: {fileID: 5824484310106696465, guid: 938bb68a505a80849b6aabb9341d85f6, type: 3}
       propertyPath: m_Name
       value: Fan
@@ -14504,7 +14480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6602111243376308651, guid: 938bb68a505a80849b6aabb9341d85f6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.62
+      value: 17.17
       objectReference: {fileID: 0}
     - target: {fileID: 6602111243376308651, guid: 938bb68a505a80849b6aabb9341d85f6, type: 3}
       propertyPath: m_LocalRotation.x

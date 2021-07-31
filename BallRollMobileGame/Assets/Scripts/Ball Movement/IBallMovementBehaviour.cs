@@ -164,8 +164,6 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
         // if we want the ball to accelerate consistently.
         currentForwardSpeed += ballSpeed * speedMultiplier * Time.fixedDeltaTime;
 
-        print(currentForwardSpeed);
-
         Vector3 vel = rb.velocity;
         vel.z = currentForwardSpeed;
         rb.velocity = vel;
