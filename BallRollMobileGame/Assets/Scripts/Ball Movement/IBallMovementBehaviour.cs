@@ -48,6 +48,7 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
     [SerializeField] private AudioSource rollSource;
     private float maxSpeed = 10f;
 
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -163,11 +164,23 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
         // if we want the ball to accelerate consistently.
         currentForwardSpeed += ballSpeed * speedMultiplier * Time.fixedDeltaTime;
 
+        print(currentForwardSpeed);
+
         Vector3 vel = rb.velocity;
         vel.z = currentForwardSpeed;
         rb.velocity = vel;
 
         //rb.AddForce(Vector3.forward * currentForwardSpeed, ForceMode.Force);
+    }
+
+    public void UpdateBallSpeed(float ballSpeed)
+    {
+        this.ballSpeed = ballSpeed;
+    }
+
+    public void UpdateCurrentForwardSpeed(float speed)
+    {
+        currentForwardSpeed = speed;
     }
 
     /// <summary>
