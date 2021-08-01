@@ -63,4 +63,19 @@ public class SettingsMenu : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync("Settings");
     }
+
+    public void muteVolume()
+    {
+        mixers[0].SetFloat("MasterVolume", -80);
+    }
+
+    public void muteSFX()
+    {
+        mixers[1].SetFloat("MasterVolume", -80);
+    }
+
+    public void muteRoll()
+    {
+        mixers[2].SetFloat("MasterVolume", -80);
+    }
 }
