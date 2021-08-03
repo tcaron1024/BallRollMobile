@@ -1,16 +1,17 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DeathBox : MonoBehaviour
 {
-
+    /// <summary>
+    /// Kills player when they collide with this object
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(other.gameObject);
             EventManager.PlayerDeath();
-            //GameObject.Find("GameController").GetComponent<GameController>().EndLevel();
         }
     }
 }

@@ -1,62 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &535380358075722187
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2230756853207180382}
-  - component: {fileID: 61781520909697366}
-  - component: {fileID: 8083932032777921365}
-  m_Layer: 10
-  m_Name: DeathBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2230756853207180382
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535380358075722187}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -10.269728, y: 75.58852, z: 1.4538728}
-  m_LocalScale: {x: 2.5000012, y: 5, z: 5}
-  m_Children: []
-  m_Father: {fileID: 8581675087555176373}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &61781520909697366
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535380358075722187}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 51.1, y: 2, z: 76.8}
-  m_Center: {x: 0, y: -29.5, z: 0}
---- !u!114 &8083932032777921365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535380358075722187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0df01ed5341638948b12ae85d425aceb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2976558448273941357
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +31,7 @@ Transform:
   - {fileID: 974920343128059679}
   - {fileID: 4547271357993970718}
   m_Father: {fileID: 8581675087555176373}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3822322276365908630
 GameObject:
@@ -296,7 +239,6 @@ Transform:
   m_LocalScale: {x: 0.4, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 6495932813134467532}
-  - {fileID: 2230756853207180382}
   - {fileID: 7855508462649012781}
   m_Father: {fileID: 4857583634824477904}
   m_RootOrder: 0

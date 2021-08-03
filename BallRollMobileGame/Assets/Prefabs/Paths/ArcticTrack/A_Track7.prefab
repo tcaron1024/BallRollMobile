@@ -143,7 +143,7 @@ Transform:
   - {fileID: 5467470844005103106}
   - {fileID: 5410219984721761199}
   m_Father: {fileID: 2955914922317056320}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1282967868389165077
 GameObject:
@@ -179,7 +179,6 @@ Transform:
   m_Children:
   - {fileID: 230660666430527304}
   - {fileID: 242768674599285900}
-  - {fileID: 4635875770166365998}
   - {fileID: 3731521955493380272}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -402,63 +401,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4211b7ce868a0f84fbd2c46f185bc0b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &8235037054830194615
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4635875770166365998}
-  - component: {fileID: 4625460142094964824}
-  - component: {fileID: 8932296995796301477}
-  m_Layer: 10
-  m_Name: DeathBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4635875770166365998
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8235037054830194615}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -10.269728, y: 75.58852, z: 1.4538728}
-  m_LocalScale: {x: 2.5000012, y: 5, z: 5}
-  m_Children: []
-  m_Father: {fileID: 2955914922317056320}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4625460142094964824
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8235037054830194615}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 51.1, y: 2, z: 76.8}
-  m_Center: {x: 0, y: -29.5, z: 0}
---- !u!114 &8932296995796301477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8235037054830194615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0df01ed5341638948b12ae85d425aceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8895755112918873053
