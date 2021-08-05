@@ -2,6 +2,7 @@
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -39,12 +40,20 @@ public class SettingsMenu : MonoBehaviour
 
     
     
-    void Start()
+    void Awake()
     {
         bg.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
 
+        currentVol = PlayerPrefs.GetFloat("Volume", 0);
+
         // Sets volume slider to correct value
         volumeSlider.value = currentVol;
+
+        // Sets whether or not mixers should be muted
+        mixerIsMuted[0] = PlayerPrefs.GetInt("MusicMuted") == 0 ? false : true;
+        mixerIsMuted[1] = PlayerPrefs.GetInt("SFXMuted") == 0 ? false : true;
+        mixerIsMuted[2] = PlayerPrefs.GetInt("SFXMuted") == 0 ? false : true;
+
 
         // Sets toggles to off if their corresponding mixer is muted
         musicToggle.isOn = !mixerIsMuted[0];
@@ -58,25 +67,26 @@ public class SettingsMenu : MonoBehaviour
     {
         Debug.Log("Value = " + volumeSlider.value);
         currentVol = volumeSlider.value;
+        PlayerPrefs.SetFloat("Volume", currentVol);
+
 
         for(int i = 0; i < mixers.Length; i++)
         {
-            if (mixerIsMuted[i])
-            {
-                mixers[i].SetFloat("MasterVolume", MIN_VOLUME);
-                Debug.Log("Muted mixer " + i);
-            }
-            else
-            {
-                mixers[i].SetFloat("MasterVolume", volumeSlider.value);
-                Debug.Log("Mixer " + i + " set to " + volumeSlider.value);
-            }
+            // Mutes mixer or sets it to correct volume
+            mixers[i].SetFloat("MasterVolume", mixerIsMuted[i] ? MIN_VOLUME : currentVol);
         }
     }
 
     public void GoBack()
     {
+        StartCoroutine(CloseScene());
+    }
+
+    private IEnumerator CloseScene()
+    {
+        yield return new WaitForSecondsRealtime(.15f);
         SceneManager.UnloadSceneAsync("Settings");
+
     }
 
     /// <summary>
@@ -90,22 +100,11 @@ public class SettingsMenu : MonoBehaviour
         // Switches whether mixer is muted or not
         mixerIsMuted[0] = !unmuted;
 
-        // Unmutes music
-        if (unmuted)
-        {
-            mixers[0].SetFloat("MasterVolume", currentVol);
+        // Mutes mixer or sets it to correct volume
+        mixers[0].SetFloat("MasterVolume", unmuted ? currentVol : MIN_VOLUME);
 
-            Debug.Log("Mixer volume set to - " + currentVol);
-        }
-        // Mutes music
-        else
-        {
-            mixers[0].SetFloat("MasterVolume", MIN_VOLUME);
-
-            Debug.Log("Mixer volume set to - " + MIN_VOLUME);
-        }
-
-        
+        // Holds whether or not music is muted in PlayerPrefs for later startups
+        PlayerPrefs.SetInt("MusicMuted", unmuted ? 0 : 1);
     }
 
     /// <summary>
@@ -119,21 +118,12 @@ public class SettingsMenu : MonoBehaviour
             // Switches whether mixer is muted or not
             mixerIsMuted[i] = !unmuted;
 
-            // Unmutes mixer
-            if (unmuted)
-            {
-                mixers[i].SetFloat("MasterVolume", currentVol);
-            }
-            // Mutes mixer
-            else
-            {
-                mixers[i].SetFloat("MasterVolume", MIN_VOLUME);
-            }    
+            // Mutes mixer or sets it to correct volume
+            mixers[i].SetFloat("MasterVolume", unmuted ? currentVol : MIN_VOLUME);
         }
+
+        // Holds whether or not SFX is muted in PlayerPrefs for later startups
+        PlayerPrefs.SetInt("SFXMuted", unmuted ? 0 : 1);
     }
 
-    public void muteRoll()
-    {
-        
-    }
 }
