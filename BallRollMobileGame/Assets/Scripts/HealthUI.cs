@@ -9,25 +9,16 @@
 using UnityEngine;
 using TMPro;
 
-
-[RequireComponent(typeof(TextMeshProUGUI))]
-
 public class HealthUI : MonoBehaviour
 {
     [Tooltip("The Health component to display the stats of. If null, will" +
         " find the Player's health component at runtime.")]
     [SerializeField] private Health healthComponent;
 
-    private TextMeshProUGUI livesText;
-
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3; 
 
-    private void Awake()
-    {
-        livesText = GetComponent<TextMeshProUGUI>();
-    }
 
     private void Start()
     {
