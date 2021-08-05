@@ -45,9 +45,9 @@ public class ShopItem : MonoBehaviour
 
     private void Awake()
     {
-        // If the active scene is the Menu, remove all non-ShopItem related components 
+        // If the active scene is the Shop, remove all non-ShopItem related components 
         // so the marble won't fall to the ground, be controllable, etc.
-        if (SceneManager.GetActiveScene().name == SHOP_SCENE_NAME)
+        if (SceneManager.GetSceneByName(SHOP_SCENE_NAME).isLoaded)
         {
             Destroy(GetComponent<BallController>());
             Destroy(GetComponent<IBallMovementBehaviour>());
