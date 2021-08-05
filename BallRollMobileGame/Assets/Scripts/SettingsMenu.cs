@@ -10,51 +10,66 @@ public class SettingsMenu : MonoBehaviour
     /// </summary>
     public GameObject bg;
 
-    /// <summary>
-    /// Slider for roll sound 
-    /// </summary>
-    public Slider rollSlider;
+    [Tooltip("Volume Slider")]
+    public Slider volumeSlider;
+
+    [Tooltip("Music mute toggle")]
+    public Toggle musicToggle;
+
+    [Tooltip("SFX mute toggle")]
+    public Toggle sfxToggle;
 
     [Tooltip("AudioMixers for music, SFX, and roll sound (in that order)")]
     [SerializeField] private AudioMixer[] mixers = new AudioMixer[3];
 
-    [Tooltip("Holds whether or not music, SFX, and roll sound audio mixers (in that order) are muted")]
-    [SerializeField] private bool[] mixerIsMuted = new bool[3];
+    /// <summary>
+    /// Holds whether or not music, SFX, and roll sound audio mixers (in that order) are muted
+    /// </summary>
+    private static bool[] mixerIsMuted = new bool[3];
 
     /// <summary>
-    /// Volume Multipler
+    /// Current volume
     /// </summary>
-    private float multiplier = 30.0f; 
+    private static float currentVol = 0;
 
+    /// <summary>
+    /// Minimum audio mixer volume - setting it to this mutes the mixer
+    /// </summary>
+    private const float MIN_VOLUME = -80f;
 
-
-    // Start is called before the first frame update
+    
+    
     void Start()
     {
         bg.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
 
+        // Sets volume slider to correct value
+        volumeSlider.value = currentVol;
+
+        // Sets toggles to off if their corresponding mixer is muted
+        musicToggle.isOn = !mixerIsMuted[0];
+        sfxToggle.isOn = !mixerIsMuted[1];
+
+        musicToggle.onValueChanged.AddListener(MusicMuteUnmute);
+        sfxToggle.onValueChanged.AddListener(SFXMuteUnmute);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void HandleVolumeSliderValueChanged()
     {
-        //rollSlider.onValueChanged.AddListener(HandleRollSliderValueChanged);
-    }
+        Debug.Log("Value = " + volumeSlider.value);
+        currentVol = volumeSlider.value;
 
-    public void HandleVolumeSliderValueChanged(Slider thisSlider)
-    {
-        Debug.Log("Value = " + thisSlider.value);
         for(int i = 0; i < mixers.Length; i++)
         {
             if (mixerIsMuted[i])
             {
-                mixers[i].SetFloat("MasterVolume", -80);
+                mixers[i].SetFloat("MasterVolume", MIN_VOLUME);
                 Debug.Log("Muted mixer " + i);
             }
             else
             {
-                mixers[i].SetFloat("MasterVolume", thisSlider.value);
-                Debug.Log("Mixer " + i + " set to " + thisSlider.value);
+                mixers[i].SetFloat("MasterVolume", volumeSlider.value);
+                Debug.Log("Mixer " + i + " set to " + volumeSlider.value);
             }
         }
     }
@@ -64,18 +79,61 @@ public class SettingsMenu : MonoBehaviour
         SceneManager.UnloadSceneAsync("Settings");
     }
 
-    public void muteVolume()
+    /// <summary>
+    /// Mutes/Unmutes music, depending on whether or not it is currently muted
+    /// </summary>
+    public void MusicMuteUnmute(bool unmuted)
     {
-        mixers[0].SetFloat("MasterVolume", -80);
+       
+        Debug.Log("Starting unmute/mute - music is currently muted = " + mixerIsMuted[0]);
+
+        // Switches whether mixer is muted or not
+        mixerIsMuted[0] = !unmuted;
+
+        // Unmutes music
+        if (unmuted)
+        {
+            mixers[0].SetFloat("MasterVolume", currentVol);
+
+            Debug.Log("Mixer volume set to - " + currentVol);
+        }
+        // Mutes music
+        else
+        {
+            mixers[0].SetFloat("MasterVolume", MIN_VOLUME);
+
+            Debug.Log("Mixer volume set to - " + MIN_VOLUME);
+        }
+
+        
     }
 
-    public void muteSFX()
+    /// <summary>
+    /// Mutes/Unmutes SFX and roll sound, depending on whether or not it is currently muted
+    /// </summary>
+    public void SFXMuteUnmute(bool unmuted)
     {
-        mixers[1].SetFloat("MasterVolume", -80);
+       // Mutes/Unmutes roll and SFX mixers
+        for (int i = 1; i < mixers.Length; i++)
+        {
+            // Switches whether mixer is muted or not
+            mixerIsMuted[i] = !unmuted;
+
+            // Unmutes mixer
+            if (unmuted)
+            {
+                mixers[i].SetFloat("MasterVolume", currentVol);
+            }
+            // Mutes mixer
+            else
+            {
+                mixers[i].SetFloat("MasterVolume", MIN_VOLUME);
+            }    
+        }
     }
 
     public void muteRoll()
     {
-        mixers[2].SetFloat("MasterVolume", -80);
+        
     }
 }
