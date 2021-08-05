@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2030127778325470218}
   - component: {fileID: 1767266923259286539}
   - component: {fileID: 5628074155462791245}
+  - component: {fileID: 1446492981480102526}
   m_Layer: 10
   m_Name: Portal
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1469702377874540755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.48, y: 31.3, z: 0.1}
-  m_LocalScale: {x: 2, y: 25, z: 25}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -41,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469702377874540755}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -462981019419857548, guid: 3371aae92c806e74fb87b1e627b14500, type: 3}
 --- !u!23 &2030127778325470218
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -94,7 +95,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000006, y: 1, z: 1.0000006}
+  m_Size: {x: -1.94, y: 0.06, z: 2.18}
   m_Center: {x: 0.0000057220504, y: 0, z: -0.0000028610239}
 --- !u!114 &5628074155462791245
 MonoBehaviour:
@@ -108,3 +109,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6b6d466b0d35b45b6a15e04e8cf969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1446492981480102526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469702377874540755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0.10849059, g: 0.68532574, b: 1, a: 1}
+  outlineWidth: 1.24
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
