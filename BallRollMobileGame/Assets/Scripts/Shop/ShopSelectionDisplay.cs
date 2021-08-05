@@ -6,21 +6,29 @@
 // Brief Description : Controls the displaying of the currently selected shop item.
 *****************************************************************************/
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class ShopSelectionDisplay : MonoBehaviour
 {
-    [SerializeField] private Image selectionImg;
+    [SerializeField] private GameObject gameObjectDisplayParent;
     [SerializeField] private TextMeshProUGUI selectionNameText;
     [SerializeField] private TextMeshProUGUI selectionPriceText;
 
+    private GameObject currentlySelectedObject;
 
-    public void UpdateDisplay(Sprite selectionSpr, string name, int price, bool unlocked)
+
+    public void UpdateDisplay(GameObject selectionGameObject, string name, int price, bool unlocked)
     {
-        selectionImg.enabled = true;
+        if (currentlySelectedObject != null)
+            currentlySelectedObject.SetActive(false);
 
-        selectionImg.sprite = selectionSpr;
+        currentlySelectedObject = selectionGameObject;
+
+        selectionGameObject.transform.SetParent(gameObjectDisplayParent.transform,false);
+        selectionGameObject.transform.localPosition = Vector3.zero;
+        selectionGameObject.SetActive(true);
+
+
         selectionNameText.text = name;
 
         if (unlocked)

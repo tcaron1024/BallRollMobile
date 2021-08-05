@@ -172,7 +172,7 @@ public class Shop : MonoBehaviour
     /// <param name="item">The ShopItem to display.</param>
     public void DisplaySelection(ShopItem item)
     {
-        selectionDisplay.UpdateDisplay(item.iconImg, item.itemName, item.price, item.unlocked);
+        selectionDisplay.UpdateDisplay(item.gameObject, item.itemName, item.price, item.unlocked);
 
         if (item.unlocked)
         {
