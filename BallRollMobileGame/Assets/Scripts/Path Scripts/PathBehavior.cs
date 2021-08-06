@@ -54,6 +54,9 @@ public class PathBehavior : MonoBehaviour
 
     #endregion
 
+    [Tooltip("Parent to spawn the environment objects under")]
+    public Transform environmentParent;
+
     private void Start()
     {
         // Create jagged arrays for obstacle spawning
@@ -114,6 +117,17 @@ public class PathBehavior : MonoBehaviour
             }
         }
 
+    }
+
+
+    public void SpawnEnvironmentObjects(List<GameObject> objects)
+    {
+        List<Vector3> possibleSpawns = new List<Vector3>();
+
+        foreach(GameObject obj in objects)
+        {
+     
+        }
     }
 
     

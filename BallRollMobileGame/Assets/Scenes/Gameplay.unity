@@ -1823,6 +1823,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bumper (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6989373764884778379, guid: 4d7cd9b9aef92804896f49af1916ca22, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6989373764884778381, guid: 4d7cd9b9aef92804896f49af1916ca22, type: 3}
       propertyPath: m_Material
       value: 
@@ -2437,6 +2441,10 @@ PrefabInstance:
     - target: {fileID: 3760039338786177302, guid: 489b4326d384e8146ab92f0aeb746e20, type: 3}
       propertyPath: m_Name
       value: IciclePref
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760039338786177302, guid: 489b4326d384e8146ab92f0aeb746e20, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5898394948077297939, guid: 489b4326d384e8146ab92f0aeb746e20, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6259,6 +6267,7 @@ GameObject:
   - component: {fileID: 1258320065}
   - component: {fileID: 1258320066}
   - component: {fileID: 1258320067}
+  - component: {fileID: 1258320068}
   m_Layer: 0
   m_Name: Path Parent
   m_TagString: Untagged
@@ -6294,6 +6303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a95c0be0ba85a94bbd86094e114ea02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  environmentSpawner: {fileID: 1258320068}
   defaultPathPrefabs:
   - {fileID: 1047060870075314558, guid: 665e1392aaa279e46b345dd9481f49a6, type: 3}
   - {fileID: 6795236090984494608, guid: 1a1ab6f7ad7cc6f45ae9855bba9b629e, type: 3}
@@ -6364,6 +6374,36 @@ MonoBehaviour:
     - {fileID: 4028734013297278319, guid: aadce939fb3764340bcd8544e50b6e49, type: 3}
     - {fileID: 2927168067980047107, guid: 74eeb288e483cda4a95ac146bd60a35b, type: 3}
     numToSpawn: 1
+--- !u!114 &1258320068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258320064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cfafcad5c7391449a3c75507072c858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnChance: 50
+  defaultEnvironmentObjs:
+  - {fileID: 1541117492723412763, guid: b08edab7abef2574586ae748a1c3d110, type: 3}
+  - {fileID: 5856241228489042803, guid: 3f3cabce5cb8dc94fa6994bf290b0cbb, type: 3}
+  - {fileID: 611105120878554960, guid: 3585475a27dd93044a83afd553ef203d, type: 3}
+  - {fileID: 3068647613418552088, guid: 019dc439474beb842b716b334603627b, type: 3}
+  defaultSpawnPos:
+  - {x: 10, y: 0, z: 5}
+  - {x: -10, y: 0, z: 5}
+  - {x: 10, y: 0, z: -5}
+  - {x: -10, y: 0, z: -5}
+  desertEnvironmentObjs:
+  - {fileID: 125927449575230039, guid: 4e19a59957b0016478baac53c0202e0a, type: 3}
+  - {fileID: 693068712803269898, guid: 2d9122fcf63c7524680f373242bc4723, type: 3}
+  desertSpawnPos: []
+  arcticEnvironmentObjs:
+  - {fileID: 6787066728828116565, guid: 14de6e64da263294ab6a0d3498992e99, type: 3}
+  arcticSpawnPos: []
 --- !u!1 &1261876175
 GameObject:
   m_ObjectHideFlags: 0
@@ -14593,6 +14633,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SandHill
       objectReference: {fileID: 0}
+    - target: {fileID: 693068712803269898, guid: 2d9122fcf63c7524680f373242bc4723, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d9122fcf63c7524680f373242bc4723, type: 3}
 --- !u!1001 &584375445769257311
@@ -14605,6 +14649,10 @@ PrefabInstance:
     - target: {fileID: 5824484310106696465, guid: 938bb68a505a80849b6aabb9341d85f6, type: 3}
       propertyPath: m_Name
       value: Fan
+      objectReference: {fileID: 0}
+    - target: {fileID: 5824484310106696465, guid: 938bb68a505a80849b6aabb9341d85f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6602111243376308651, guid: 938bb68a505a80849b6aabb9341d85f6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14719,6 +14767,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_01
       objectReference: {fileID: 0}
+    - target: {fileID: 5856241228489042803, guid: 3f3cabce5cb8dc94fa6994bf290b0cbb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f3cabce5cb8dc94fa6994bf290b0cbb, type: 3}
 --- !u!1001 &1490416724362481999
@@ -14731,6 +14783,10 @@ PrefabInstance:
     - target: {fileID: 6177702151440863646, guid: 865638dfc78931842919222ad7a3197d, type: 3}
       propertyPath: m_Name
       value: Snowball
+      objectReference: {fileID: 0}
+    - target: {fileID: 6177702151440863646, guid: 865638dfc78931842919222ad7a3197d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6841051176247282468, guid: 865638dfc78931842919222ad7a3197d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14788,6 +14844,10 @@ PrefabInstance:
     - target: {fileID: 4828969747540700339, guid: 63b67681e0f962d4f99bdafb6794c76a, type: 3}
       propertyPath: m_Name
       value: MeteorBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828969747540700339, guid: 63b67681e0f962d4f99bdafb6794c76a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5208451220501771785, guid: 63b67681e0f962d4f99bdafb6794c76a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14954,6 +15014,10 @@ PrefabInstance:
     - target: {fileID: 2198612276289915907, guid: a9f1acf54bf779446b1d107d9a8eb778, type: 3}
       propertyPath: m_Name
       value: SpikesRotatingPref (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198612276289915907, guid: a9f1acf54bf779446b1d107d9a8eb778, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9f1acf54bf779446b1d107d9a8eb778, type: 3}
@@ -15122,6 +15186,10 @@ PrefabInstance:
     - target: {fileID: 3671675180326892264, guid: b340d270daed31e47a9799422042009c, type: 3}
       propertyPath: m_Name
       value: FrogBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671675180326892264, guid: b340d270daed31e47a9799422042009c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4161248759645268050, guid: b340d270daed31e47a9799422042009c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15342,6 +15410,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Buoy
       objectReference: {fileID: 0}
+    - target: {fileID: 6787066728828116565, guid: 14de6e64da263294ab6a0d3498992e99, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14de6e64da263294ab6a0d3498992e99, type: 3}
 --- !u!4 &3871082217289676261
@@ -15368,6 +15440,10 @@ PrefabInstance:
     - target: {fileID: 9095123709987058602, guid: 82652cfc8d98a2245b7cd5d896ccb7a7, type: 3}
       propertyPath: m_Name
       value: QuicksandPref
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095123709987058602, guid: 82652cfc8d98a2245b7cd5d896ccb7a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9095123709987058603, guid: 82652cfc8d98a2245b7cd5d896ccb7a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15425,6 +15501,10 @@ PrefabInstance:
     - target: {fileID: 1541117492723412763, guid: b08edab7abef2574586ae748a1c3d110, type: 3}
       propertyPath: m_Name
       value: Rock_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541117492723412763, guid: b08edab7abef2574586ae748a1c3d110, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1541117492723512123, guid: b08edab7abef2574586ae748a1c3d110, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15643,6 +15723,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_02
       objectReference: {fileID: 0}
+    - target: {fileID: 611105120878554960, guid: 3585475a27dd93044a83afd553ef203d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 611105120878654320, guid: 3585475a27dd93044a83afd553ef203d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.95
@@ -15711,6 +15795,10 @@ PrefabInstance:
     - target: {fileID: 3068647613418552088, guid: 019dc439474beb842b716b334603627b, type: 3}
       propertyPath: m_Name
       value: Tree_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068647613418552088, guid: 019dc439474beb842b716b334603627b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3068647613418841912, guid: 019dc439474beb842b716b334603627b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15895,6 +15983,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpikesPlainPref (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4676722975805372708, guid: dca2a8559563b7444979d98210653ad2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4676722975805372711, guid: dca2a8559563b7444979d98210653ad2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.08700609
@@ -15951,6 +16043,10 @@ PrefabInstance:
     - target: {fileID: 125927449575230039, guid: 4e19a59957b0016478baac53c0202e0a, type: 3}
       propertyPath: m_Name
       value: PalmTree
+      objectReference: {fileID: 0}
+    - target: {fileID: 125927449575230039, guid: 4e19a59957b0016478baac53c0202e0a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 789452603151306989, guid: 4e19a59957b0016478baac53c0202e0a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16166,6 +16262,10 @@ PrefabInstance:
     - target: {fileID: 7965198512042800745, guid: 88b524fbb941fa44c9c4d574931f8108, type: 3}
       propertyPath: m_Name
       value: OrangeMarble
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965198512042800745, guid: 88b524fbb941fa44c9c4d574931f8108, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88b524fbb941fa44c9c4d574931f8108, type: 3}

@@ -272,6 +272,36 @@ Transform:
   m_Father: {fileID: 6126680637370477738}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6054660842863900825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7293299666474800624}
+  m_Layer: 0
+  m_Name: Environment Objects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7293299666474800624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054660842863900825}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 13, z: 10}
+  m_Children: []
+  m_Father: {fileID: 6126680637370477738}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6657228826619988924
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +371,7 @@ Transform:
   - {fileID: 6167558523200615115}
   - {fileID: 4158383848241412484}
   - {fileID: 3633312392571611918}
+  - {fileID: 7293299666474800624}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -458,6 +489,7 @@ MonoBehaviour:
   run3ObstaclePositions:
   - {fileID: 792343841841110813}
   - {fileID: 5474481462502820097}
+  environmentParent: {fileID: 7293299666474800624}
 --- !u!1 &6807886580348598662
 GameObject:
   m_ObjectHideFlags: 0

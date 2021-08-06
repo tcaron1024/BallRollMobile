@@ -126,6 +126,7 @@ Transform:
   - {fileID: 2483880156460195170}
   - {fileID: 6328646765478269350}
   - {fileID: 7406306805876743506}
+  - {fileID: 28202245405924344}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -241,6 +242,37 @@ MonoBehaviour:
   run3ObstaclePositions:
   - {fileID: 6431150449610022512}
   - {fileID: 5268654743509244748}
+  environmentParent: {fileID: 28202245405924344}
+--- !u!1 &3354724289822156903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 28202245405924344}
+  m_Layer: 0
+  m_Name: Environment Objects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &28202245405924344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3354724289822156903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 13, z: 10}
+  m_Children: []
+  m_Father: {fileID: 3045699142717971847}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3432542569150428981
 GameObject:
   m_ObjectHideFlags: 0

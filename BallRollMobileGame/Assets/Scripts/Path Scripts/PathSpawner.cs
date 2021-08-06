@@ -14,6 +14,8 @@ public class PathSpawner : MonoBehaviour
         public int index { get; private set; }
         public GameObject gameObject { get; private set; }
     }
+    [Tooltip("Environment Spawner Script")]
+    [SerializeField] private EnvironmentSpawner environmentSpawner;
 
     [Tooltip("Array of the tiles that can be used for the default scenery")]
     public GameObject[] defaultPathPrefabs;
@@ -88,6 +90,7 @@ public class PathSpawner : MonoBehaviour
             int rand = Random.Range(0, unusedPaths.Count);
 
             lastPath = new Path(rand, Instantiate(unusedPaths[rand], lastPath.gameObject.transform.position + offset, lastPath.gameObject.transform.rotation, pathParent));
+            environmentSpawner.SpawnEnvironment(lastPath.gameObject, GameController.scenerySettings);
 
             // Move the used path to the unusedPaths list.
             GameObject temp = unusedPaths[rand];
