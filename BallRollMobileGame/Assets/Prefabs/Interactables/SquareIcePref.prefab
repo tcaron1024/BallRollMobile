@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 19930742737315074}
   - component: {fileID: 19930742737315073}
   - component: {fileID: 19930742737315072}
+  - component: {fileID: 7020495676075845828}
   m_Layer: 0
   m_Name: SquareIcePref
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7020495676075845828
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19930742737315103}
+  m_Material: {fileID: 13400000, guid: 9069bd9b8d58b404fad66d77bb47d988, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.005, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2089169508681889081
 PrefabInstance:
   m_ObjectHideFlags: 0
