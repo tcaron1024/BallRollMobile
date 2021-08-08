@@ -8,7 +8,6 @@
 
 public class SpeedPowerup : IPowerUp
 {
-    private float originalSpeed;
     private const float SPEED_INCREASE = 3;
     private const float DEACTIVATION_TIME = 2;
 
@@ -20,9 +19,7 @@ public class SpeedPowerup : IPowerUp
     protected override void Activate()
     {
         movement = GetComponent<IBallMovementBehaviour>();
-
-        originalSpeed = movement.BallSpeed;
-        movement.UpdateBallSpeed(originalSpeed + SPEED_INCREASE);
+        movement.UpdateCurrentForwardSpeed(movement.CurrentForwardSpeed + SPEED_INCREASE);
     }
     
     /// <summary>
@@ -31,7 +28,6 @@ public class SpeedPowerup : IPowerUp
     /// </summary>
     protected override void Deactivate()
     {
-        movement.UpdateBallSpeed(originalSpeed);
         movement.UpdateCurrentForwardSpeed(movement.CurrentForwardSpeed - SPEED_INCREASE);
         Destroy(this);
     }

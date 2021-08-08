@@ -171,10 +171,10 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
         //rb.AddForce(Vector3.forward * currentForwardSpeed, ForceMode.Force);
     }
 
-    public void UpdateBallSpeed(float ballSpeed)
-    {
-        this.ballSpeed = ballSpeed;
-    }
+    //public void UpdateBallSpeed(float ballSpeed)
+    //{
+    //    this.ballSpeed = ballSpeed;
+    //}
 
     public void UpdateCurrentForwardSpeed(float speed)
     {
