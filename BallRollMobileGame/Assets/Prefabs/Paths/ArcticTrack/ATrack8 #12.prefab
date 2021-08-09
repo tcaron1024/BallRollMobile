@@ -486,9 +486,9 @@ MonoBehaviour:
   - {fileID: 7591651222026893308}
   coinParent: {fileID: 6931463458492169920}
   obstacleParents:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6738878412301724119}
+  - {fileID: 6057729293203125907}
+  - {fileID: 2852017646863708807}
   run1ObstacleObjects: []
   run1ObstaclePositions: []
   run2ObstacleObjects:

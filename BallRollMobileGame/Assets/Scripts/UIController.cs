@@ -98,7 +98,7 @@ public class UIController : MonoBehaviour
         score = GameController.score;
         coins = GameController.coins;
         scoreText.text = "Score: " + score;
-        coinsText.text = "" + coins;
+        coinsText.text = "x " + coins;
         oldHighScore = PlayerPrefs.GetInt("HighScore", 0);
         oldShopBalance = PlayerPrefs.GetInt("ShopBalance", 0);
 
@@ -114,8 +114,8 @@ public class UIController : MonoBehaviour
     {
         // Set loss screen texts
         lossScreenScoreText.text = scoreText.text;
-        lossScreenOldCoinsText.text = "Coins: " + oldShopBalance + " +";
-        lossScreenNewCoinsText.text = coinsText.text;
+        lossScreenOldCoinsText.text = "Coins: " + oldShopBalance + "  +";
+        lossScreenNewCoinsText.text = coinsText.text.Trim('x', ' ');
 
         // Check if player beat their high score
         if (oldHighScore < score)
@@ -208,7 +208,7 @@ public class UIController : MonoBehaviour
     {
         coins++;
         GameController.coins = coins;
-        coinsText.text = "Coins: " + coins;
+        coinsText.text = "x " + coins;
         coinAnim.SetBool("coin", true);
         Invoke("resetCoin", 0.75f);
     }
