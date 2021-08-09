@@ -42,6 +42,9 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
 
     // The max y-position the marble can be at.
     private float maxYPos;
+
+    // If the ball goes below this height, it dies
+    private float minYPos = 2.75f;
     #endregion
 
     private bool grounded = true;
@@ -68,6 +71,14 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
         // Continually clamp the Y-pos.
         ClampYPos();
 
+        // Plays/stops roll audio based on whether or not ball is on ground
+        CheckRollAudio();
+
+        DeathCheck();
+    }
+
+    private void CheckRollAudio() 
+    {
         // Change roll pitch/speed based on ball's speed
         float speed = rb.velocity.magnitude;
         float scaled = speed / maxSpeed;
@@ -91,6 +102,14 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
             {
                 rollSource.Stop();
             }
+        }
+    }
+
+    private void DeathCheck()
+    {
+        if (gameObject.transform.position.y < minYPos)
+        {
+            EventManager.OnPlayerDeath();
         }
     }
 

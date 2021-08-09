@@ -15,6 +15,16 @@ public class BallController : MonoBehaviour
 
     Rigidbody rb;
 
+    private void OnEnable()
+    {
+        EventManager.OnPlayerDeath += KillBall;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnPlayerDeath -= KillBall;
+    }
+
     private void Awake()
     {
         ballMovementBehaviour = GetComponent<IBallMovementBehaviour>();
@@ -43,4 +53,9 @@ public class BallController : MonoBehaviour
 
     }
 
+    // Kills player when they die
+    private void KillBall()
+    {
+        Destroy(gameObject);
+    }
 }

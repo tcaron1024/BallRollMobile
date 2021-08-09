@@ -52,6 +52,7 @@ public class PathSpawner : MonoBehaviour
     /// <param name="numPaths"></param>
     public void SpawnPaths(int numPaths)
     {
+        Debug.Log("Scenery Settings = " + GameController.scenerySettings);
         // Checks which paths to use for this level - 0 = default, 1 = desert
         switch (GameController.scenerySettings)
         {
@@ -101,5 +102,6 @@ public class PathSpawner : MonoBehaviour
 
         // Spawn portal (ending) path here
         lastPath = new Path(-1, Instantiate(portalPaths[GameController.scenerySettings], lastPath.gameObject.transform.position + offset, lastPath.gameObject.transform.rotation, pathParent));
+        Debug.Log("Last path = " + lastPath.gameObject.name);
     }
 }

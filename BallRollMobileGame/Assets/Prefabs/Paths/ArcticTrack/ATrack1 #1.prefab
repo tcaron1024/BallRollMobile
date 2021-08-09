@@ -128,12 +128,11 @@ MonoBehaviour:
   - {fileID: 3718515572148027489}
   run1ObstacleObjects: []
   run1ObstaclePositions: []
-  run2ObstacleObjects:
-  - {fileID: 0}
-  run2ObstaclePositions:
-  - {fileID: 0}
+  run2ObstacleObjects: []
+  run2ObstaclePositions: []
   run3ObstacleObjects: []
   run3ObstaclePositions: []
+  environmentParent: {fileID: 0}
 --- !u!64 &437552136060348189
 MeshCollider:
   m_ObjectHideFlags: 0

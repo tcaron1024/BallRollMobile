@@ -58,7 +58,6 @@ public class EnvironmentSpawner : MonoBehaviour
     public void SpawnEnvironment(GameObject path, int index)
     {
         // only implemented for default level for now
-        Debug.Log("Index = " + index);
         if (index < 1)
         {
             // Get parent from path
