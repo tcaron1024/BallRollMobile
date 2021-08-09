@@ -30,6 +30,8 @@ public class HealthUI : MonoBehaviour
         healthComponent.OnDeath += () => UpdateLivesText(0);
 
         UpdateLivesText(healthComponent.GetCurrentLives());
+        Debug.Log("start " + healthComponent.GetCurrentLives() + " lives");
+   
     }
 
     private void OnDisable()
