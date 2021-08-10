@@ -97,7 +97,7 @@ public class UIController : MonoBehaviour
     {
         score = GameController.score;
         coins = GameController.coins;
-        scoreText.text = "Score: " + score;
+        scoreText.text = "     " + score;
         coinsText.text = "x " + coins;
         oldHighScore = PlayerPrefs.GetInt("HighScore", 0);
         oldShopBalance = PlayerPrefs.GetInt("ShopBalance", 0);
@@ -201,7 +201,7 @@ public class UIController : MonoBehaviour
     {
         score += scoreIncreaseAmount;
         GameController.score = score;
-        scoreText.text = "Score: " + score;
+        scoreText.text = "     " + score;
     }
 
     public void CollectCoin()
