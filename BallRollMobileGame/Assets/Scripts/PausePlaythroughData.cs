@@ -32,8 +32,12 @@ public class PausePlaythroughData : MonoBehaviour
 
     private void OnEnable()
     {
-        // Hides gameplay playthrough data
-        //gamePlaythroughData.SetActive(false);
+        // Hides gameplay playthrough data while keeping heart data 
+        foreach (Animator heart in gameHearts)
+        {
+            heart.keepAnimatorControllerStateOnDisable = true;
+        }
+        gamePlaythroughData.SetActive(false);
 
         // Sets pause playthrough data equal to current gameplay playthrough data
         pauseScoreText.text = gameScoreText.text;
@@ -48,6 +52,6 @@ public class PausePlaythroughData : MonoBehaviour
     private void OnDisable()
     {
         // Shows gameplay playthrough data
-        //gamePlaythroughData.SetActive(true);
+        gamePlaythroughData.SetActive(true);
     }
 }
