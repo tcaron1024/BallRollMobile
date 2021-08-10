@@ -119,17 +119,6 @@ public class PathBehavior : MonoBehaviour
 
     }
 
-
-    public void SpawnEnvironmentObjects(List<GameObject> objects)
-    {
-        List<Vector3> possibleSpawns = new List<Vector3>();
-
-        foreach(GameObject obj in objects)
-        {
-     
-        }
-    }
-
     
     /// <summary>
     /// Spawns every possible coin/obstacle for debugging purposes
