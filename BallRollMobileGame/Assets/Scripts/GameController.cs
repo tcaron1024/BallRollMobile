@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// Used to determine what material the paths should be using. 0 for default, 1 for desert. 2 for arctic. etc..
     /// </summary>
-    public static int scenerySettings = 2; 
+    public static int scenerySettings = 0; 
 
     /// <summary>
     /// Speed multiplier for ball acceleration this level
