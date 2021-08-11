@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 789452603151306989}
   m_Layer: 0
-  m_Name: PalmTree
+  m_Name: PalmTreeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

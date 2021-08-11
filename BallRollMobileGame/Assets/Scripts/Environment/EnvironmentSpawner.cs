@@ -58,8 +58,8 @@ public class EnvironmentSpawner : MonoBehaviour
     public void SpawnEnvironment(GameObject path, int index)
     {
         int lastSpawned = -1;
-        // only implemented for default level for now
-        if (index < 1)
+        // only implemented for default and desert levels for now
+        if (index < 2)
         {
             // Get parent from path
             parent = path.GetComponent<PathBehavior>().environmentParent;
@@ -72,11 +72,11 @@ public class EnvironmentSpawner : MonoBehaviour
                 // If an object should be spawned
                 if (rand < spawnChance)
                 {
-                    int objRand = Random.Range(0, environmentObjs[index].Count - 1);
+                    int objRand = Random.Range(0, environmentObjs[index].Count);
                     // Reroll once if the object to be spawned is the same as the last one spawned - more chance for variety
                     if (objRand == lastSpawned)
                     {
-                        objRand = Random.Range(0, environmentObjs[index].Count - 1);
+                        objRand = Random.Range(0, environmentObjs[index].Count);
                     }
                     Instantiate(environmentObjs[index][objRand], parent.position + pos, Quaternion.identity, parent);
                     lastSpawned = objRand;

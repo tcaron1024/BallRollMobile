@@ -114,7 +114,7 @@ public class UIController : MonoBehaviour
     {
         // Set loss screen texts
         lossScreenScoreText.text = scoreText.text;
-        lossScreenOldCoinsText.text = "Coins: " + oldShopBalance + "  +";
+        lossScreenOldCoinsText.text = oldShopBalance + "  +";
         lossScreenNewCoinsText.text = coinsText.text.Trim('x', ' ');
 
         // Check if player beat their high score

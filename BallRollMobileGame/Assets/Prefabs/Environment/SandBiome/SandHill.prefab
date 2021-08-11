@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 204235379625371568}
   - component: {fileID: 3853477555863300117}
   - component: {fileID: 1341714395423366367}
+  - component: {fileID: 1774021132641733547}
   m_Layer: 0
   m_Name: SandHill
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 693068712803269898}
   m_LocalRotation: {x: -0.0012543994, y: -0.18695842, z: -0.005831657, w: 0.98234975}
   m_LocalPosition: {x: 10.930241, y: -1.3406048, z: 6.779705}
-  m_LocalScale: {x: 8.66, y: 8, z: 8}
+  m_LocalScale: {x: 10.5, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1774021132641733547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693068712803269898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948a3698b748e3f47a1284ee2579beae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minScale: 0.8
+  maxScale: 1.2
