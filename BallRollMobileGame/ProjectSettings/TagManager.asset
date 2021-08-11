@@ -10,6 +10,7 @@ TagManager:
   - Spikes
   - SFX
   - Roll
+  - speedvis
   layers:
   - Default
   - TransparentFX

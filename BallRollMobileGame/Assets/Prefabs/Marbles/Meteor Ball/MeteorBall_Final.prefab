@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa91006b2dc7c0541aa9b5e270ea9db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedVisual: {fileID: 2158123776336043995, guid: fcfbbba55c130e94bb6eae7a8ea3ca61, type: 3}
   ballSpeed: 0.1
   speedMultiplier: 1
   pushForceMultiplier: 3

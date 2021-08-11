@@ -8,6 +8,11 @@ using System.Collections;
 
 public abstract class IBallMovementBehaviour : MonoBehaviour
 {
+    public GameObject speedVisual;
+    GameObject actualSpeedVisual;
+    ParticleSystem ps;
+    
+
     private Rigidbody rb;
 
     #region -- Movement Fields --
@@ -51,7 +56,6 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
     [SerializeField] private AudioSource rollSource;
     private float maxSpeed = 10f;
 
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -59,8 +63,12 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
 
     protected virtual void Start()
     {
+        Instantiate(speedVisual, transform.position, Quaternion.identity);
+        actualSpeedVisual = GameObject.FindGameObjectWithTag("speedvis");
         currentForwardSpeed = levelSpeed;
         rollSource = GameObject.FindGameObjectWithTag("Roll").GetComponent<AudioSource>();
+        ps = actualSpeedVisual.GetComponent<ParticleSystem>();
+        
         //rb.AddForce(Vector3.forward * currentForwardSpeed, ForceMode.VelocityChange);
     }
 
@@ -75,6 +83,8 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
         CheckRollAudio();
 
         DeathCheck();
+
+        SetSpeedVisuals();
     }
 
     private void CheckRollAudio() 
@@ -110,6 +120,7 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
         if (gameObject.transform.position.y < minYPos)
         {
             EventManager.OnPlayerDeath();
+            Destroy(actualSpeedVisual);
         }
     }
 
@@ -198,6 +209,7 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
     public void UpdateCurrentForwardSpeed(float speed)
     {
         currentForwardSpeed = speed;
+
     }
 
     /// <summary>
@@ -217,6 +229,14 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
     {
         print("BALL MOVEMENT: levelSpeed set to " + speed);
         levelSpeed = speed;
+    }
+
+    void SetSpeedVisuals()
+    {
+        var emission = ps.emission;
+        var sSpeed = ps.main;
+        emission.rateOverTime = currentForwardSpeed * 4;
+        sSpeed.startSpeedMultiplier = currentForwardSpeed * 2;
     }
 
 
