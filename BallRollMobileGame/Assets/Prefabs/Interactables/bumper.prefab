@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 6989373764884778380}
   - component: {fileID: 6989373764884778381}
   - component: {fileID: 6989373764884778378}
+  - component: {fileID: 1099291876122350084}
   m_Layer: 0
   m_Name: bumper
   m_TagString: Untagged
@@ -326,3 +327,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ringSpawn: {fileID: 1770754479072215198}
   ring: {fileID: 5458381674238783221, guid: 3cd694ad166e0ef4f9a5f6ada41b39b7, type: 3}
+--- !u!114 &1099291876122350084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6989373764884778379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff6b18265ff61eb41b2ea84e5af17105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
