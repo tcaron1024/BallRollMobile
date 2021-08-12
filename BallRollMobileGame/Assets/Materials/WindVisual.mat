@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Snowballmat
-  m_Shader: {fileID: -6465566751694194690, guid: 99528f93fd1922647a3bcc935ee6f3d8, type: 3}
+  m_Name: WindVisual
+  m_Shader: {fileID: -6465566751694194690, guid: e141c22b453050b47bb097d235eafc3f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -48,10 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_27B12C2D: 1
-    - Vector1_42A3734A: 3000
-    - Vector1_87EDDB57: 4.79
-    - Vector1_F77141FB: 1.6
+    - Vector1_CBA811C1: 0.66
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -74,15 +71,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_D83B35F7: {r: 0, g: 0.43747032, b: 0.5849056, a: 0}
-    - Color_E8A69116: {r: 1, g: 0.0141509175, b: 0.04079559, a: 0}
-    - Color_FC5E8391: {r: 0.8066038, g: 1, b: 0.97062266, a: 0}
+    - Color_F0E72473: {r: 5.2923098, g: 48.466415, b: 53.20164, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &1795596541527474661
+--- !u!114 &4938426598054716009
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
