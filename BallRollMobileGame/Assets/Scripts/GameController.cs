@@ -61,6 +61,12 @@ public class GameController : MonoBehaviour
     /// </summary>
     public Button pauseButton;
 
+    /// <summary>
+    /// Colors for the scene's fog to change to.
+    /// </summary>
+    public Color defaultColor;
+    public Color desertColor;
+    public Color arcticColor;
 
     /// <summary>
     /// The play button
@@ -93,6 +99,7 @@ public class GameController : MonoBehaviour
             RuntimePlayerData.selectedBall = defaultMarble;
 
         SpawnMarble();
+        ChangeFogColor();
     }
 
     private void Start()
@@ -130,6 +137,22 @@ public class GameController : MonoBehaviour
     private void SpawnMarble()
     {
         Instantiate(RuntimePlayerData.selectedBall, marbleSpawnLocation.position, RuntimePlayerData.selectedBall.transform.rotation);
+    }
+
+    private void ChangeFogColor()
+    {
+        if (scenerySettings == 0)
+        {
+            RenderSettings.fogColor = defaultColor;
+        }
+        else if (scenerySettings == 1)
+        {
+            RenderSettings.fogColor = desertColor;
+        }
+        else if (scenerySettings == 2)
+        {
+            RenderSettings.fogColor = arcticColor;
+        }
     }
 
     /// <summary>
