@@ -152,7 +152,7 @@ public class UIController : MonoBehaviour
         {
             coins--;
             oldShopBalance++;
-            lossScreenOldCoinsText.text = "Coins: " + oldShopBalance + " +";
+            lossScreenOldCoinsText.text = oldShopBalance + " +";
             lossScreenNewCoinsText.text = " " + coins;
             sfx.PlayAddUp();
 
