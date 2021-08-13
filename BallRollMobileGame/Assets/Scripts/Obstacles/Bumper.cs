@@ -22,5 +22,7 @@ public class Bumper : IColliderObstacle
         print(force);
 
         playerRb.AddForce(force, ForceMode.VelocityChange);
+
+        EventManager.ObstacleCollision(this.name);
     }
 }

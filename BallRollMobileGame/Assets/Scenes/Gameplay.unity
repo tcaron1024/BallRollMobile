@@ -4437,6 +4437,8 @@ MonoBehaviour:
   icicleSound: {fileID: 8300000, guid: eca6ebd5f8be2764d8e6a30f1f149167, type: 3}
   quicksandSound: {fileID: 8300000, guid: 0590c7fe19167054dbdecdba4889e6d5, type: 3}
   spikeSound: {fileID: 8300000, guid: 6cbf3ebfa5c6f5b4e96113ab37f1887f, type: 3}
+  bumperSound: {fileID: 8300000, guid: 346323269b785af4a973aa4490d2719c, type: 3}
+  boostSound: {fileID: 8300000, guid: 4297f986c3c11f442ab38d0818d6f339, type: 3}
   pyramidSound: {fileID: 8300000, guid: 4e67bd5e0fb459046afacf74fcf0af2f, type: 3}
 --- !u!1 &884370021
 GameObject:

@@ -11,6 +11,8 @@ public class SFXController : MonoBehaviour
     [SerializeField] private AudioClip icicleSound;
     [SerializeField] private AudioClip quicksandSound;
     [SerializeField] private AudioClip spikeSound;
+    [SerializeField] private AudioClip bumperSound;
+    [SerializeField] private AudioClip boostSound;
     [SerializeField] private AudioClip pyramidSound;
 
     AudioSource sfxSource;
@@ -71,7 +73,13 @@ public class SFXController : MonoBehaviour
             case "Icicles":
                 PlaySound(icicleSound);
                 break;
-            default:
+            case "Bumper":
+                PlaySound(bumperSound);
+                break;
+            case "BoosterPad":
+                PlaySound(boostSound);
+                break;
+            case "Pyramid":
                 PlaySound(pyramidSound);
                 break;
         }
