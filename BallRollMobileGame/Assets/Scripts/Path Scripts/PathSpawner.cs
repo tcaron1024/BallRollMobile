@@ -102,6 +102,5 @@ public class PathSpawner : MonoBehaviour
 
         // Spawn portal (ending) path here
         lastPath = new Path(-1, Instantiate(portalPaths[GameController.scenerySettings], lastPath.gameObject.transform.position + offset, lastPath.gameObject.transform.rotation, pathParent));
-        Debug.Log("Last path = " + lastPath.gameObject.name);
     }
 }

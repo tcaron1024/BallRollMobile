@@ -12,6 +12,7 @@ public class Bumper : IColliderObstacle
     // Knocks the player back, similar to the pyramid.
     protected override void PerformAction(GameObject player, Collision col)
     {
+        Debug.Log(this.name + "hit player");
         Rigidbody playerRb = player.GetComponent<Rigidbody>();
 
         //Vector3 force = col.GetContact(0).normal * 3f;
@@ -23,6 +24,6 @@ public class Bumper : IColliderObstacle
 
         playerRb.AddForce(force, ForceMode.VelocityChange);
 
-        EventManager.ObstacleCollision(this.name);
+        EventManager.ObstacleCollision(this.GetType().Name);
     }
 }

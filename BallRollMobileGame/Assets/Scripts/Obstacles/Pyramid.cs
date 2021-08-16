@@ -27,6 +27,9 @@ public class Pyramid : IColliderObstacle
     #endregion
 
     #region -- Pyramid Movement Fields --
+    [Tooltip("Whether or not this pyramid moves")]
+    public bool moves = true;
+
     // The direction the pyramid is moving in.
     private Vector3 movementDirection;
 
@@ -62,7 +65,10 @@ public class Pyramid : IColliderObstacle
     private void Update()
     {
         // Moves the Pyramid.
-        Move();
+        if (moves)
+        {
+            Move();
+        }
 
         // Uncomment below to ground check every frame
         //PerformGroundCheck();
@@ -141,5 +147,7 @@ public class Pyramid : IColliderObstacle
         Vector3 force = col.GetContact(0).normal * playerRb.velocity.z;
 
         playerRb.AddForce(force, ForceMode.Impulse);
+
+        EventManager.ObstacleCollision(this.GetType().Name);
     }
 }

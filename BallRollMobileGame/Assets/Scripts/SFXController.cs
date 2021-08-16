@@ -61,7 +61,7 @@ public class SFXController : MonoBehaviour
 
     public void PlayObstacle(string name)
     {
-        Debug.Log("playing obstacle sound");
+        Debug.Log("playing obstacle sound - " + name);
         switch (name)
         {
             case "Quick Sand":

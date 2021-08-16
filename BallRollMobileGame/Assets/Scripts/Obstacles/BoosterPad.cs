@@ -12,6 +12,6 @@ public class BoosterPad : ITriggerObstacle
     public override void PerformAction(GameObject player)
     {
         player.AddComponent<SpeedPowerup>();
-        EventManager.ObstacleCollision(this.name);
+        EventManager.ObstacleCollision(this.GetType().Name);
     }
 }
