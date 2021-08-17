@@ -13,17 +13,17 @@ public class BumperAnimation : MonoBehaviour
         ringLocation = new Vector3(ringSpawn.transform.position.x, ringSpawn.transform.position.y, ringSpawn.transform.position.z);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if(other.tag == "Player")
+        if(other.gameObject.tag == "Player")
         {
             anim.SetBool("HittingBall", true);
         }
 
     }
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit(Collision other)
     {
-        if (other.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             anim.SetBool("HittingBall", false);
         }
