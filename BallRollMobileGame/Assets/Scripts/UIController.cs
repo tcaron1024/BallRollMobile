@@ -229,9 +229,7 @@ public class UIController : MonoBehaviour
     IEnumerator ChangeScene(string name)
     {
         yield return new WaitForSecondsRealtime(.15f);
-        SceneManager.LoadScene(name);
-        Time.timeScale = 1;
-        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicHandler>().ChangeMusic(name);
+        //SceneManager.LoadScene(name);
+        LevelLoader.instance.LoadLevel(name);
     }
-
 }

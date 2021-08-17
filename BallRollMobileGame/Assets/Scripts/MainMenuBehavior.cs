@@ -43,23 +43,21 @@ public class MainMenuBehavior : MonoBehaviour
         }
     }
 
-    IEnumerator ChangeScene(string name)
+    private IEnumerator ChangeScene(string name)
     {
         yield return new WaitForSeconds(.15f);
-        SceneManager.LoadScene(name);
+        LevelLoader.instance.LoadLevel(name);
     }
 
     public void LoadScene(string sceneName)
     {
         StartCoroutine("ChangeScene", sceneName);
-
-        // Change music to appropriate for scene being loaded
-        GameObject.FindObjectOfType<MusicHandler>().ChangeMusic(sceneName);
     }
 
+    // Loads a scene on top of those already loaded.
     public void LoadSceneAdditive(string sceneName)
     {
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+        LevelLoader.instance.LoadLevelAdditive(sceneName);
 
         // Change music to appropriate for scene being loaded
         GameObject.FindObjectOfType<MusicHandler>().ChangeMusic(sceneName);
