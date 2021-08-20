@@ -45,6 +45,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1313051341
+    locked: 0
+  - name: Particles
+    uniqueID: 3769766989
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
