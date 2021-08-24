@@ -52,7 +52,7 @@ public class LevelLoader : MonoBehaviour
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
             progressSlider.value = progress;
-            progressText.text = progress * 100f + "%";
+            progressText.text = System.Math.Round(progress * 100f, 2) + "%";
 
             yield return null;
         }
@@ -74,7 +74,7 @@ public class LevelLoader : MonoBehaviour
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
             progressSlider.value = progress;
-            progressText.text = progress * 100f + "%";
+            progressText.text = System.Math.Round(progress * 100f, 2) + "%";
 
             yield return null;
         }
