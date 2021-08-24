@@ -14,11 +14,13 @@ public class ShopItemSave
 {
     public string itemName;
     public bool unlocked;
+    public bool selected;
 
-    public ShopItemSave(string itemName, bool unlocked)
+    public ShopItemSave(string itemName, bool unlocked, bool selected)
     {
         this.itemName = itemName;
         this.unlocked = unlocked;
+        this.selected = selected;
     }
 }
 
@@ -39,6 +41,10 @@ public class ShopItem : MonoBehaviour
     [Tooltip("The item's name")]
     [SerializeField] private string _itemName;
     public string itemName { get { return _itemName; } set { _itemName = value; } }
+
+    [Tooltip("True if the item is the currently selected ball.")]
+    [SerializeField] private bool _selected;
+    public bool selected { get { return _selected; } set { _selected = value; } }
 
 
     private const string SHOP_SCENE_NAME = "Shop";

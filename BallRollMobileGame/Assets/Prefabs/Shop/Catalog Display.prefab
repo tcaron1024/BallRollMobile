@@ -186,8 +186,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: UNLOCKED
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1074b93c32734db49b6b03e2e98dbedf, type: 2}
+  m_sharedMaterial: {fileID: 2449731328222678253, guid: 1074b93c32734db49b6b03e2e98dbedf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -345,4 +345,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconImg: {fileID: 5983363496129284514}
   unlockedTxt: {fileID: 5983363496848859299}
-  displaySound: {fileID: 8300000, guid: 0fcd84590a3bc1d4c8a736e535d7a1db, type: 3}

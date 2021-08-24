@@ -27,8 +27,14 @@ public class Shop : MonoBehaviour
 
 
     [Header("Catalog Section")]
+
     [Tooltip("The child game object that holds all of the store's content.")]
     [SerializeField] private GameObject content;
+
+    /// <summary>
+    /// The currently selected ShopItem.
+    /// </summary>
+    private ShopItem currentShopItem;
 
 
     [Header("Selection Display Section")]
@@ -118,12 +124,13 @@ public class Shop : MonoBehaviour
 
             disp.Init(item.iconImg, item.unlocked);
             disp.AddBtnClickListener(() => DisplaySelection(item));
-
-            // Display the first item in the catalog so we're not displaying
-            // empty space.
-            if (i == 0)
-                DisplaySelection(item);
         }
+
+        // Set the currentShopItem to the default ball (the first in the array), then
+        // display the first item in the catalog so we're not displaying
+        // empty space.
+        currentShopItem = currentDatabase.items[0];
+        DisplaySelection(currentDatabase.items[0]);
     }
 
     /// <summary>
@@ -180,7 +187,7 @@ public class Shop : MonoBehaviour
             selectBallBtn.onClick.AddListener(() => SelectBall(item));
 
             purchaseBtn.gameObject.SetActive(false);
-            selectBallBtn.gameObject.SetActive(true);
+            EnableSelectButton(item.selected);
 
             // TODO: add listeners to selectBallBtn
         }
@@ -196,13 +203,21 @@ public class Shop : MonoBehaviour
 
     private void SelectBall(ShopItem item)
     {
+        if (currentShopItem != null)
+            currentShopItem.selected = false;
+
+        currentShopItem = item;
         GameObject ballPrefab = defaultDatabase.GetItem(item.itemName).gameObject;
 
         if (ballPrefab == null)
+        {
             Debug.LogWarning("Could not load ball prefab with name '" + item.itemName + "'. Is it in the default shop database?");
+        }
         else
         {
+            item.selected = true;
             RuntimePlayerData.selectedBall = ballPrefab;
+            EnableSelectButton(true);
         }
     }
 
@@ -226,5 +241,26 @@ public class Shop : MonoBehaviour
         GameObject.FindObjectOfType<MusicHandler>().ChangeMusic(SceneManager.GetActiveScene().name);
 
         SceneManager.UnloadSceneAsync("Shop");
+    }
+
+    /// <summary>
+    /// Enables the select ball button and updates its text and colors
+    /// depending on if it is selected or not.
+    /// </summary>
+    /// <param name="selected">True if the selected item is selected.</param>
+    void EnableSelectButton(bool selected)
+    {
+        if (selected)
+        {
+            selectBallBtn.GetComponent<Image>().color = Color.green;
+            selectBallBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Selected";
+        }
+        else
+        {
+            selectBallBtn.GetComponent<Image>().color = Color.white;
+            selectBallBtn.GetComponentInChildren<TextMeshProUGUI>().text = "Select";
+        }
+
+        selectBallBtn.gameObject.SetActive(true);
     }
 }

@@ -27,7 +27,7 @@ public class ShopDatabaseSave
 
         for (int i = 0; i < _items.Length; ++i)
         {
-            _items[i] = new ShopItemSave(so_database.items[i].itemName, so_database.items[i].unlocked);
+            _items[i] = new ShopItemSave(so_database.items[i].itemName, so_database.items[i].unlocked, so_database.items[i].selected);
         }
     }
 }
