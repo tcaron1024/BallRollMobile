@@ -14,16 +14,29 @@ public class SettingsAudio : MonoBehaviour
     [Tooltip("SFX mute toggle")]
     public Toggle sfxToggle;
 
+    [Tooltip("Volume Slider")]
+    public Slider volumeSlider;
+
+    [Tooltip("Sensitivity Slider")]
+    public Slider sensitivitySlider;
+
+
     [Tooltip("Audio clip to play when player toggles music/sfx on/off")]
     public AudioClip toggleAudio;
+
+    [Tooltip("Audio clip to play when player toggles music/sfx on/off")]
+    public AudioClip sliderAudio;
 
 
     void Start()
     {
         thisSource = GetComponent<AudioSource>();
 
-        musicToggle.onValueChanged.AddListener(AddToggleSounds);
-        sfxToggle.onValueChanged.AddListener(AddToggleSounds);
+        musicToggle.onValueChanged.AddListener(delegate { AddToggleSounds(); });
+        sfxToggle.onValueChanged.AddListener(delegate { AddToggleSounds(); });
+
+        volumeSlider.onValueChanged.AddListener(delegate { AddSliderSounds(); });
+        sensitivitySlider.onValueChanged.AddListener(delegate { AddSliderSounds(); });
     }
 
     /// <summary>
@@ -36,8 +49,19 @@ public class SettingsAudio : MonoBehaviour
         thisSource.PlayScheduled(0);
     }
 
-    public void AddToggleSounds(bool unUsed)
+    /// <summary>
+    /// Plays toggle sound when toggles are pressed
+    /// </summary>
+    public void AddToggleSounds()
     {
         PlaySound(toggleAudio);
+    }
+
+    /// <summary>
+    /// Player slider sound when slider value is changed
+    /// </summary>
+    public void AddSliderSounds()
+    {
+        PlaySound(sliderAudio);
     }
 }

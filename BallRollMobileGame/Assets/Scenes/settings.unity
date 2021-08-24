@@ -356,7 +356,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1770864174}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: SFXMuteUnmute
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &143251477
 GameObject:
@@ -801,7 +813,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicToggle: {fileID: 1580272045}
   sfxToggle: {fileID: 135022761}
+  volumeSlider: {fileID: 435279236}
+  sensitivitySlider: {fileID: 883133298}
   toggleAudio: {fileID: 8300000, guid: 0213f5cd7bd9f3947a0803fd6af8f586, type: 3}
+  sliderAudio: {fileID: 8300000, guid: 6ab5c9006d700a540b17cb16457daa19, type: 3}
 --- !u!82 &348097169
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1608,10 +1623,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1770864174}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: HandleSensitivitySliderValueChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &942588928
 GameObject:
   m_ObjectHideFlags: 0
@@ -2432,7 +2459,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1770864174}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: MusicMuteUnmute
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1641741763
 GameObject:
@@ -2541,6 +2580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bg: {fileID: 350162474}
   volumeSlider: {fileID: 435279236}
+  sensitivitySlider: {fileID: 883133298}
   musicToggle: {fileID: 1580272045}
   sfxToggle: {fileID: 135022761}
   mixers:

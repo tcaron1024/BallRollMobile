@@ -8,6 +8,9 @@ public class MainMenuBehavior : MonoBehaviour
     [Tooltip("AudioMixers for music, SFX, and roll sound (in that order)")]
     [SerializeField] private AudioMixer[] mixers = new AudioMixer[3];
 
+    /// <summary>
+    /// Initializes needed PlayerPrefs
+    /// </summary>
     void Start()
     {
         // Checks if player has a current high score and sets it to 0 if not
@@ -20,11 +23,20 @@ public class MainMenuBehavior : MonoBehaviour
         {
             PlayerPrefs.SetInt("ShopBalance", 0);
         }
+        // Checks if player has a sensitivity value and sets it to 1 if not
+        if (!PlayerPrefs.HasKey("Sensitivity"))
+        {
+            PlayerPrefs.SetFloat("Sensitivity", 1);
+        }
+        // Checks if player has a volume value and sets it to 1 if not
+        if (!PlayerPrefs.HasKey("MasterVolume"))
+        {
+            PlayerPrefs.SetFloat("MasterVolume", 0);
+        }
 
-        
 
         // Sets volume on audio mixers to saved volume value
-        foreach(AudioMixer am in mixers)
+        foreach (AudioMixer am in mixers)
         {
             am.SetFloat("MasterVolume", PlayerPrefs.GetFloat("Volume", 0));
         }

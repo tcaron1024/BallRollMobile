@@ -14,6 +14,9 @@ public class SettingsMenu : MonoBehaviour
     [Tooltip("Volume Slider")]
     public Slider volumeSlider;
 
+    [Tooltip("Sensitivity Slider")]
+    public Slider sensitivitySlider;
+
     [Tooltip("Music mute toggle")]
     public Toggle musicToggle;
 
@@ -34,20 +37,27 @@ public class SettingsMenu : MonoBehaviour
     private static float currentVol = 0;
 
     /// <summary>
+    /// Current sensitivity
+    /// </summary>
+    private static float currentSens = 1;
+
+    /// <summary>
     /// Minimum audio mixer volume - setting it to this mutes the mixer
     /// </summary>
     private const float MIN_VOLUME = -80f;
-
     
-    
+   
     void Awake()
     {
         bg.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
 
         currentVol = PlayerPrefs.GetFloat("Volume", 0);
+        currentSens = PlayerPrefs.GetFloat("Sensitivity", 1);
 
         // Sets volume slider to correct value
         volumeSlider.value = currentVol;
+        sensitivitySlider.value = currentSens;
+        Debug.Log("Sens value at start = " + currentSens);
 
         // Sets whether or not mixers should be muted
         mixerIsMuted[0] = PlayerPrefs.GetInt("MusicMuted") == 0 ? false : true;
@@ -59,8 +69,8 @@ public class SettingsMenu : MonoBehaviour
         musicToggle.isOn = !mixerIsMuted[0];
         sfxToggle.isOn = !mixerIsMuted[1];
 
-        musicToggle.onValueChanged.AddListener(MusicMuteUnmute);
-        sfxToggle.onValueChanged.AddListener(SFXMuteUnmute);
+        musicToggle.onValueChanged.AddListener(delegate { MusicMuteUnmute(); });
+        sfxToggle.onValueChanged.AddListener(delegate { SFXMuteUnmute(); });
     }
 
     public void HandleVolumeSliderValueChanged()
@@ -77,11 +87,25 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
+    public void HandleSensitivitySliderValueChange()
+    {
+        currentSens = sensitivitySlider.value;
+        PlayerPrefs.SetFloat("Sensitivity", currentSens);
+        Debug.Log("Setting sens value to " + currentSens);
+    }
+
+    /// <summary>
+    /// Starts coroutine to close the settings
+    /// </summary>
     public void GoBack()
     {
         StartCoroutine(CloseScene());
     }
 
+    /// <summary>
+    /// Closes settings after a delay to allow for sounds to play
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator CloseScene()
     {
         yield return new WaitForSecondsRealtime(.15f);
@@ -92,9 +116,9 @@ public class SettingsMenu : MonoBehaviour
     /// <summary>
     /// Mutes/Unmutes music, depending on whether or not it is currently muted
     /// </summary>
-    public void MusicMuteUnmute(bool unmuted)
+    public void MusicMuteUnmute()
     {
-       
+        bool unmuted = musicToggle.isOn;
         Debug.Log("Starting unmute/mute - music is currently muted = " + mixerIsMuted[0]);
 
         // Switches whether mixer is muted or not
@@ -110,8 +134,10 @@ public class SettingsMenu : MonoBehaviour
     /// <summary>
     /// Mutes/Unmutes SFX and roll sound, depending on whether or not it is currently muted
     /// </summary>
-    public void SFXMuteUnmute(bool unmuted)
+    public void SFXMuteUnmute()
     {
+        bool unmuted = sfxToggle.isOn;
+
        // Mutes/Unmutes roll and SFX mixers
         for (int i = 1; i < mixers.Length; i++)
         {
@@ -125,5 +151,6 @@ public class SettingsMenu : MonoBehaviour
         // Holds whether or not SFX is muted in PlayerPrefs for later startups
         PlayerPrefs.SetInt("SFXMuted", unmuted ? 0 : 1);
     }
+
 
 }
