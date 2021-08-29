@@ -37,6 +37,8 @@ public class BallSwipeMovement : IBallMovementBehaviour
     /// </summary>
     private void SwipeMovement()
     {
+        const float SWIPE_MULTIPLIER = 200f;
+
         // If the player begins to touch the screen, store the position of their touch.
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
@@ -44,18 +46,21 @@ public class BallSwipeMovement : IBallMovementBehaviour
         }
 
         // If the player has already begun touching the screen and is now in the process of performing
-        // a swipe, take the touch distance as a force magnitude and apply a force to the ball.
+        // a swipe, get the direction of the swipe and move the ball with a consistent force magnitude.
         else if (Input.touchCount > 0)
         {
             currentTouchPosition = Input.GetTouch(0).position;
 
-            // Get the distance between the two touches.
-            Vector2 touchDistance = currentTouchPosition - startTouchPosition;
-            float forceMagnitude = touchDistance.x;
-            this.forceMagnitude = forceMagnitude;
+            // Get a vector pointing in the direction of the swipe.
+            Vector2 swipeVector = (currentTouchPosition - startTouchPosition);
+
+            // I do this so I don't get values between 0 and 1 or -1 and 0 when swiping at an angle.
+            int dir = (swipeVector.x > 0 ? 1 : -1);
+
+            forceMagnitude = dir * SWIPE_MULTIPLIER;
         }
         else
-            this.forceMagnitude = 0;
+            forceMagnitude = 0;
     }
 
     private void Update()

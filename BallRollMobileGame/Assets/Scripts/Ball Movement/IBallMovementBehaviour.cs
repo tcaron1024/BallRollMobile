@@ -208,7 +208,6 @@ public abstract class IBallMovementBehaviour : MonoBehaviour
     public void UpdateCurrentForwardSpeed(float speed)
     {
         currentForwardSpeed = speed;
-
     }
 
     /// <summary>
