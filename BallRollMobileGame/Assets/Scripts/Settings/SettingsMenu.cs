@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -52,7 +52,7 @@ public class SettingsMenu : MonoBehaviour
         bg.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
 
         currentVol = PlayerPrefs.GetFloat("Volume", 0);
-        currentSens = PlayerPrefs.GetFloat("Sensitivity", 1);
+        currentSens = PlayerPrefs.GetFloat("Sensitivity", 0.5f);
 
         // Sets volume slider to correct value
         volumeSlider.value = currentVol;
