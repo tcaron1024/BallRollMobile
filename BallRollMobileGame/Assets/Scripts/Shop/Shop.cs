@@ -61,6 +61,19 @@ public class Shop : MonoBehaviour
     [Tooltip("The text that displays the player's shop balance.")]
     [SerializeField] private TextMeshProUGUI balanceText;
 
+
+    [Header("Shop Audio Section")]
+
+    [Tooltip("The script controlling audio in the shop scene")]
+    [SerializeField] private ShopAudio shopAudio;
+    
+    [Tooltip("Sound to play when user successfully purchases a ball")]
+    [SerializeField] private AudioClip purchaseSound;
+
+    [Tooltip("Sound to play when user fails to purchase a ball")]
+    [SerializeField] private AudioClip denySound;
+
+
     // The amount of shop currency the player owns.
     private int playerShopBalance;
 
@@ -153,6 +166,7 @@ public class Shop : MonoBehaviour
             item.Purchase();
             DisplaySelection(item);
             SaveSystem.SavePlayerData(currentDatabase);
+            shopAudio.PlaySound(purchaseSound);
         }
         else if (playerShopBalance >= item.price)
         {
@@ -165,11 +179,13 @@ public class Shop : MonoBehaviour
             PlayerPrefs.SetInt("ShopBalance", playerShopBalance);
             UpdateBalanceText();
 
-            // TODO: play coin collect sound to signify purchase
+            // Plays purchase audio
+            shopAudio.PlaySound(purchaseSound);
         }
         else
         {
-            // TODO: Play sound, UI to alert player they CANNOT purchase, etc.
+            // Plays deny audio
+            shopAudio.PlaySound(denySound);
         }
     }
 
